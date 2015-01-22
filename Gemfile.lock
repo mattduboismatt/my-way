@@ -74,11 +74,18 @@ GEM
     execjs (2.2.2)
     faker (1.4.3)
       i18n (~> 0.5)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    forecast_io (2.0.0)
+      faraday
+      hashie
+      multi_json
     foreman (0.77.0)
       dotenv (~> 1.0.2)
       thor (~> 0.19.1)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
+    hashie (3.3.2)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.6)
@@ -99,6 +106,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.10.1)
+    multipart-post (2.0.0)
     newrelic_rpm (3.9.9.275)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
@@ -222,6 +230,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   coveralls
   faker
+  forecast_io
   foreman
   jbuilder (~> 2.0)
   jquery-rails
