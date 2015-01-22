@@ -4,13 +4,13 @@ require 'awesome_print'
 require 'securerandom'
 
 module GoogleMapsResponse
-  def self.generate_routes(json, trip=nil)
+  def self.generate_trip(json, trip=nil)
     file = File.read(json) #move this outside
-    data_hash = JSON.parse(file) # data
+    data = JSON.parse(file) # data
     if trip
-      data_hash['routes'].each {|r| trip.add_route(r)}
+      data['routes'].each {|r| trip.add_route(r)}
     else
-      trip = Trip.new(data_hash)
+      trip = Trip.new(data)
     end
     trip
   end
@@ -67,4 +67,4 @@ class Step < GoogleThing
   end
 end
 
-GoogleMapsResponse.generate_routes('../../doc/google_maps_response_example.json')
+GoogleMapsResponse.generate_trip('../../doc/google_maps_response_example.json')
