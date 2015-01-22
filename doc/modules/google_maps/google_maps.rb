@@ -1,12 +1,30 @@
 require 'json'
 require 'pry'
+require 'uri'
 require 'awesome_print'
 require 'securerandom'
+# API_KEY = ENV["GOOGLE_MAP_API_KEY"]
+# request = https://maps.googleapis.com/maps/api/directions/json? + parameters
 
-module GoogleMapsResponse
+module GoogleMaps
+
+  def self.build_uri(a,b,mode)
+    uri = URI::HTTPS.build({
+      host: 'maps.googleapis.com',
+      path: '/maps/api/directions/json',
+      query: URI.encode_www_form(
+        origin: a,
+        destination: b,
+        mode: mode,
+        alternatives: 'true',
+        region: 'us',
+        key: ENV["GOOGLE_MAP_API_KEY"]
+      )
+    })
+  end
+
   def self.generate_trip(json, trip=nil)
-    file = File.read(json) #move this outside
-    data = JSON.parse(file) # data
+    data = JSON.parse(json)
     if trip
       data['routes'].each {|r| trip.add_route(r)}
     else
@@ -31,7 +49,7 @@ class Trip < GoogleThing
     first_leg = trip_data['routes'][0]['legs'][0]
     @origin = first_leg['start_location']
     @destination = first_leg['end_location']
-
+    @routes = []
     trip_data['routes'].each {|r| add_route(r)}
   end
 
@@ -48,6 +66,7 @@ class Route < GoogleThing
     super
     @distance = route_data['distance']['value'] # in meters!!!
     @duration = route_data['duration']['value'] # in seconds!!!
+    @steps = []
     route_data['steps'].each {|s| add_step(s)}
   end
 
@@ -66,5 +85,3 @@ class Step < GoogleThing
     @travel_mode = step_data['travel_mode'].downcase
   end
 end
-
-GoogleMapsResponse.generate_trip('../../doc/google_maps_response_example.json')
