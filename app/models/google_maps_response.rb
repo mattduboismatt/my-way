@@ -1,56 +1,69 @@
 require 'json'
 require 'pry'
+require 'awesome_print'
+require 'securerandom'
 
 module GoogleMapsResponse
-  def self.generate_routes(json)
-    file = File.read(json)
-    data_hash = JSON.parse(file)
-    # binding.pry
-    trip = Trip.new(data_hash['routes'][0]['legs'][0]) # need to figure out how to only have this run once
-    data_hash['routes'].each do |r|
-      route = Route.new(r['legs'][0])
-      trip.routes << route
-      r['legs'][0]['steps'].each do |s|
-        route.steps << Step.new(s)
-      end
+  def self.generate_routes(json, trip=nil)
+    file = File.read(json) #move this outside
+    data_hash = JSON.parse(file) # data
+    if trip
+      data_hash['routes'].each {|r| trip.add_route(r)}
+    else
+      trip = Trip.new(data_hash)
     end
-    p trip
-    puts
-    p trip.routes
-    puts
-    trip.routes.each{|r| p r.steps}
+    trip
   end
 end
 
-class Trip
-  attr_accessor :routes
+class GoogleThing
+  attr_reader :id
+  def initialize(*args)
+    @id = SecureRandom.uuid
+  end
+end
 
-  def initialize(args)
-    @start_location_lat = args['start_location']['lat']
-    @start_location_lng = args['start_location']['lng']
-    @end_location_lat = args['end_location']['lat']
-    @end_location_lng = args['end_location']['lng']
-    @routes = []
+class Trip < GoogleThing
+  attr_reader :origin, :destination, :routes
+
+  def initialize(trip_data)
+    super
+    first_leg = trip_data['routes'][0]['legs'][0]
+    @origin = first_leg['start_location']
+    @destination = first_leg['end_location']
+
+    trip_data['routes'].each {|r| add_route(r)}
+  end
+
+  def add_route(route_data)
+    @routes << Route.new(route_data['legs'][0])
   end
 end
 
 
-class Route
-  attr_accessor :steps
+class Route < GoogleThing
+  attr_reader :distance, :duration, :steps
 
-  def initialize(args)
-    @distance = args['distance']['value'] # in meters!!!
-    @duration = args['duration']['value'] # in seconds!!!
-    @steps = []
+  def initialize(route_data)
+    super
+    @distance = route_data['distance']['value'] # in meters!!!
+    @duration = route_data['duration']['value'] # in seconds!!!
+    route_data['steps'].each {|s| add_step(s)}
+  end
+
+  def add_step(step_data)
+    @steps << Step.new(step_data)
   end
 end
 
-class Step
+class Step < GoogleThing
+  attr_reader :distance, :duration, :travel_mode
 
-  def initialize(args)
-    @distance = args['distance']['value'] # in meters!!!
-    @duration = args['duration']['value'] # in seconds!!!
-    @travel_mode = args['travel_mode'].downcase
+  def initialize(step_data)
+    super
+    @distance = step_data['distance']['value'] # in meters!!!
+    @duration = step_data['duration']['value'] # in seconds!!!
+    @travel_mode = step_data['travel_mode'].downcase
   end
 end
 
