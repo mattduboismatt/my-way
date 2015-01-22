@@ -22,3 +22,15 @@ other_modes.each do |m|
   res = Net::HTTP.get(req)
   GoogleMaps.generate_trip(res, trip)
 end
+
+# i = 1
+
+# trip.routes.each do |r|
+#   p "Route"+i.to_s
+#   p "Route travel mode: "+r.travel_mode
+#   r.steps.each do |s|
+#     p s.travel_mode
+#   end
+#   p "=================="
+#   i += 1
+# end

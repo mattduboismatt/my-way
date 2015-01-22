@@ -60,7 +60,7 @@ end
 
 
 class Route < GoogleThing
-  attr_reader :distance, :duration, :steps
+  attr_reader :distance, :duration, :steps, :travel_mode
 
   def initialize(route_data)
     super
@@ -68,10 +68,24 @@ class Route < GoogleThing
     @duration = route_data['duration']['value'] # in seconds!!!
     @steps = []
     route_data['steps'].each {|s| add_step(s)}
+    @travel_mode = self.set_travel_mode
   end
 
   def add_step(step_data)
     @steps << Step.new(step_data)
+  end
+
+  def set_travel_mode
+    modes = self.steps.map{|s| s.travel_mode }
+    if modes.include?('driving')
+      'driving'
+    elsif modes.include?('bicycling')
+      'bicycling'
+    elsif modes.include?('transit')
+      'transit'
+    else
+      'walking'
+    end
   end
 end
 
