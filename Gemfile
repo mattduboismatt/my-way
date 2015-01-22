@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
-gem 'rails12_factor'
+gem 'rails_12factor'
 gem 'better_errors'
 gem 'pry'
 gem 'strftime'
 gem 'faker'
 gem 'shoulda-matchers', require: false, group: [:test]
+gem 'foreman'
+gem 'newrelic_rpm', require: false, group: [:production]
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -48,9 +50,5 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
-
-group :production do
-  gem 'newrelic_rpm'
 end
 
