@@ -10,6 +10,7 @@ gem 'foreman'
 gem 'newrelic_rpm', require: false, group: [:production]
 gem 'coveralls', require: false
 gem 'rspec-rails', group: [:test, :development]
+gem 'awesome_print', group: [:test, :development]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
