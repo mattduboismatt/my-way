@@ -1,5 +1,9 @@
 == README
 
+{<img src="https://coveralls.io/repos/mattdubois2/my-way/badge.svg" alt="Coverage Status" />}[https://coveralls.io/r/mattdubois2/my-way]
+
+{<img src="https://travis-ci.org/mattdubois2/my-way.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/mattdubois2/my-way]
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -26,5 +30,3 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
-
-{<img src="https://coveralls.io/repos/mattdubois2/my-way/badge.svg" alt="Coverage Status" />}[https://coveralls.io/r/mattdubois2/my-way]
