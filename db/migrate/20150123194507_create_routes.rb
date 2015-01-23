@@ -5,7 +5,10 @@ class CreateRoutes < ActiveRecord::Migration
       t.integer :distance
       t.integer :duration
       t.integer :dollars
-      t.integer :score
+      t.integer :weather
+      t.integer :comfort
+      t.integer :safety
+      t.integer :expected
       t.references :trip
 
       t.timestamps null: false

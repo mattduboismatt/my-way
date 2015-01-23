@@ -59,7 +59,10 @@ ActiveRecord::Schema.define(version: 20150123194507) do
     t.integer  "distance"
     t.integer  "duration"
     t.integer  "dollars"
-    t.integer  "score"
+    t.integer  "weather"
+    t.integer  "comfort"
+    t.integer  "safety"
+    t.integer  "expected"
     t.integer  "trip_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
