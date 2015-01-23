@@ -42,7 +42,7 @@ class Forecast
   end
 
   def next_hour_apparent_temp
-    next_hour.apparent_temp
+    next_hour.apparentTemperature
   end
 
   def next_hour_humidity
