@@ -1,0 +1,12 @@
+<div>
+  <ul>
+    <li><%= link_to "Home", root_path %></li>
+    <% if logged_in? %>
+      <li><%= link_to "Logout", logout_path, method: :delete %></li>
+      <li><%= link_to "Profile", user_path(current_user.id) %></li>
+    <% else %>
+      <li><%= link_to "Login", login_path %></li>
+      <li><%= link_to "Register", new_user_path %></li>
+    <% end %>
+  </ul>
+</div>
