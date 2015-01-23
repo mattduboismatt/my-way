@@ -66,11 +66,11 @@ class Forecast
   end
 
   def sunrise
-    today.sunriseTime
+    Time.at(today.sunriseTime)
   end
 
   def sunset
-    today.sunsetTime
+    Time.at(today.sunsetTime)
   end
 
   private
