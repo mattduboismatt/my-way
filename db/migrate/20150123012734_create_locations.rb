@@ -5,6 +5,8 @@ class CreateLocations < ActiveRecord::Migration
       t.string :name
       t.float :lat
       t.float :lng
+      t.references :user
+      t.references :trip
 
       t.timestamps null: false
     end
