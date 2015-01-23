@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :locations
   end
 
+  resources :trips
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
