@@ -3,10 +3,21 @@ require 'pry'
 require 'uri'
 require 'awesome_print'
 require 'securerandom'
+require 'pry'
+require 'net/http'
 # API_KEY = ENV["GOOGLE_MAP_API_KEY"]
 # request = https://maps.googleapis.com/maps/api/directions/json? + parameters
 
 module GoogleMaps
+
+  def self.run(trip)
+    modes = ["driving","walking","bicycling","transit"]
+    modes.each do |m|
+      req = self.build_uri(trip.origin.address,trip.destination.address,m)
+      res = Net::HTTP.get(req)
+      GoogleMaps.generate_trip(res, trip)
+    end
+  end
 
   def self.build_uri(a,b,mode)
     uri = URI::HTTPS.build({

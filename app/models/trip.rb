@@ -13,6 +13,6 @@ class Trip < ActiveRecord::Base
   end
 
   def generate_routes
-
+    GoogleMaps.run(self)
   end
 end
