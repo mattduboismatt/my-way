@@ -17,8 +17,11 @@ class CreateCtaTrainStops < ActiveRecord::Migration
       t.boolean :pexp
       t.boolean :pink
       t.boolean :org
+      t.boolean :blue
+      t.boolean :y
 
       t.timestamps null: false
     end
+
   end
 end
