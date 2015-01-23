@@ -1,2 +1,13 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<%= form_tag '/trips', method: 'post' do %>
+  <div class="field">
+    <%= label_tag :origin %>
+    <%= text_field_tag :origin %>
+  </div>
+  <div class="field">
+    <%= label_tag :destination %>
+    <%= text_field_tag :destination %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'my way magic' %>
+  </div>
+<% end %>
