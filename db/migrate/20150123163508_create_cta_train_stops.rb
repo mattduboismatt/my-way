@@ -22,6 +22,8 @@ class CreateCtaTrainStops < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-
+    add_index :cta_train_stops, :stop_id
+    add_index :cta_train_stops, :lng
+    add_index :cta_train_stops, :lat
   end
 end

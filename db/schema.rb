@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150123194507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "locations", force: :cascade do |t|
     t.string   "address"
     t.string   "name"
@@ -53,5 +54,32 @@ ActiveRecord::Schema.define(version: 20150123194507) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  create_table "cta_train_stops", force: :cascade do |t|
+    t.integer  "stop_id"
+    t.string   "direction_id"
+    t.string   "stop_name"
+    t.float    "lng"
+    t.float    "lat"
+    t.string   "station_name"
+    t.string   "station_descriptive_name"
+    t.string   "parent_stop_id"
+    t.boolean  "ada"
+    t.boolean  "red"
+    t.boolean  "brn"
+    t.boolean  "g"
+    t.boolean  "p"
+    t.boolean  "pexp"
+    t.boolean  "pink"
+    t.boolean  "org"
+    t.boolean  "blue"
+    t.boolean  "y"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "cta_train_stops", ["lat"], name: "index_cta_train_stops_on_lat", using: :btree
+  add_index "cta_train_stops", ["lng"], name: "index_cta_train_stops_on_lng", using: :btree
+  add_index "cta_train_stops", ["stop_id"], name: "index_cta_train_stops_on_stop_id", using: :btree
 
 end
