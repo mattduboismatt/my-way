@@ -5,7 +5,7 @@ class Forecast
   attr_reader :forecast, :lat, :long
   def initialize(args)
     @lat = args["lat"]
-    @long = args["lng"]
+    @lng = args["lng"]
     @forecast = ForecastIO.forecast(@lat, @lng)
   end
 
@@ -14,7 +14,7 @@ class Forecast
   end
 
   def current_apparent_temp
-    current.apparent_temp
+    current.apparentTemperature
   end
 
   def current_humidity
@@ -42,7 +42,7 @@ class Forecast
   end
 
   def next_hour_apparent_temp
-    next_hour.apparent_temp
+    next_hour.apparentTemperature
   end
 
   def next_hour_humidity
@@ -65,7 +65,19 @@ class Forecast
     next_hour.precipIntensity
   end
 
+  def sunrise
+    today.sunriseTime
+  end
+
+  def sunset
+    today.sunsetTime
+  end
+
   private
+
+  def today
+    @forecast.daily.data[0]
+  end
 
   def next_hour
     next_hour = hourly_forecast.select do |hour|
