@@ -12,6 +12,9 @@ gem 'coveralls', require: false
 gem 'rspec-rails', group: [:test, :development]
 gem 'awesome_print', group: [:test, :development]
 
+#CTA Train Gems
+gem 'nokogiri'
+
 #DarkSky Gems
 gem 'forecast_io'
 
