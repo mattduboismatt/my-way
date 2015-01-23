@@ -1,6 +1,11 @@
 require 'forecast_io'
 
 
+ForecastIO.configure do |configuration|
+  configuration.api_key = ENV["DARK_SKY_API_KEY"]
+end
+
+
 class Forecast
   attr_reader :forecast, :lat, :long
   def initialize(args)
