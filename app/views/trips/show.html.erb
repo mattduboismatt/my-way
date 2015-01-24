@@ -1,8 +1,8 @@
 <p><strong>Origin: </strong><%= @trip.origin.address %></p>
 <p><strong>Destination: </strong><%= @trip.destination.address %></p>
 <p><strong>Routes: </p>
-<ul>
-  <% @trip.routes.each do |r| %>
-    <li><%= r.duration %> seconds, <%= r.distance %> meters, $<%= r.dollars %>, <%= r.id %> (identify w/ id for now) </li>
+<ol>
+  <% @trip.google_routes.each do |r| %>
+    <li><%= r.duration %> seconds, <%= r.distance %> meters</li>
   <% end %>
-</ul>
+</ol>

@@ -12,7 +12,7 @@ class Trip < ActiveRecord::Base
     self.destination = Location.new(address: destination_str, user: user)
   end
 
-  def generate_routes
-
+  def google_routes
+    GoogleMaps.run(self)
   end
 end

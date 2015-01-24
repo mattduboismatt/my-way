@@ -13,49 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20150123194507) do
 
-
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-
-  create_table "locations", force: :cascade do |t|
-    t.string   "address"
-    t.string   "name"
-    t.float    "lat"
-    t.float    "lng"
-    t.integer  "user_id"
-    t.integer  "trip_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "routes", force: :cascade do |t|
-    t.string   "travel_mode"
-    t.integer  "distance"
-    t.integer  "duration"
-    t.integer  "dollars"
-    t.integer  "score"
-    t.integer  "trip_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "trips", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.integer  "age"
-    t.string   "username"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
 
   create_table "cta_train_stops", force: :cascade do |t|
     t.integer  "stop_id"
@@ -83,5 +42,46 @@ ActiveRecord::Schema.define(version: 20150123194507) do
   add_index "cta_train_stops", ["lat"], name: "index_cta_train_stops_on_lat", using: :btree
   add_index "cta_train_stops", ["lng"], name: "index_cta_train_stops_on_lng", using: :btree
   add_index "cta_train_stops", ["stop_id"], name: "index_cta_train_stops_on_stop_id", using: :btree
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "address"
+    t.string   "name"
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "user_id"
+    t.integer  "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "routes", force: :cascade do |t|
+    t.string   "travel_mode"
+    t.integer  "distance"
+    t.integer  "duration"
+    t.integer  "dollars"
+    t.integer  "weather"
+    t.integer  "comfort"
+    t.integer  "safety"
+    t.integer  "expected"
+    t.integer  "trip_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "age"
+    t.string   "username"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
 end
