@@ -8,3 +8,12 @@ require 'csv'
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 CSV.foreach('./doc/cta_L_stops.csv',{headers:true, :header_converters => :symbol}) {|row| CtaTrainStop.create!(row.to_hash)}
+
+def create_stations
+  divvy_data = Divvy.response
+  divvy_data['stationBeanList'].each do |station|
+    station_data = Divvy.key_map(station)
+    Divvy.create!(station_data)
+  end
+end
+create_stations
