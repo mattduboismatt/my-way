@@ -1,6 +1,6 @@
+# load_all 'app'
 
-
-class DistanceAlgorithm
+module DistanceAlgorithm
 
   def self.run(route)
     mode = route.travel_mode
