@@ -52,7 +52,7 @@ class GoogleThing
   end
 end
 
-class Trip < GoogleThing
+class GoogleTrip < GoogleThing
   attr_reader :origin, :destination, :routes
 
   def initialize(trip_data)
@@ -70,7 +70,7 @@ class Trip < GoogleThing
 end
 
 
-class Route < GoogleThing
+class GoogleRoute < GoogleThing
   attr_reader :distance, :duration, :steps, :travel_mode
 
   def initialize(route_data)
