@@ -13,6 +13,7 @@ end
 def self.update_divvy
   divvy_data = JSON.parse(divvy_res)
 
+
 end
 
 
