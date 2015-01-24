@@ -10,18 +10,17 @@ require_relative './google_maps.rb'
 
 b = "2756 N. Pine Grove, Chicago, IL"
 a = "505 Fair Ave., Elmhurst IL"
-init_mode = "driving"
-other_modes = ["walking","bicycling","transit"]
+init_mode = ["driving"]
+modes = ["walking","bicycling","transit"]
 
 req = GoogleMaps.build_uri(a,b,init_mode)
-puts req
 res = Net::HTTP.get(req)
-trip = GoogleMaps.generate_trip(res)
+trip = GoogleMaps.build_trip(res)
 
-other_modes.each do |m|
+modes.each do |m|
   req = GoogleMaps.build_uri(a,b,m)
   res = Net::HTTP.get(req)
-  GoogleMaps.generate_trip(res, trip)
+  GoogleMaps.build_trip(res, trip)
 end
 
 i = 1

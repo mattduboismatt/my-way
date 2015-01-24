@@ -11,12 +11,18 @@ require 'net/http'
 module GoogleMaps
 
   def self.run(trip)
-    modes = ["driving","walking","bicycling","transit"]
-    modes.each do |m|
+    init_mode = "driving"
+    other_modes = ["walking","bicycling","transit"]
+    req = self.build_uri(trip.origin.address,trip.destination.address,init_mode)
+    res = Net::HTTP.get(req)
+    google_trip = self.build_trip(res)
+    other_modes.each do |m|
       req = self.build_uri(trip.origin.address,trip.destination.address,m)
       res = Net::HTTP.get(req)
-      GoogleMaps.generate_trip(res, trip)
+      self.build_trip(res, google_trip)
     end
+    binding.pry
+    google_trip.routes
   end
 
   def self.build_uri(a,b,mode)
@@ -39,7 +45,7 @@ module GoogleMaps
     })
   end
 
-  def self.generate_trip(json, trip=nil)
+  def self.build_trip(json, trip=nil)
     data = JSON.parse(json)
     if trip
       data['routes'].each {|r| trip.add_route(r)}
