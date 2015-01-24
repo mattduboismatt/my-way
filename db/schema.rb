@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123194507) do
+ActiveRecord::Schema.define(version: 20150124184528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,20 @@ ActiveRecord::Schema.define(version: 20150123194507) do
   add_index "cta_train_stops", ["lat"], name: "index_cta_train_stops_on_lat", using: :btree
   add_index "cta_train_stops", ["lng"], name: "index_cta_train_stops_on_lng", using: :btree
   add_index "cta_train_stops", ["stop_id"], name: "index_cta_train_stops_on_stop_id", using: :btree
+
+  create_table "divvies", force: :cascade do |t|
+    t.integer  "station_id"
+    t.string   "station_name"
+    t.integer  "avilable_docks"
+    t.integer  "total_docks"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "status_value"
+    t.integer  "available_bikes"
+    t.string   "city"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "address"
