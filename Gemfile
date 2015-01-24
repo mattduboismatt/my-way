@@ -11,6 +11,7 @@ gem 'newrelic_rpm', require: false, group: [:production]
 gem 'coveralls', require: false
 gem 'rspec-rails', group: [:test, :development]
 gem 'awesome_print', group: [:test, :development]
+gem 'require_all'
 
 #CTA Train Gems
 gem 'nokogiri'
