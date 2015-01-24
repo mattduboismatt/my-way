@@ -21,7 +21,6 @@ module GoogleMaps
       res = Net::HTTP.get(req)
       self.build_trip(res, google_trip)
     end
-    binding.pry
     google_trip.routes
   end
 
