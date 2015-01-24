@@ -20,6 +20,11 @@ module GoogleMaps
   end
 
   def self.build_uri(a,b,mode)
+    if mode == 'transit'
+      alt = true
+    else
+      alt = false
+    end
     uri = URI::HTTPS.build({
       host: 'maps.googleapis.com',
       path: '/maps/api/directions/json',
@@ -27,7 +32,7 @@ module GoogleMaps
         origin: a,
         destination: b,
         mode: mode,
-        alternatives: 'true',
+        alternatives: alt,
         region: 'us',
         key: ENV["GOOGLE_MAP_API_KEY"]
       )
@@ -39,7 +44,7 @@ module GoogleMaps
     if trip
       data['routes'].each {|r| trip.add_route(r)}
     else
-      trip = Trip.new(data)
+      trip = GoogleTrip.new(data)
     end
     trip
   end
@@ -65,7 +70,7 @@ class GoogleTrip < GoogleThing
   end
 
   def add_route(route_data)
-    @routes << Route.new(route_data['legs'][0])
+    @routes << GoogleRoute.new(route_data['legs'][0])
   end
 end
 
@@ -83,7 +88,7 @@ class GoogleRoute < GoogleThing
   end
 
   def add_step(step_data)
-    @steps << Step.new(step_data)
+    @steps << GoogleStep.new(step_data)
   end
 
   def set_travel_mode
@@ -100,13 +105,58 @@ class GoogleRoute < GoogleThing
   end
 end
 
-class Step < GoogleThing
-  attr_reader :distance, :duration, :travel_mode
+class GoogleStep < GoogleThing
+  attr_reader :distance, :duration, :travel_mode, :transit_stop_name
 
   def initialize(step_data)
     super
     @distance = step_data['distance']['value'] # in meters!!!
     @duration = step_data['duration']['value'] # in seconds!!!
     @travel_mode = step_data['travel_mode'].downcase
+    @transit_mode_type = self.set_transit_mode_type(step_data['transit_details'])
+    @transit_origin_stop_name = self.set_transit_origin_stop_name(step_data['transit_details'])
+    @transit_line_name = self.set_transit_line_name(step_data['transit_details'])
+    @transit_headsign = self.set_transit_headsign(step_data['transit_details'])
+    @transit_destination_stop_name = self.set_transit_destination_stop_name(step_data['transit_details'])
+  end
+
+  def set_transit_mode_type(transit_details)
+    if self.travel_mode != 'transit'
+      nil
+    else
+      transit_details['line']['vehicle']['type'].downcase
+    end
+  end
+
+  def set_transit_origin_stop_name(transit_details)
+    if self.travel_mode != 'transit'
+      nil
+    else
+      transit_details['departure_stop']['name'].downcase
+    end
+  end
+
+  def set_transit_destination_stop_name(transit_details)
+    if self.travel_mode != 'transit'
+      nil
+    else
+      transit_details['arrival_stop']['name'].downcase
+    end
+  end
+
+  def set_transit_line_name(transit_details)
+    if self.travel_mode != 'transit'
+      nil
+    else
+      transit_details['line']['name'].downcase
+    end
+  end
+
+  def set_transit_headsign(transit_details)
+    if self.travel_mode != 'transit'
+      nil
+    else
+      transit_details['headsign'].downcase
+    end
   end
 end
