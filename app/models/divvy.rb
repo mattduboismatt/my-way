@@ -19,6 +19,15 @@ class Divvy < ActiveRecord::Base
     divvy_data = Divvy.response
     divvy_data['stationBeanList'].each do |station|
       station_data = Divvy.key_map(station)
+      divvy_location = Divvy.find_by(station_id: station_data[:station_id])
+      divvy_location.update(station_data)
+    end
+  end
+
+  def self.create_stations
+    divvy_data = Divvy.response
+    divvy_data['stationBeanList'].each do |station|
+      station_data = Divvy.key_map(station)
       Divvy.create(station_data)
     end
   end
