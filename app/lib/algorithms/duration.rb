@@ -1,0 +1,2 @@
+module DurationAlgorithm
+end
