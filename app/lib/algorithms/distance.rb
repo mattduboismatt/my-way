@@ -1,12 +1,12 @@
 # load_all 'app'
 
-class Route
-  attr_reader :travel_mode, :distance
-  def initialize(args)
-    @travel_mode = args[:travel_mode]
-    @distance = args[:distance]
-  end
-end
+# class Route
+#   attr_reader :travel_mode, :distance
+#   def initialize(args)
+#     @travel_mode = args[:travel_mode]
+#     @distance = args[:distance]
+#   end
+# end
 
 module DistanceAlgorithm
 

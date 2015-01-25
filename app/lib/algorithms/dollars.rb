@@ -1,17 +1,17 @@
 require './app/lib/modules/parking_whiz/parking.rb'
 
-class Route
-  attr_reader :travel_mode, :distance, :origin, :destination, :duration, :high_estimate, :low_estimate
-  def initialize(args)
-    @travel_mode = args[:travel_mode]
-    @distance = args[:distance]
-    @duration = args[:duration]
-    @origin = args[:origin]
-    @destination = args[:destination]
-    @high_estimate = args[:high_estimate]
-    @low_estimate = args[:low_estimate]
-  end
-end
+# class Route
+#   attr_reader :travel_mode, :distance, :origin, :destination, :duration, :high_estimate, :low_estimate
+#   def initialize(args)
+#     @travel_mode = args[:travel_mode]
+#     @distance = args[:distance]
+#     @duration = args[:duration]
+#     @origin = args[:origin]
+#     @destination = args[:destination]
+#     @high_estimate = args[:high_estimate]
+#     @low_estimate = args[:low_estimate]
+#   end
+# end
 
 module DollarsAlgorithm
 
@@ -48,16 +48,16 @@ module DollarsAlgorithm
   end
 end
 
-a = {'lat' => 41.783587, 'lng' => -87.77558}
-b = {'lat' => 41.908803, 'lng' =>  -87.679598}
-distance = 13600
-duration = 1800
-high = 27
-low = 23
-routes = []
-modes = %w(walking bicycling driving subway bus uber divvy cab)
-modes.each do |m|
-  routes << Route.new(origin: a, destination: b, distance: distance, duration: duration, travel_mode: m, low_estimate: low, high_estimate: high)
-end
-routes.each{ |r| DollarsAlgorithm.run(r) }
+# a = {'lat' => 41.783587, 'lng' => -87.77558}
+# b = {'lat' => 41.908803, 'lng' =>  -87.679598}
+# distance = 13600
+# duration = 1800
+# high = 27
+# low = 23
+# routes = []
+# modes = %w(walking bicycling driving subway bus uber divvy cab)
+# modes.each do |m|
+#   routes << Route.new(origin: a, destination: b, distance: distance, duration: duration, travel_mode: m, low_estimate: low, high_estimate: high)
+# end
+# routes.each{ |r| DollarsAlgorithm.run(r) }
 

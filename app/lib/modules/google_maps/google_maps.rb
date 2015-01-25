@@ -121,6 +121,7 @@ class GoogleStep < GoogleThing
     @transit_mode_type = self.set_transit_mode_type(step_data['transit_details'])
     @transit_origin_stop_name = self.set_transit_origin_stop_name(step_data['transit_details'])
     @transit_line_name = self.set_transit_line_name(step_data['transit_details'])
+    @transit_line_code = self.set_transit_line_code(step_data['transit_details'])
     @transit_headsign = self.set_transit_headsign(step_data['transit_details'])
     @transit_destination_stop_name = self.set_transit_destination_stop_name(step_data['transit_details'])
   end
@@ -156,6 +157,15 @@ class GoogleStep < GoogleThing
       transit_details['line']['name'].downcase
     end
   end
+
+  def set_transit_line_code(transit_details)
+    if self.travel_mode != 'transit'
+      nil
+    else
+      transit_details['line']['short_name'].downcase
+    end
+  end
+
 
   def set_transit_headsign(transit_details)
     if self.travel_mode != 'transit'

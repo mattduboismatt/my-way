@@ -9,8 +9,8 @@ class Parking
   attr_reader  :lat, :long, :locations
 
   def initialize(route)
-    @lat = route.origin.lat.to_f
-    @long = route.desination.lng.to_f
+    @lat = route.destination['lat']
+    @long = route.destination['lng']
     @locations = Array(Parkwhiz.search({ destination: coordinates_to_address}))
     @cost = 0
   end
@@ -31,11 +31,11 @@ class Parking
 
   def self.add_street_parking
     if @lat >= 41.91077656 || @lat <= 41.8683927 ||@lng <= - 87.6481092
-     @cost =2
+     @cost = 4
    elsif @lat >= 41.8737774 && @lng >= -87.6356852 && @lat <= 41.885717
-     @cost = 6
+     @cost = 12
     else
-      @cost = 4
+      @cost = 8
    end
    @cost
   end
