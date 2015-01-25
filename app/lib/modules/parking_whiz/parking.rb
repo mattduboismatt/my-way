@@ -1,7 +1,7 @@
 require 'parkwhiz'
 require 'geocoder'
 
-Parkwhiz.api_key = --------------
+Parkwhiz.api_key = "--------------"
 
 class Parking
 
