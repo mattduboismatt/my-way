@@ -24,7 +24,8 @@ class Weather
   end
 
   def wind_speed_score
-    score = wind_speed_stored_scores[@mode] * wind_bearing_score
+    wind_score = wind_speed_stored_scores[@mode]
+    score= wind_score <= 60 ? (wind_score * wind_bearing_score) : wind_score
     score.to_i
   end
 
@@ -40,7 +41,7 @@ class Weather
 
   def driving_precip_score
     p_score = @forecast.next_hour_precip_intensity
-    return 100                               if p_score < 15
+    return 100                                        if p_score < 15
     return (99 - 10*((p_score-15).to_f/15.0)).ceil    if p_score < 30
     return (89 - 89*((p_score-30).to_f/35.0)).ceil    if p_score < 65
     return 0
@@ -120,18 +121,3 @@ class Weather
     @forecast.current_wind_bearing_degrees
   end
 end
-
-
-#Testing in IRB
-# load '../my-way/lib/modules/darksky/darksky.rb'
-# load 'weather_algorithm.rb'
-# class Route
-# def initialize(origin, destination, travel_mode)
-# @origin = origin
-# @destination = destination
-# @travel_mode = travel_mode
-# end
-# attr_accessor :origin, :destination, :travel_mode
-# end
-# route = Route.new({"lat"=>37.8267, "lng"=> -122.423}, {"lat"=>38.8267, "lng"=> -112.423}, "biking")
-# weather = Weather.new(route)
