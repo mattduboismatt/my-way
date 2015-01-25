@@ -1,12 +1,12 @@
 # load_all 'app'
 
-class Route
-  attr_reader :travel_mode, :duration
-  def initialize(args)
-    @travel_mode = args[:travel_mode]
-    @duration = args[:duration]
-  end
-end
+# class Route
+#   attr_reader :travel_mode, :duration
+#   def initialize(args)
+#     @travel_mode = args[:travel_mode]
+#     @duration = args[:duration]
+#   end
+# end
 
 module DurationAlgorithm
 
