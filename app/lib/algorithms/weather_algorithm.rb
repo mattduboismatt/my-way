@@ -1,6 +1,7 @@
-require 'forecast_io'
-
 class Weather
+  require 'forecast_io'
+  require './app/lib/modules/darksky/darksky.rb'
+
   def initialize(route)
     @origin = route.origin || nil
     @destination = route.destination || nil
