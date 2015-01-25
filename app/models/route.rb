@@ -12,6 +12,14 @@ class Route
     @total_exp = 0
   end
 
+  def calculate_and_set_all_exp(gr)
+    @distance_exp = DistanceAlgorithm.run(gr)
+    @duration_exp = DurationAlgorithm.run(gr)
+    @dollars_exp = DollarsAlgorithm.run(gr)
+    @weather_exp = WeatherAlgorithm.run(gr)
+    self.set_total_exp
+  end
+
   def set_total_exp
     @total_exp = @distance_exp + @duration_exp + @dollars_exp + @weather_exp + @safety_exp + @comfort_exp
   end

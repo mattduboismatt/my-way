@@ -55,7 +55,6 @@ class Uber
    @duration = uber_data['duration']
    @wait_time = uber_data['estimate'] # in seconds!!
  end
-
 end
 
 
