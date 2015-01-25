@@ -44,7 +44,8 @@ module DollarsAlgorithm
     end
     actual_cost = actual_cost.round(2)
     dollars_exp = (100 - (actual_cost * 5)).to_i
-    puts "#{route.travel_mode} - $#{actual_cost} - #{dollars_exp} exp"
+    # puts "#{route.travel_mode} - $#{actual_cost} - #{dollars_exp} exp"
+    dollars_exp > 0 ? dollars_exp : 0
   end
 end
 

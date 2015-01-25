@@ -1,8 +1,22 @@
 <p><strong>Origin: </strong><%= @trip.origin.address %></p>
 <p><strong>Destination: </strong><%= @trip.destination.address %></p>
 <p><strong>Routes: </p>
-<ol>
-  <% @trip.google_routes.each do |r| %>
-    <li><%= r.travel_mode %>, <%= r.duration %> seconds, <%= r.distance %> meters</li>
-  <% end %>
-</ol>
+<table>
+  <thead>
+    <tr>
+      <th>Travel Mode</th>
+      <th>Distance EXP</th>
+      <th>Duration EXP</th>
+      <th>Dollars EXP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trip.routes.each do |r| %>
+      <tr>
+        <td><%= r.travel_mode %></td>
+        <td><%= r.distance_exp %></td>
+        <td><%= r.duration_exp %></td>
+        <td><%= r.dollars_exp %></td>
+      </tr>
+  </tbody>
+</table>

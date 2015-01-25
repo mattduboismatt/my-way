@@ -23,11 +23,10 @@ class Trip < ActiveRecord::Base
 
   def generate_and_score_routes
     self.google_routes.each do |gr|
-      gr.distance_exp = DistanceAlgorithm(gr)
-      # r = Route.new(travel_mode: gr.travel_mode, trip: self)
-      # r.distance_exp = DistanceAlgorithm.run(gr)
-      # r.duration_exp = DurationAlgorithm.run(gr)
-      # r.dollars_exp = DollarsAlgorithm.run(gr)
+      r = Route.new(travel_mode: gr.travel_mode, trip: self)
+      r.distance_exp = DistanceAlgorithm.run(gr)
+      r.duration_exp = DurationAlgorithm.run(gr)
+      r.dollars_exp = DollarsAlgorithm.run(gr)
       # r.weather_exp = Weather.run(gr)
     end
     # something for uber
