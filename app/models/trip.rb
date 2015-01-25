@@ -1,5 +1,8 @@
 require './app/lib/modules/google_maps/google_maps.rb'
 require './app/lib/algorithms/dollars.rb'
+require './app/lib/algorithms/distance.rb'
+require './app/lib/algorithms/duration.rb'
+require './app/lib/algorithms/weather_algorithm.rb'
 
 class Trip < ActiveRecord::Base
 
@@ -18,6 +21,7 @@ class Trip < ActiveRecord::Base
   end
 
   def google_routes
+    binding.pry
     GoogleMaps.run(self)
   end
 

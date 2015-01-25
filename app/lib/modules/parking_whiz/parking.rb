@@ -23,7 +23,7 @@ class Parking
 
   def calculate_cost
     @locations.each {|location| @cost += location.price }
-    @cost= @cost/@locations.length
+    @cost = @cost/@locations.length
     if @cost == 0
       @cost = Parking.add_street_parking
     end

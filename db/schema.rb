@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150125201138) do
     t.integer  "safety_exp"
     t.integer  "comfort_exp"
     t.integer  "total_exp"
+    t.integer  "trip_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

@@ -9,6 +9,7 @@ class CreateRoutes < ActiveRecord::Migration
       t.integer :safety_exp
       t.integer :comfort_exp
       t.integer :total_exp
+      t.references :trip
 
       t.timestamps null: false
     end

@@ -46,7 +46,7 @@ module GoogleMaps
   def self.build_trip(json, trip=nil)
     data = JSON.parse(json)
     if trip
-      data['routes'].each {|r| trip.add_route(r)}
+      data['routes'].each {|r| trip.add_route(r, self.origin, self.destination)}
     else
       trip = GoogleTrip.new(data)
     end
@@ -70,7 +70,7 @@ class GoogleTrip < GoogleThing
     @origin = first_leg['start_location']
     @destination = first_leg['end_location']
     @routes = []
-    trip_data['routes'].each {|r| add_route(r)}
+    trip_data['routes'].each {|r| add_route(r, @origin, @destination)}
   end
 
   def add_route(route_data)
@@ -80,16 +80,17 @@ end
 
 
 class GoogleRoute < GoogleThing
-  attr_reader :distance, :duration, :steps, :travel_mode
+  attr_reader :distance, :duration, :steps, :travel_mode, :origin, :destination
 
-  def initialize(route_data)
+  def initialize(route_data, a, b)
     super
     @distance = route_data['distance']['value'] # in meters!!!
     @duration = route_data['duration']['value'] # in seconds!!!
     @steps = []
     route_data['steps'].each {|s| add_step(s)}
     @travel_mode = self.set_travel_mode
-    @distance_exp = 0
+    @origin = a
+    @destination = b
   end
 
   def add_step(step_data)
@@ -121,7 +122,7 @@ class GoogleStep < GoogleThing
     @transit_mode_type = self.set_transit_mode_type(step_data['transit_details'])
     @transit_origin_stop_name = self.set_transit_origin_stop_name(step_data['transit_details'])
     @transit_line_name = self.set_transit_line_name(step_data['transit_details'])
-    @transit_line_code = self.set_transit_line_code(step_data['transit_details'])
+    # @transit_line_code = self.set_transit_line_code(step_data['transit_details'])
     @transit_headsign = self.set_transit_headsign(step_data['transit_details'])
     @transit_destination_stop_name = self.set_transit_destination_stop_name(step_data['transit_details'])
   end
@@ -158,13 +159,13 @@ class GoogleStep < GoogleThing
     end
   end
 
-  def set_transit_line_code(transit_details)
-    if self.travel_mode != 'transit'
-      nil
-    else
-      transit_details['line']['short_name'].downcase
-    end
-  end
+  # def set_transit_line_code(transit_details)
+  #   if self.travel_mode != 'transit'
+  #     nil
+  #   else
+  #     transit_details['line']['short_name'].downcase
+  #   end
+  # end
 
 
   def set_transit_headsign(transit_details)
