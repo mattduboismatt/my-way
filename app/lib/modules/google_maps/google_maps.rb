@@ -46,7 +46,7 @@ module GoogleMaps
   def self.build_trip(json, trip=nil)
     data = JSON.parse(json)
     if trip
-      data['routes'].each {|r| trip.add_route(r, self.origin, self.destination)}
+      data['routes'].each {|r| trip.add_route(r, trip.origin, trip.destination)}
     else
       trip = GoogleTrip.new(data)
     end
@@ -73,8 +73,8 @@ class GoogleTrip < GoogleThing
     trip_data['routes'].each {|r| add_route(r, @origin, @destination)}
   end
 
-  def add_route(route_data)
-    @routes << GoogleRoute.new(route_data['legs'][0])
+  def add_route(route_data, a, b)
+    @routes << GoogleRoute.new(route_data['legs'][0], a, b)
   end
 end
 
@@ -104,7 +104,12 @@ class GoogleRoute < GoogleThing
     elsif modes.include?('bicycling')
       'bicycling'
     elsif modes.include?('transit')
-      'transit'
+      transit_modes = self.steps.map{|s| s.transit_mode_type }
+      if transit_modes.include?('bus')
+        'bus'
+      elsif transit_modes.include?('subway')
+        'subway'
+      end
     else
       'walking'
     end
@@ -112,7 +117,7 @@ class GoogleRoute < GoogleThing
 end
 
 class GoogleStep < GoogleThing
-  attr_reader :distance, :duration, :travel_mode, :transit_stop_name
+  attr_reader :distance, :duration, :travel_mode, :transit_stop_name, :transit_mode_type
 
   def initialize(step_data)
     super

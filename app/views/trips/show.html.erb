@@ -8,15 +8,20 @@
       <th>Distance EXP</th>
       <th>Duration EXP</th>
       <th>Dollars EXP</th>
+      <th>Weather EXP</th>
+      <th>Total EXP</th>
     </tr>
   </thead>
   <tbody>
-    <% @trip.routes.each do |r| %>
+    <% @routes.each do |r| %>
       <tr>
         <td><%= r.travel_mode %></td>
         <td><%= r.distance_exp %></td>
         <td><%= r.duration_exp %></td>
         <td><%= r.dollars_exp %></td>
+        <td><%= r.weather_exp %></td>
+        <td><%= r.total_exp %></td>
       </tr>
+    <% end %>
   </tbody>
 </table>

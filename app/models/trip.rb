@@ -21,21 +21,24 @@ class Trip < ActiveRecord::Base
   end
 
   def google_routes
-    binding.pry
     GoogleMaps.run(self)
   end
 
   def generate_and_score_routes
+    routes = []
     self.google_routes.each do |gr|
-      r = Route.new(travel_mode: gr.travel_mode, trip: self)
+      r = Route.new(travel_mode: gr.travel_mode)
       r.distance_exp = DistanceAlgorithm.run(gr)
       r.duration_exp = DurationAlgorithm.run(gr)
       r.dollars_exp = DollarsAlgorithm.run(gr)
-      # r.weather_exp = Weather.run(gr)
+      # r.weather_exp = Weather.new(gr).score
+      r.set_total_exp
+      routes << r
     end
     # something for uber
     # something for cab
     # something for divvy
-    # trip.routes would give routes with mode and exp only
+    routes.sort_by!{ |r| r.total_exp }
+    routes.reverse!
   end
 end
