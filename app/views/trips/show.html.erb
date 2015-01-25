@@ -3,6 +3,6 @@
 <p><strong>Routes: </p>
 <ol>
   <% @trip.google_routes.each do |r| %>
-    <li><%= r.duration %> seconds, <%= r.distance %> meters</li>
+    <li><%= r.travel_mode %>, <%= r.duration %> seconds, <%= r.distance %> meters</li>
   <% end %>
 </ol>

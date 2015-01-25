@@ -1,4 +1,9 @@
+require './app/lib/modules/google_maps/google_maps.rb'
+require './app/lib/algorithms/dollars.rb'
+
 class Trip < ActiveRecord::Base
+
+
   belongs_to :user
   has_one :origin, class_name: 'Location'
   has_one :destination, class_name: 'Location'
