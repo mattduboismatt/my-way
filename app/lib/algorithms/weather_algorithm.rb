@@ -27,7 +27,7 @@ class Weather
   end
 
   def app_temp_score
-    return @mode == "bicycling" || @mode == "walking" ? walk_bike_app_temp_score : 90
+    return @mode == "bicycling" || @mode == "walking" @mode == "divvy" ? walk_bike_app_temp_score : 90
   end
 
   def wind_speed_score
@@ -75,7 +75,7 @@ class Weather
 
   def wind_bearing_score
     bearing_score = (bearing_difference.to_f/180.0).round(3)
-    return @mode == "walking" || @mode == "bicycling" ? bearing_score : 1.0
+    return @mode == "walking" || @mode == "bicycling" || @mode == "divvy" ? bearing_score : 1.0
   end
 
   def wind_speed_stored_scores
