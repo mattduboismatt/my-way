@@ -1,7 +1,7 @@
 require 'json'
 require 'pry'
 require 'uri'
-require 'awesome_print'
+# require 'awesome_print'
 require 'securerandom'
 require 'pry'
 require 'net/http'
