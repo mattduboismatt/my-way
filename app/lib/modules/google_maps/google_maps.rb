@@ -80,7 +80,8 @@ end
 
 
 class GoogleRoute < GoogleThing
-  attr_reader :distance, :duration, :steps, :travel_mode, :origin, :destination
+  attr_accessor :travel_mode
+  attr_reader :distance, :duration, :steps, :origin, :destination
 
   def initialize(route_data, a, b)
     super

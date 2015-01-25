@@ -1,10 +1,10 @@
-require './app/lib/modules/google_maps/google_maps.rb'
-require './app/lib/algorithms/dollars.rb'
-require './app/lib/algorithms/distance.rb'
-require './app/lib/algorithms/duration.rb'
-require './app/lib/algorithms/weather_algorithm.rb'
-
 class Trip < ActiveRecord::Base
+  require './app/lib/modules/google_maps/google_maps.rb'
+  require './app/lib/modules/uber/uber.rb'
+  require './app/lib/algorithms/dollars.rb'
+  require './app/lib/algorithms/distance.rb'
+  require './app/lib/algorithms/duration.rb'
+  require './app/lib/algorithms/weather_algorithm.rb'
 
 
   belongs_to :user
@@ -27,15 +27,41 @@ class Trip < ActiveRecord::Base
   def generate_and_score_routes
     routes = []
     self.google_routes.each do |gr|
-      r = Route.new(travel_mode: gr.travel_mode)
-      r.distance_exp = DistanceAlgorithm.run(gr)
-      r.duration_exp = DurationAlgorithm.run(gr)
-      r.dollars_exp = DollarsAlgorithm.run(gr)
-      # r.weather_exp = WeatherAlgorithm.run(gr)
-      r.set_total_exp
-      routes << r
+      puts gr.travel_mode
+      if gr.travel_mode == 'driving'
+        # binding.pry
+        #setup and shovel in driving route and uber route and cab route
+        r = Route.new(travel_mode: gr.travel_mode)
+        r.calculate_and_set_all_exp(gr)
+        routes << r
+
+        uber_r = Route.new(travel_mode: 'uber')
+        uber = UberParser.run(gr)
+        uber_r.calculate_and_set_all_exp(uber)
+        routes << uber_r
+
+        cab_r = Route.new(travel_mode: 'cab')
+        gr.travel_mode = cab_r.travel_mode
+        cab_r.calculate_and_set_all_exp(gr)
+        routes << cab_r
+
+      elsif gr.travel_mode == 'bicycling'
+        #setup and shovel in bicycling and divvy route
+        r = Route.new(travel_mode: gr.travel_mode)
+        r.calculate_and_set_all_exp(gr)
+        routes << r
+
+        divvy_r = Route.new(travel_mode: 'divvy')
+        gr.travel_mode = 'divvy'
+        divvy_r.calculate_and_set_all_exp(gr)
+        routes << divvy_r
+
+      else # subway, bus, walking
+        r = Route.new(travel_mode: gr.travel_mode)
+        r.calculate_and_set_all_exp(gr)
+        routes << r
+      end
     end
-    # something for uber
     # something for cab
     # something for divvy
     routes.sort_by!{ |r| r.total_exp }
