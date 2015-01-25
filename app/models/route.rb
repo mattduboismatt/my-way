@@ -1,6 +1,6 @@
 class Route
   attr_reader :travel_mode
-  attr_accessor :distance_exp, :duration_exp, :dollars_exp, :weather_exp, :safety_exp, :comfort_exp, :total_exp
+  attr_accessor :distance_exp, :duration_exp, :dollars_exp, :weather_exp, :safety_exp, :comfort_exp, :total_exp, :actual_cost
   def initialize(args)
     @travel_mode = args[:travel_mode]
     @distance_exp = 0
@@ -10,6 +10,7 @@ class Route
     @safety_exp = 0
     @comfort_exp = 0
     @total_exp = 0
+    @actual_cost = 0.0
   end
 
   def calculate_and_set_all_exp(gr)

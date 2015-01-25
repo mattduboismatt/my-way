@@ -28,20 +28,20 @@ class Trip < ActiveRecord::Base
     routes = []
     self.google_routes.each do |gr|
       if gr.travel_mode == 'driving'
-        binding.pry
+        # binding.pry
         #setup and shovel in driving route and uber route and cab route
         r = Route.new(travel_mode: gr.travel_mode)
         r.calculate_and_set_all_exp(gr)
         routes << r
 
         uber_r = Route.new(travel_mode: 'uber')
-        gr.travel_mode = uber_r.travel_mode
-        uber_r.calculate_and_set_all_exp(gr)
+        uber = UberParser.run(gr)
+        uber_r.calculate_and_set_all_exp(uber)
         routes << uber_r
 
         cab_r = Route.new(travel_mode: 'cab')
         gr.travel_mode = cab_r.travel_mode
-        uber_r.calculate_and_set_all_exp(gr)
+        cab_r.calculate_and_set_all_exp(gr)
         routes << cab_r
 
       elsif gr.travel_mode == 'bicycling'
