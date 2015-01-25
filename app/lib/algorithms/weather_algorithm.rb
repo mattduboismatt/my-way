@@ -64,6 +64,7 @@ class Weather
     {
       "walking" => walk_bike_precip_score,
       "bicycling" => walk_bike_precip_score,
+      "divvy" => walk_bike_precip_score,
       "driving" => driving_precip_score,
       "bus" => driving_precip_score,
       "train" => driving_precip_score,
@@ -81,6 +82,7 @@ class Weather
     {
       "walking" => walk_bike_wind_speed,
       "bicycling" => walk_bike_wind_speed,
+      "divvy" => walk_bike_wind_speed,
       "driving" => driving_wind_speed,
       "bus" => driving_wind_speed,
       "train" => driving_wind_speed,
