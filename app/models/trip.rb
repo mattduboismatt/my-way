@@ -31,7 +31,7 @@ class Trip < ActiveRecord::Base
       r.distance_exp = DistanceAlgorithm.run(gr)
       r.duration_exp = DurationAlgorithm.run(gr)
       r.dollars_exp = DollarsAlgorithm.run(gr)
-      # r.weather_exp = Weather.new(gr).score
+      # r.weather_exp = WeatherAlgorithm.run(gr)
       r.set_total_exp
       routes << r
     end
