@@ -13,7 +13,7 @@ module UberParser
     time_res = Net::HTTP.get(time_uri)
     price_res = Net::HTTP.get(price_uri)
     uber = UberParser.generate_uber(price_res, time_res)
-    uber.reset_distance_and_duration(route)
+    uber.set_standard_properties(route)
     uber
   end
 
@@ -57,7 +57,7 @@ module UberParser
 end
 
 class Uber
-  attr_accessor :duration, :distance
+  attr_accessor :duration, :distance, :origin, :destination
   attr_reader :high_estimate, :low_estimate, :type, :surge, :duration, :travel_mode
   def  initialize(uber_data)
     @travel_mode = 'uber'
@@ -66,13 +66,25 @@ class Uber
     @type = uber_data['display_name']
     @surge = uber_data['surge_multiplier']
     @duration = uber_data['duration'] #overwrite in set_distance_and_duration
-    @distance = 0
+    @distance = nil
     @wait_time = uber_data['estimate'] # in seconds!!
+    @origin = nil
+    @destination = nil
+  end
+
+  def set_standard_properties(gr)
+    self.reset_distance_and_duration(gr)
+    self.set_origin_and_destination(gr)
   end
 
   def reset_distance_and_duration(gr)
     @distance = gr.distance
     @duration = gr.duration
+  end
+
+  def set_origin_and_destination(gr)
+    @origin = gr.origin
+    @destination = gr.destination
   end
 end
 

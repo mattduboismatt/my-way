@@ -67,7 +67,7 @@ class Weather
       "divvy" => walk_bike_precip_score,
       "driving" => driving_precip_score,
       "bus" => driving_precip_score,
-      "train" => driving_precip_score,
+      "subway" => driving_precip_score,
       "cab" => driving_precip_score,
       "uber" => driving_precip_score
     }
@@ -85,7 +85,7 @@ class Weather
       "divvy" => walk_bike_wind_speed,
       "driving" => driving_wind_speed,
       "bus" => driving_wind_speed,
-      "train" => driving_wind_speed,
+      "subway" => driving_wind_speed,
       "cab" => driving_wind_speed,
       "uber" => driving_wind_speed
     }

@@ -27,6 +27,7 @@ class Trip < ActiveRecord::Base
   def generate_and_score_routes
     routes = []
     self.google_routes.each do |gr|
+      puts gr.travel_mode
       if gr.travel_mode == 'driving'
         # binding.pry
         #setup and shovel in driving route and uber route and cab route
