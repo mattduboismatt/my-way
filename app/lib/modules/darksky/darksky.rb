@@ -30,7 +30,11 @@ class Forecast
     current.windSpeed
   end
 
-  def current_wind_bearing
+  def current_wind_bearing_degrees
+    current.windBearing
+  end
+
+  def current_wind_bearing_compass
     deg_to_compass(current.windBearing)
   end
 
