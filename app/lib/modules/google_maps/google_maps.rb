@@ -89,6 +89,7 @@ class GoogleRoute < GoogleThing
     @steps = []
     route_data['steps'].each {|s| add_step(s)}
     @travel_mode = self.set_travel_mode
+    @distance_exp = 0
   end
 
   def add_step(step_data)
