@@ -1,6 +1,6 @@
 module WeatherAlgorithm
-  def self.run(route)
-    Weather.new(route).score
+  def self.run(route, forecast)
+    Weather.new(route, forecast).score
   end
 end
 
@@ -8,11 +8,11 @@ class Weather
   require './app/lib/modules/darksky/darksky.rb'
   require 'forecast_io'
 
-  def initialize(route)
+  def initialize(route, forecast)
     @origin = route.origin || nil
     @destination = route.destination || nil
     @mode = route.travel_mode
-    @forecast = Forecast.new({ "lat"=> @origin["lat"], "lng"=> @origin["lng"] })
+    @forecast = forecast
   end
 
   def score
