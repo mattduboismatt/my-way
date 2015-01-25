@@ -12,7 +12,7 @@ module UberParser
     price_uri = UberParser.price_build_uri(a,b)
     time_res = Net::HTTP.get(time_uri)
     price_res = Net::HTTP.get(price_uri)
-    uber = UberParser.generate_uber(time_res, price_res)
+    uber = UberParser.generate_uber(price_res, time_res)
     uber.reset_distance_and_duration(route)
     uber
   end
@@ -35,8 +35,8 @@ module UberParser
     path = "/v1/estimates/time"
     time_query= {
       server_token: ENV['UBER_API_KEY'],
-      start_latitude: a[:lat],
-      start_longitude: a[:lng]
+      start_latitude: a['lat'],
+      start_longitude: a['lng']
     }
     URI::HTTPS.build(host: host, path: path, query: URI.encode_www_form((time_query)))
   end
