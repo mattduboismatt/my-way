@@ -3,6 +3,7 @@ require 'geocoder'
 
 Parkwhiz.api_key = "--------------"
 
+
 class Parking
 
   attr_accessor :cost
