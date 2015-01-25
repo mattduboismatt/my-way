@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124184528) do
+ActiveRecord::Schema.define(version: 20150125201138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,16 +70,15 @@ ActiveRecord::Schema.define(version: 20150124184528) do
 
   create_table "routes", force: :cascade do |t|
     t.string   "travel_mode"
-    t.integer  "distance"
-    t.integer  "duration"
-    t.integer  "dollars"
-    t.integer  "weather"
-    t.integer  "comfort"
-    t.integer  "safety"
-    t.integer  "expected"
-    t.integer  "trip_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "distance_exp"
+    t.integer  "duration_exp"
+    t.integer  "dollars_exp"
+    t.integer  "weather_exp"
+    t.integer  "safety_exp"
+    t.integer  "comfort_exp"
+    t.integer  "total_exp"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "trips", force: :cascade do |t|
