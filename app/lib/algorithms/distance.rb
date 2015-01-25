@@ -18,7 +18,7 @@ module DistanceAlgorithm
     when 'walking'
       distance_exp = 100 - ((distance.to_f/260)**1.75).to_i
     when 'bicycling'
-      distance_exp = 100 - ((distance.to_f/425)**1.5).to_i
+      distance_exp = 100 - ((distance.to_f/435)**1.75).to_i
     else # 'driving', 'cab', 'uber', 'bus', 'subway'
       distance = distance.to_f
       case distance
