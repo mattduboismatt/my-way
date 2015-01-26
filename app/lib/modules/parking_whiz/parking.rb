@@ -31,9 +31,9 @@ class Parking
   end
 
   def self.add_street_parking
-    if @lat >= 41.91077656 || @lat <= 41.8683927 ||@lng <= - 87.6481092
+    if @lat >= 41.91077656 || @lat <= 41.8683927 || @lng <= - 87.6481092
      @cost = 4
-   elsif @lat >= 41.8737774 && @lng >= -87.6356852 && @lat <= 41.885717
+    elsif @lat >= 41.8737774 && @lng >= -87.6356852 && @lat <= 41.885717
      @cost = 12
     else
       @cost = 8
