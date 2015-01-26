@@ -1,8 +1,7 @@
 <%= form_tag '/trips', method: 'post' do %>
-  <div class="trip">
-    <h1 class="formt">Trip</h1>
-    <div class="field">
-      <%= text_field_tag :origin, nil, placeholder: "Origin" %>
+  <div id="trip">
+    <div class="field" >
+      <%= text_field_tag :origin, nil, placeholder: "Origin", id: 'origin' %>
     </div>
     <div class="field">
       <%= text_field_tag :destination, nil, placeholder: "Destination" %>
@@ -11,4 +10,7 @@
       <%= submit_tag 'GO!' %>
     </div>
   </div>
+
+
 <% end %>
+    <button onclick="getLocation()">Current Location</button>
