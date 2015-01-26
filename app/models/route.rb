@@ -25,4 +25,45 @@ class Route
   def set_total_exp
     @total_exp = @distance_exp + @duration_exp + @dollars_exp + @weather_exp + @safety_exp + @comfort_exp
   end
+
+  def self.google_driving(route, forecast)
+    uber_res = UberParser.run(route)
+    [regular(route, forecast), uber(uber_res, forecast), cab(route, uber_res, forecast)]
+  end
+
+  def self.google_bicycling(route, forecast)
+    [regular(route, forecast), divvy(route, forecast)]
+  end
+
+  def self.google_transit_and_walking(route, forecast)
+    regular(route, forecast)
+  end
+
+  def self.regular(route, forecast)
+    reg_route = Route.new(travel_mode: route.travel_mode)
+    reg_route.calculate_and_set_all_exp(route, forecast)
+    reg_route
+  end
+
+  def self.uber(uber_res, forecast)
+    uber_route = Route.new(travel_mode: 'uber')
+    uber_route.calculate_and_set_all_exp(uber_res, forecast)
+    uber_route
+  end
+
+  def self.cab(route, uber_res, forecast)
+    cab_route = Route.new(travel_mode: 'cab')
+    route.travel_mode = 'cab'
+    route.wait_time = (uber_res.wait_time)*2
+    cab_route.calculate_and_set_all_exp(route, forecast)
+    cab_route
+  end
+
+  def self.divvy(route, forecast)
+    divvy_route = Route.new(travel_mode: 'divvy')
+    route.travel_mode = 'divvy'
+    divvy_route.calculate_and_set_all_exp(route, forecast)
+    divvy_route
+  end
+
 end
