@@ -1,13 +1,26 @@
-<div>
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <% if logged_in? %>
-      <li><%= link_to "Logout", logout_path, method: :delete %></li>
-      <li><%= link_to "Profile", user_path(current_user.id) %></li>
-    <% else %>
-      <li><%= link_to "Login", login_path %></li>
-      <li><%= link_to "Register", new_user_path %></li>
-    <% end %>
-  </ul>
+
+<div id="navigation">
+    <div id="logo">
+    <%= link_to image_tag("logo.png", size: '140x200',class: "logo_bar"), root_path %>
+  </div>
   <%= render 'layouts/flash' %>
 </div>
+
+<TABLE id="menu">
+   <TR>
+      <TD><%= link_to "Home", root_path %></TD>
+   </TR>
+   <TR>
+      <TD><%= link_to "Logout", logout_path, method: :delete %></TD>
+   </TR>
+   <TR>
+      <TD></TD>
+   </TR>
+   <TR>
+      <TD><%= link_to "Login", login_path %></TD>
+   </TR>
+   <TR>
+      <TD><%= link_to "Register", new_user_path %></TD>
+   </TR>
+</TABLE>
+

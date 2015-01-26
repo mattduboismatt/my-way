@@ -1,9 +1,15 @@
 body {
-  background-color: #fff;
+  background-image: asset-url("home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  padding: 0;
+  margin: 0;
 }
 
 p, ol, ul, td {
@@ -66,4 +72,93 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+#navigation {
+position: fixed;
+top: 0;
+width: 100%;
+color: #ffffff;
+height: 12%;
+text-align: center;
+padding-top: 15px;
+-webkit-box-shadow: 0px 0px 8px 0px #000000;
+-moz-box-shadow: 0px 0px 8px 0px #000000;
+box-shadow: 0px 0px 8px 0px #000000;
+background-color: rgba(1, 1, 1, 0.8);
+color: rgba(1, 1, 1, 0.8);
+}
+
+form input {
+  width: 700px;
+  height: 120px;
+  font-size: 45px;
+  marrgin-top: 5px;
+}
+
+
+
+#navigation a {
+font-size: 14px;
+padding-left: 15px;
+padding-right: 15px;
+color: white;
+text-decoration: none;
+}
+
+#navigation a:hover {
+color: red;
+}
+
+#navigation ul {
+  list-style-type: none;
+  float: right;
+  display: block;
+}
+
+#trip {
+top: 0;
+height: 25%;
+width: 90%;
+position: fixed;
+color: #ffffff;
+text-align: center;
+padding-top: 60px;
+paddig-bottom: 15px;
+-webkit-box-shadow: 0px 0px 8px 0px #000000;
+-moz-box-shadow: 0px 0px 8px 0px #000000;
+box-shadow: 0px 0px 8px 0px #000000;
+background-color: rgba(1, 1, 1, 0.8);
+color: rgba(1, 1, 1, 0.8);
+margin-left: 5%;
+margin-right: auto;
+margin-top: 60%;
+}
+
+#logo {
+  float: left;
+}
+
+#menu {
+  color: white;
+  text-allign: center;
+  margin-left: 15%;
+  margin-top: 24%;
+}
+
+#menu a:link{
+  text-decoration: none;
+}
+
+#menu TD {
+  text-align: center;
+  font-size: 500%;
+  border: 3px white solid;
+  width: 800px;
+  height: 200px;
+  -webkit-box-shadow: 0px 0px 8px 0px #000000;
+  -moz-box-shadow: 0px 0px 8px 0px #000000;
+  box-shadow: 0px 0px 8px 0px #000000;
+  background-color: rgba(1, 1, 1, 0.8);
+  color: rgba(1, 1, 1, 0.8);
 }

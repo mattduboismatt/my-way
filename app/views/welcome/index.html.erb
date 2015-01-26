@@ -1,13 +1,13 @@
 <%= form_tag '/trips', method: 'post' do %>
-  <div class="field">
-    <%= label_tag :origin %>
-    <%= text_field_tag :origin %>
-  </div>
-  <div class="field">
-    <%= label_tag :destination %>
-    <%= text_field_tag :destination %>
-  </div>
-  <div class="actions">
-    <%= submit_tag 'my way magic' %>
+  <div id="trip">
+    <div class="field">
+      <%= text_field_tag :origin, nil, placeholder: "Origin" %>
+    </div>
+    <div class="field">
+      <%= text_field_tag :destination, nil, placeholder: "Destination" %>
+    </div>
+    <div class="">
+      <%= submit_tag 'My Way' %>
+    </div>
   </div>
 <% end %>
