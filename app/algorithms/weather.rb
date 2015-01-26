@@ -5,7 +5,7 @@ module WeatherAlgorithm
 end
 
 class Weather
-  require './app/lib/modules/darksky/darksky.rb'
+  require './app/modules/darksky.rb'
   require 'forecast_io'
 
   def initialize(route, forecast)
