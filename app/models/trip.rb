@@ -4,8 +4,9 @@ class Trip < ActiveRecord::Base
   require './app/lib/algorithms/dollars.rb'
   require './app/lib/algorithms/distance.rb'
   require './app/lib/algorithms/duration.rb'
-  require './app/lib/algorithms/weather_algorithm.rb'
+  require './app/lib/algorithms/weather.rb'
   require './app/lib/modules/darksky/darksky.rb'
+  require 'forecast_io'
 
 
   belongs_to :user
@@ -32,7 +33,6 @@ class Trip < ActiveRecord::Base
     g_routes.each do |gr|
       puts gr.travel_mode
       if gr.travel_mode == 'driving'
-        # binding.pry
         #setup and shovel in driving route and uber route and cab route
         r = Route.new(travel_mode: gr.travel_mode)
         r.calculate_and_set_all_exp(gr, forecast)
@@ -45,6 +45,7 @@ class Trip < ActiveRecord::Base
 
         cab_r = Route.new(travel_mode: 'cab')
         gr.travel_mode = cab_r.travel_mode
+        gr.wait_time = (uber.wait_time)*2
         cab_r.calculate_and_set_all_exp(gr, forecast)
         routes << cab_r
 
@@ -65,8 +66,6 @@ class Trip < ActiveRecord::Base
         routes << r
       end
     end
-    # something for cab
-    # something for divvy
     routes.sort_by!{ |r| r.total_exp }
     routes.reverse!
   end
