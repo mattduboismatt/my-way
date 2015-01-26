@@ -89,5 +89,56 @@ describe 'Distance Algorithm' do
       expect(divvy_score).to be >= subway_score
     end
   end
+  context 'at 1600 meters' do
+    let(:dist) {1600}
+
+    it 'bike > uber' do
+      expect(bike_score).to be >= uber_score
+    end
+    it 'walk > drive' do
+      expect(walk_score).to be >= drive_score
+    end
+    it 'divvy > subway' do
+      expect(divvy_score).to be >= subway_score
+    end
+  end
+  context 'at 3200 meters' do
+    let(:dist) {3200}
+
+    it 'bike > drive' do
+      expect(bike_score).to be >= drive_score
+    end
+    it 'uber > walk' do
+      expect(uber_score).to be >= walk_score
+    end
+    it 'divvy > subway' do
+      expect(divvy_score).to be >= subway_score
+    end
+  end
+  context 'at 4800 meters' do
+    let(:dist) {4800}
+
+    it 'drive > bike' do
+      expect(drive_score).to be >= bike_score
+    end
+    it 'walk is zero' do
+      expect(walk_score).to eq(0)
+    end
+    it 'subway > divvy' do
+      expect(subway_score).to be >= divvy_score
+    end
+  end
+  context 'at 6400 meters' do
+    let(:dist) {6400}
+    it 'drive > bike' do
+      expect(drive_score).to be >= bike_score
+    end
+    it 'walk is zero' do
+      expect(walk_score).to eq(0)
+    end
+    it 'bike is zero' do
+      expect(bike_score).to eq(0)
+    end
+  end
 end
 
