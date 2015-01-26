@@ -24,52 +24,43 @@ questions_contents.each do |text|
   Question.create(content: text)
 end
 
-def make_answers(answer_array, question_number)
-  answer_array.each do |answer|
-    Answer.create(question_id: question_number, content: answer, weather_modifier: 1.0, dollars_modifier: 1.0, distance_modifier: 1.0, duration_modifier: 1.0)
-  end
-end
+Answer.create(question_id: 1, content: "I participate every year!",                      distance_modifier: -0.05, dollars_modifier: 0.1, weather_modifier: -0.05, safety_modifier: -0.1)
+Answer.create(question_id: 1, content: "It is usually too cold to wait in line.",        distance_modifier: 0.01, dollars_modifier: -0.01, weather_modifier: 0.15, safety_modifier: 0.05)
+Answer.create(question_id: 1, content: "You can't pay me any amount too stand in line.", distance_modifier: 0.05, dollars_modifier: -0.1, weather_modifier: 0.05, safety_modifier: 0.1)
+Answer.create(question_id: 1, content: "It's just another friday.",                      distance_modifier: 0.05, dollars_modifier: -0.05, weather_modifier: -0.02, safety_modifier: -0.02)
 
-question_1_answers = ["I participate every year!",
-  "It is usually too cold to wait in line.",
-  "You can't pay me any amount too stand in line.",
-  "It is just another friday."]
+Answer.create(question_id: 2, content: "Every summer, no matter what!",                  distance_modifier: -0.05, dollars_modifier: -0.03, weather_modifier: -0.1, safety_modifier: -0.03)
+Answer.create(question_id: 2, content: "Only if I have to.",                             distance_modifier: 0.05, dollars_modifier: 0.03, weather_modifier: 0.03, safety_modifier: 0.01)
+Answer.create(question_id: 2, content: "If the weather cooperates.",                     distance_modifier: -0.05, dollars_modifier: 0.01, weather_modifier: 0.05, safety_modifier: 0.03)
+Answer.create(question_id: 2, content: "Everyday, because I live in a beachside condo.", distance_modifier: 0.05, dollars_modifier: -0.1, weather_modifier: -0.05, safety_modifier: -0.05)
 
-question_2_answers = [ "Every summer, no matter what!",
- "Only if I have to.",
- "If the weather cooperates.",
- "Everyday, because I live in a beachside condo."]
+Answer.create(question_id: 3, content: "as long as it takes!",                                      distance_modifier: -0.05, dollars_modifier: -0.05, weather_modifier: -0.05, safety_modifier: -0.02)
+Answer.create(question_id: 3, content: "What? I just buy the express pass that lets me skip them.", distance_modifier: -0.05, dollars_modifier: -0.08, weather_modifier: 0.02, safety_modifier: -0.01)
+Answer.create(question_id: 3, content: "an hour at most.",                                          distance_modifier: -0.05, dollars_modifier: 0.05, weather_modifier: 0.01, safety_modifier: 0.01)
+Answer.create(question_id: 3, content: "I don't go to theme parks.",                                distance_modifier: 0.1, dollars_modifier: 0.05, weather_modifier: 0.03, safety_modifier: 0.05)
 
-question_3_answers = [ "as long as it takes!",
-"What? I just buy the express pass that lets me skip them.",
-"an hour at most.",
-"I don't go to theme parks."]
+Answer.create(question_id: 4, content: "buy major brands.",                              distance_modifier: -0.05, dollars_modifier: -0.1, weather_modifier: 0.01, safety_modifier: -0.02)
+Answer.create(question_id: 4, content: "buy store brands. They're all the same.",        distance_modifier: -0.05, dollars_modifier: 0.05, weather_modifier: 0.01, safety_modifier: 0.02)
+Answer.create(question_id: 4, content: "I rarely go to grocery stores, I just eat out.", distance_modifier: 0.1, dollars_modifier: -0.2, weather_modifier: -0.08, safety_modifier: 0.03)
+Answer.create(question_id: 4, content: "just buy fruits and vegetables.",                distance_modifier: -0.05, dollars_modifier: 0.05, weather_modifier: 0.01, safety_modifier: 0.03)
 
-question_4_answers = [ "buy major brands.",
-"buy store brands. They're all the same.",
-"I rarely go to grocery stores, I just eat out.",
-"just buy fruits and vegetables."]
+Answer.create(question_id: 5, content: "dress shoes.",                      distance_modifier: 0.15, dollars_modifier: -0.1, weather_modifier: 0.05, safety_modifier: 0.07)
+Answer.create(question_id: 5, content: "running shoes.",                    distance_modifier: -0.1, dollars_modifier: -0.07, weather_modifier: -0.08, safety_modifier: -0.03)
+Answer.create(question_id: 5, content: "casual shoes.",                     distance_modifier: -0.02, dollars_modifier: -0.05, weather_modifier: 0.01, safety_modifier: 0.02)
+Answer.create(question_id: 5, content: "I only own one pair of gym shoes.", distance_modifier: -0.05, dollars_modifier: 0.1, weather_modifier: -0.05, safety_modifier: -0.02)
 
-question_5_answers = [  "dress shoes.",
-"running shoes.",
-"casual shoes.",
-"I only own one pair of gym shoes."]
+Answer.create(question_id: 6, content: "immediately get out of bed.",                              distance_modifier: 0.06, dollars_modifier: 0.15, weather_modifier: 0.07, safety_modifier: 0.05)
+Answer.create(question_id: 6, content: "I hit the snooze, then get out of bed on the next alarm.", distance_modifier: 0.03, dollars_modifier: 0.05, weather_modifier: 0.035, safety_modifier: 0.025)
+Answer.create(question_id: 6, content: "I hit the snooze; I have 5 alarms set anyway.",            distance_modifier: -0.02, dollars_modifier: -0.05, weather_modifier: -0.02, safety_modifier: 0.1)
+Answer.create(question_id: 6, ontent: "I do not use an alarm.",                                    distance_modifier: -0.8, dollars_modifier: -0.1, weather_modifier: -0.06, safety_modifier: -0.1)
 
-question_6_answers = [   "immediately get out of bed.",
-"I hit the snooze, then get out of bed on the next alarm.",
-"I hit the snooze; I have 5 alarms set anyway.",
-"I do not use an alarm."]
+Answer.create(question_id: 7, content: "in a small neighborhood.",             distance_modifier: -0.1, dollars_modifier: 0.01, weather_modifier: -0.01, safety_modifier: 0.05)
+Answer.create(question_id: 7, content: "on a busy street.",                    distance_modifier: 0.05, dollars_modifier: -0.01, weather_modifier: 0.06, safety_modifier: -0.01)
+Answer.create(question_id: 7, content: "in the heart of the city (downtown).", distance_modifier: 0.01, dollars_modifier: 0.05, weather_modifier: 0.1, safety_modifier: -0.06)
+Answer.create(question_id: 7, content: "in the suburbs.",                      distance_modifier: 0.07, dollars_modifier: 0.05, weather_modifier: -0.1, safety_modifier: 0.05)
 
-question_7_answers = [   "in a small neighborhood.",
- "on a busy street.",
- "in the heart of the city (downtown).",
- "in the suburbs."]
 
- $answers_array = [question_1_answers, question_2_answers, question_3_answers, question_4_answers, question_5_answers, question_6_answers, question_7_answers]
 
-questions_contents.each_with_index do |content, index|
-  make_answers($answers_array[index], index+1)
-end
 
 
 
