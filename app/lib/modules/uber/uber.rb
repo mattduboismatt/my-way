@@ -58,7 +58,7 @@ end
 
 class Uber
   attr_accessor :duration, :distance, :origin, :destination
-  attr_reader :high_estimate, :low_estimate, :type, :surge, :duration, :travel_mode
+  attr_reader :high_estimate, :low_estimate, :type, :surge, :duration, :travel_mode, :wait_time
   def  initialize(uber_data)
     @travel_mode = 'uber'
     @high_estimate = uber_data['high_estimate']

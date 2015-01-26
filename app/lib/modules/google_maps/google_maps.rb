@@ -4,8 +4,6 @@ require 'uri'
 require 'securerandom'
 require 'pry'
 require 'net/http'
-# API_KEY = ENV["GOOGLE_MAP_API_KEY"]
-# request = https://maps.googleapis.com/maps/api/directions/json? + parameters
 
 module GoogleMaps
 
@@ -80,8 +78,8 @@ end
 
 
 class GoogleRoute < GoogleThing
-  attr_accessor :travel_mode
-  attr_reader :distance, :duration, :steps, :origin, :destination
+  attr_accessor :travel_mode, :duration
+  attr_reader :distance, :steps, :origin, :destination
 
   def initialize(route_data, a, b)
     super
