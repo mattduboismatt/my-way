@@ -97,6 +97,7 @@ form input {
 }
 
 
+
 #navigation a {
 font-size: 14px;
 padding-left: 15px;
@@ -139,17 +140,21 @@ margin-top: 60%;
 }
 
 #menu {
-
   color: white;
   text-allign: center;
-  margin-left: 10%;
+  margin-left: 15%;
   margin-top: 24%;
+}
 
+#menu a:link{
+  text-decoration: none;
 }
 
 #menu TD {
+  text-align: center;
+  font-size: 500%;
   border: 3px white solid;
-  width: 750px;
+  width: 800px;
   height: 200px;
   -webkit-box-shadow: 0px 0px 8px 0px #000000;
   -moz-box-shadow: 0px 0px 8px 0px #000000;
