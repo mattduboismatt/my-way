@@ -45,7 +45,7 @@ class Trip < ActiveRecord::Base
 
         cab_r = Route.new(travel_mode: 'cab')
         gr.travel_mode = cab_r.travel_mode
-        gr.duration += (uber.wait_time)*2
+        gr.wait_time = (uber.wait_time)*2
         cab_r.calculate_and_set_all_exp(gr, forecast)
         routes << cab_r
 
