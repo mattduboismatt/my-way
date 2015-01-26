@@ -11,34 +11,37 @@ class Parking
 
   def initialize(route)
     @lat = route.destination['lat']
-    @long = route.destination['lng']
-    @locations = Array(Parkwhiz.search({ destination: coordinates_to_address}))
-    @cost = 0
+    @lng = route.destination['lng']
+    # @locations = Array(Parkwhiz.search({ destination: coordinates_to_address}))
+    # @cost = 0
   end
 
-  def coordinates_to_address
-    address = Geocoder.search("#{@lat}, #{@long}")
-    address[0].address
-  end
+  # def coordinates_to_address
+  #   address = Geocoder.search("#{@lat}, #{@long}")
+  #   address[0].address
+  # end
 
-  def calculate_cost
-    @locations.each {|location| @cost += location.price }
-    @cost = @cost/@locations.length
-    if @cost == 0
-      @cost = Parking.add_street_parking
-    end
-    @cost
-  end
+  # def calculate_cost
+  #   binding.pry
+  #   @locations.each {|location| @cost += location.price }
+  #   @cost = @cost/@locations.length
+  #   if @cost == 0
+  #     @cost = Parking.add_street_parking
+  #   end
+  #   @cost
+  # end
 
-  def self.add_street_parking
+  def street_parking_cost
+    # binding.pry
+    hours = 2
     if @lat >= 41.91077656 || @lat <= 41.8683927 || @lng <= - 87.6481092
-     @cost = 4
+     cost = 2*hours
     elsif @lat >= 41.8737774 && @lng >= -87.6356852 && @lat <= 41.885717
-     @cost = 12
+     cost = 6*hours
     else
-      @cost = 8
-   end
-   @cost
+      cost = 4*hours
+    end
+    cost
   end
 
 

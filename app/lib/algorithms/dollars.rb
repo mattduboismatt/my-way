@@ -23,8 +23,8 @@ module DollarsAlgorithm
     case mode
       when 'driving'
         irs_cost = distance * 0.56
-        park = Parking.new(route)
-        park_cost = park.calculate_cost
+        parking = Parking.new(route)
+        park_cost = parking.street_parking_cost
         puts "parking cost #{park_cost}"
         actual_cost = park_cost + irs_cost
       when 'subway'
