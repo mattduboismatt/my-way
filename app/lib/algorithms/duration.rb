@@ -17,11 +17,10 @@ module DurationAlgorithm
     when 'subway'
       duration_exp = ((-1.0/55)* (duration) + 100).to_i
     when 'uber'
-      duration += route.wait_time
-      duration_exp = (4.224E-15*duration**5 - 4.169E-11*duration**4 + 1.398E-7*duration**3 - 1.771E-4*duration**2 + 0.084*duration+ 18.634).to_i
+      duration_exp = (4.224E-15*duration**5 - 4.169E-11*duration**4 + 1.398E-7*duration**3 - 1.771E-4*duration**2 + 0.084*duration+ 18.634).to_i - ((route.wait_time)/30).to_i
       duration_exp < 100 ? duration_exp : 100
     when 'cab'
-      duration_exp = (4.224E-15*duration**5 - 4.169E-11*duration**4 + 1.398E-7*duration**3 - 1.771E-4*duration**2 + 0.084*duration+ 18.634).to_i
+      duration_exp = (4.224E-15*duration**5 - 4.169E-11*duration**4 + 1.398E-7*duration**3 - 1.771E-4*duration**2 + 0.084*duration+ 18.634).to_i -((route.wait_time)/30).to_i
       duration_exp < 100 ? duration_exp : 100
     end
     duration_exp > 0 ? duration_exp : 0
