@@ -27,7 +27,7 @@ class Weather
   end
 
   def app_temp_score
-    return @mode == "bicycling" || @mode == "walking" @mode == "divvy" ? walk_bike_app_temp_score : 90
+    return @mode == "bicycling" || @mode == "walking" || @mode == "divvy" ? walk_bike_app_temp_score : 90
   end
 
   def wind_speed_score
