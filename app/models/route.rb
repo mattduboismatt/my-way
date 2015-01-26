@@ -28,58 +28,42 @@ class Route
 
   def self.google_driving(route, forecast)
     uber_res = UberParser.run(route)
-    [driving(route, forecast), uber(uber_res, forecast), cab(route, uber_res, forecast)]
+    [regular(route, forecast), uber(uber_res, forecast), cab(route, uber_res, forecast)]
   end
 
   def self.google_bicycling(route, forecast)
-    [bicycling(route, forecast), divvy(route, forecast)]
+    [regular(route, forecast), divvy(route, forecast)]
   end
 
   def self.google_transit_and_walking(route, forecast)
-    [subway(route, forecast), bus(route, forecast), walking(route, forecast)]
+    regular(route, forecast)
   end
 
-  def self.driving(route, forecast)
-    driving_route = Route.new(travel_mode: 'driving')
-    driving_route.calculate_and_set_all_exp(route, forecast)
+  def self.regular(route, forecast)
+    reg_route = Route.new(travel_mode: route.travel_mode)
+    reg_route.calculate_and_set_all_exp(route, forecast)
+    reg_route
   end
 
   def self.uber(uber_res, forecast)
     uber_route = Route.new(travel_mode: 'uber')
     uber_route.calculate_and_set_all_exp(uber_res, forecast)
+    uber_route
   end
 
   def self.cab(route, uber_res, forecast)
     cab_route = Route.new(travel_mode: 'cab')
     route.travel_mode = 'cab'
     route.wait_time = (uber_res.wait_time)*2
-    uber.calculate_and_set_all_exp(route, forecast)
-  end
-
-  def self.bicycling(route, forecast)
-    bicycling_route = Route.new(travel_mode: 'bicycling')
-    bicycling_route.calculate_and_set_all_exp(route, forecast)
+    cab_route.calculate_and_set_all_exp(route, forecast)
+    cab_route
   end
 
   def self.divvy(route, forecast)
     divvy_route = Route.new(travel_mode: 'divvy')
     route.travel_mode = 'divvy'
     divvy_route.calculate_and_set_all_exp(route, forecast)
-  end
-
-  def self.subway(route, forecast)
-    subway_route = Route.new(travel_mode: 'subway')
-    subway_route.calculate_and_set_all_exp(route, forecast)
-  end
-
-  def self.bus(route, forecast)
-    bus_route = Route.new(travel_mode: 'bus')
-    bus_route.calculate_and_set_all_exp(route, forecast)
-  end
-
-  def self.walking(route, forecast)
-    walking_route = Route.new(travel_mode: 'walking')
-    walking_route.calculate_and_set_all_exp(route, forecast)
+    divvy_route
   end
 
 end
