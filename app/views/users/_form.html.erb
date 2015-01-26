@@ -1,3 +1,4 @@
+<div class="create_user">
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -11,30 +12,25 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, placeholder: "Username" %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Name" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, placeholder: "Email" %>
   </div>
   <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: "Password" %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: "Re-enter Password" %>
   </div>
   <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
+    <%= f.number_field :age, placeholder: "Age" %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
