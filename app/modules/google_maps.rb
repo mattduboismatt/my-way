@@ -1,8 +1,6 @@
 require 'json'
-require 'pry'
 require 'uri'
 require 'securerandom'
-require 'pry'
 require 'net/http'
 
 module GoogleMaps
