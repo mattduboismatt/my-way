@@ -6,6 +6,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.integer :age
       t.string :username
+      t.float :weather_multiplier
+      t.float :duration_multiplier
+      t.float :distance_multiplier
+      t.float :dollars_multiplier
 
       t.timestamps null: false
     end

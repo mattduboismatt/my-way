@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :trips
   has_many :locations
+  has_many :users_answers
+  has_many :answers, through: :users_answers
+  has_many :questions, through: :answers
 
   validates :email,
             format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create },

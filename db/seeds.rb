@@ -17,3 +17,11 @@ def create_stations
   end
 end
 create_stations
+
+# User.create
+# Question.create(content: "apple jacks")
+# Question.create(content: "jack apples")
+# Answer.create(question_id: 1, content: "yes", weather_modifier: 2.0, dollars_modifier: 1.5, distance_modifier: 1.0, duration_modifier: 0.5)
+# Answer.create(question_id: 2, content: "yes", weather_modifier: 2.0, dollars_modifier: 1.5, distance_modifier: 1.0, duration_modifier: 0.5)
+# UsersAnswer.create(answer_id: 1, user_id: 1)
+# UsersAnswer.create(answer_id: 2, user_id: 1)
