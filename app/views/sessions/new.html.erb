@@ -1,11 +1,10 @@
-<h1>Login</h1>
 
-<div>
+
+<div class="trip">
+  <h1 class="formt">Login</h1>
   <%= form_tag do %>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %><br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %><br>
+    <%= text_field_tag :email, nil, placeholder: "Email"  %><br>
+    <%= password_field_tag :password, nil, placeholder: "Password"  %><br>
     <%= submit_tag 'Login' %>
   <% end %>
 </div>

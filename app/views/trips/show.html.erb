@@ -15,8 +15,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @routes.each do |r| %>
-      <tr>
+    <% @routes.each_with_index do |r,i| %>
+      <% if i <= 2 %>
+        <tr class='visible'>
+      <% else %>
+        <tr class='hidden'>
+      <% end %>
         <td><%= r.travel_mode %></td>
         <td><%= r.distance_exp %></td>
         <td><%= r.duration_exp %></td>
@@ -28,4 +32,5 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to "more" %>
 </div>
