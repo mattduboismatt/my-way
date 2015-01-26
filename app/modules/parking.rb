@@ -1,8 +1,4 @@
-require 'parkwhiz'
-require 'geocoder'
-
 Parkwhiz.api_key = ENV["PARKING_WHIZ_API_KEY"]
-
 
 class Parking
 

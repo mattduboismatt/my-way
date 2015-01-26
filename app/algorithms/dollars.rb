@@ -1,5 +1,3 @@
-require './app/modules/parking.rb'
-
 module DollarsAlgorithm
   def self.actual_cost(route)
     mode = route.travel_mode

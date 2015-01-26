@@ -8,6 +8,14 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require 'net/http'
+require 'uri'
+require 'json'
+require 'securerandom'
+require 'date'
+require 'time'
+require 'parkwhiz'
+require 'geocoder'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -35,8 +43,8 @@ module MyWay
     # config.autoload_paths += %W(#{config.root}/lib)
     # config.autoload_paths += Dir["#{config.root}/lib/**/"]
     # config.load_paths << File.join(Rails.root, "app", "lib")
-    config.autoload_paths += %W( #{config.root}/app/modules )
-    config.autoload_paths += %W( #{config.root}/app/algorithms )
+    config.eager_load_paths += %W( #{config.root}/app/modules )
+    config.eager_load_paths += %W( #{config.root}/app/algorithms )
   end
 end
 

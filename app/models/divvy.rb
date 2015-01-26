@@ -1,7 +1,4 @@
 class Divvy < ActiveRecord::Base
-  require 'uri'
-  require "net/http"
-  require 'json'
 
   scope :radius, ->(lat, lng, distance) {where("lat < ? AND lng < ? AND lat > ? AND lng > ? ", lat+distance, lng + distance,lat-distance, lng - distance)}
 
