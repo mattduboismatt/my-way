@@ -2,8 +2,7 @@ body {
   background: url('logo.png') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
-  background-size: contain;
-  background-size: cover;
+  background-size: 100% 100%;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -96,7 +95,7 @@ form input {
   width: 85%;
   height: 120px;
   font-size: 45px;
-  margin-top: 1%;
+  margin-top: 3%;
 }
 
 
@@ -115,8 +114,10 @@ text-decoration: none;
   width: 100%;
 }
 
-#navigation a:hover {
-color: red;
+#navigation a:link {
+  font-size: 5vw;
+  float: right;
+  margin-top: 15%;
 }
 
 #navigation ul {
@@ -125,8 +126,26 @@ color: red;
   display: block;
 }
 
-#trip {
-height: 20%;
+#show {
+  width: 90%;
+  position: fixed;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 5%;
+  -webkit-box-shadow: 0px 0px 8px 0px #000000;
+  -moz-box-shadow: 0px 0px 8px 0px #000000;
+  box-shadow: 0px 0px 8px 0px #000000;
+  background-color: rgba(1, 1, 1, 0.8);
+  color: white;
+  margin-left: 5%;
+  margin-right: auto;
+  margin-top: 50%;
+  border: 5px white solid;
+  font-size: 150%;
+}
+
+.trip {
+height: 30%;
 width: 90%;
 position: fixed;
 color: #ffffff;
@@ -143,10 +162,29 @@ margin-top: 50%;
 border: 5px white solid;
 }
 
+.create_user {
+height: 78%;
+width: 90%;
+position: fixed;
+color: #ffffff;
+text-align: center;
+padding-top: 5%;
+-webkit-box-shadow: 0px 0px 8px 0px #000000;
+-moz-box-shadow: 0px 0px 8px 0px #000000;
+box-shadow: 0px 0px 8px 0px #000000;
+background-color: rgba(1, 1, 1, 0.8);
+color: rgba(1, 1, 1, 0.8);
+margin-left: 5%;
+margin-right: auto;
+border: 5px white solid;
+margin-top: 23%;
+}
+
+
 #logo {
   float: left;
   color:white;
-  font-size: 10vw;
+  font-size: 18vw;
   margin-left: 1%;
 
 }
@@ -191,10 +229,23 @@ input[type=submit] {
     color:#FFFFFF;
     cursor:pointer;
     font:50px sans-serif;
-    margin-top: 10%;
+    margin-top: 20%;
 
 }
 
+
+logged {
+float: right;
+}
+
+logged a:link {
+font-size: 200%;
+}
+
+.formt {
+  font-size: 400%;
+  color: white;
+}
 
   @import "font-awesome-sprockets";
   @import "font-awesome";
