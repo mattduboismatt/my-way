@@ -13,6 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-$(document).on('ready page:load', function () {
+$(document).ready(function () {
+
+  $('#menu').hide();
+
+  $('#logo').on('click', function(){
+    $('#menu').fadeToggle();
+    $('#trip').fadeToggle();
+  });
+
+
 
 });
