@@ -1,13 +1,3 @@
-# load_all 'app'
-
-# class Route
-#   attr_reader :travel_mode, :duration
-#   def initialize(args)
-#     @travel_mode = args[:travel_mode]
-#     @duration = args[:duration]
-#   end
-# end
-
 module DurationAlgorithm
 
   def self.run(route)
@@ -34,30 +24,6 @@ module DurationAlgorithm
       duration_exp = (4.224E-15*duration**5 - 4.169E-11*duration**4 + 1.398E-7*duration**3 - 1.771E-4*duration**2 + 0.084*duration+ 18.634).to_i
       duration_exp < 100 ? duration_exp : 100
     end
-    # puts "#{duration} - #{duration_exp}"
     duration_exp > 0 ? duration_exp : 0
   end
 end
-
-
-# durations = (0..75).to_a.map!{|x| x*60}
-# routes = []
-# durations.each do |d|
-#   routes << Route.new(travel_mode: 'walking', duration: d)
-# end
-# durations.each do |d|
-#   routes << Route.new(travel_mode: 'bicycling', duration: d)
-# end
-# durations.each do |d|
-#   routes << Route.new(travel_mode: 'driving', duration: d)
-# end
-# durations.each do |d|
-#   routes << Route.new(travel_mode: 'bus', duration: d)
-# end
-# durations.each do |d|
-#   routes << Route.new(travel_mode: 'train', duration: d)
-# end
-# durations.each do |d|
-#   routes << Route.new(travel_mode: 'uber', duration: d)
-# end
-# routes.each{|r| DurationAlgorithm.run(r)}
