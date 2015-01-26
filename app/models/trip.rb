@@ -31,42 +31,18 @@ class Trip < ActiveRecord::Base
     g_routes = self.google_routes
     forecast = Forecast.new(g_routes[0].origin)
     g_routes.each do |gr|
+      routes << *RouteFactory.for(gr)
       puts gr.travel_mode
       if gr.travel_mode == 'driving'
         #setup and shovel in driving route and uber route and cab route
-        r = Route.new(travel_mode: gr.travel_mode)
-        r.calculate_and_set_all_exp(gr, forecast)
-        routes << r
-
-        uber_r = Route.new(travel_mode: 'uber')
-        uber = UberParser.run(gr)
-        uber_r.calculate_and_set_all_exp(uber, forecast)
-        routes << uber_r
-
-        cab_r = Route.new(travel_mode: 'cab')
-        gr.travel_mode = cab_r.travel_mode
-        gr.wait_time = (uber.wait_time)*2
-        cab_r.calculate_and_set_all_exp(gr, forecast)
-        routes << cab_r
-
+        routes << Route.google_driving(gr, forecast)
       elsif gr.travel_mode == 'bicycling'
         #setup and shovel in bicycling and divvy route
-        r = Route.new(travel_mode: gr.travel_mode)
-        r.calculate_and_set_all_exp(gr, forecast)
-        routes << r
-
-        divvy_r = Route.new(travel_mode: 'divvy')
-        gr.travel_mode = 'divvy'
-        divvy_r.calculate_and_set_all_exp(gr, forecast)
-        routes << divvy_r
-
+        routes << Route.google_bicycling(gr, forecast)
       else # subway, bus, walking
-        r = Route.new(travel_mode: gr.travel_mode)
-        r.calculate_and_set_all_exp(gr, forecast)
-        routes << r
+        routes << Route.google_transit_and_walking(gr, forecast)
       end
     end
-    routes.sort_by!{ |r| r.total_exp }
-    routes.reverse!
+    routes.sort_by { |r| r.total_exp * -1 }
   end
 end
