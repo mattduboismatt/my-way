@@ -4,8 +4,6 @@ require 'uri'
 require 'securerandom'
 require 'pry'
 require 'net/http'
-# API_KEY = ENV["GOOGLE_MAP_API_KEY"]
-# request = https://maps.googleapis.com/maps/api/directions/json? + parameters
 
 module GoogleMaps
 
@@ -80,8 +78,8 @@ end
 
 
 class GoogleRoute < GoogleThing
-  attr_accessor :travel_mode
-  attr_reader :distance, :duration, :steps, :origin, :destination
+  attr_accessor :travel_mode, :duration, :wait_time
+  attr_reader :distance, :steps, :origin, :destination
 
   def initialize(route_data, a, b)
     super
@@ -92,6 +90,7 @@ class GoogleRoute < GoogleThing
     @travel_mode = self.set_travel_mode
     @origin = a
     @destination = b
+    @wait_time = 0
   end
 
   def add_step(step_data)
@@ -128,7 +127,7 @@ class GoogleStep < GoogleThing
     @transit_mode_type = self.set_transit_mode_type(step_data['transit_details'])
     @transit_origin_stop_name = self.set_transit_origin_stop_name(step_data['transit_details'])
     @transit_line_name = self.set_transit_line_name(step_data['transit_details'])
-    # @transit_line_code = self.set_transit_line_code(step_data['transit_details'])
+    @transit_line_code = self.set_transit_line_code(step_data['transit_details'])
     @transit_headsign = self.set_transit_headsign(step_data['transit_details'])
     @transit_destination_stop_name = self.set_transit_destination_stop_name(step_data['transit_details'])
   end
@@ -165,13 +164,17 @@ class GoogleStep < GoogleThing
     end
   end
 
-  # def set_transit_line_code(transit_details)
-  #   if self.travel_mode != 'transit'
-  #     nil
-  #   else
-  #     transit_details['line']['short_name'].downcase
-  #   end
-  # end
+  def set_transit_line_code(transit_details)
+    if self.travel_mode != 'transit'
+      nil
+    else
+      if self.transit_mode_type == 'bus'
+        transit_details['line']['short_name'].downcase
+      elsif self.transit_mode_type == 'subway'
+        transit_details['line']['color'].downcase
+      end
+    end
+  end
 
 
   def set_transit_headsign(transit_details)
