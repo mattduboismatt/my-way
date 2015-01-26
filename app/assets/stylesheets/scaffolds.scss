@@ -247,6 +247,9 @@ font-size: 200%;
   font-size: 400%;
   color: white;
 }
+.hidden {
+  visibility: hidden;
+}
 
   @import "font-awesome-sprockets";
   @import "font-awesome";
