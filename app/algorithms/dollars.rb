@@ -1,4 +1,4 @@
-require './app/lib/modules/parking_whiz/parking.rb'
+require './app/modules/parking.rb'
 
 module DollarsAlgorithm
   def self.actual_cost(route)

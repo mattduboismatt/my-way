@@ -35,8 +35,8 @@ module MyWay
     # config.autoload_paths += %W(#{config.root}/lib)
     # config.autoload_paths += Dir["#{config.root}/lib/**/"]
     # config.load_paths << File.join(Rails.root, "app", "lib")
-    config.autoload_paths += %W( #{config.root}/app/lib/modules )
-    config.autoload_paths += %W( #{config.root}/app/lib/algorithms )
+    config.autoload_paths += %W( #{config.root}/app/modules )
+    config.autoload_paths += %W( #{config.root}/app/algorithms )
   end
 end
 

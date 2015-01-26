@@ -1,6 +1,5 @@
 require 'uri'
 require "net/http"
-require 'pry'
 require 'json'
 
 module UberParser
