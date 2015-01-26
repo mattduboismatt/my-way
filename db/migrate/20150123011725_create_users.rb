@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :age
       t.string :username
       t.float :weather_multiplier
-      t.float :duration_multiplier
+      t.float :safety_multiplier
       t.float :distance_multiplier
       t.float :dollars_multiplier
 

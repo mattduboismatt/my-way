@@ -1,11 +1,5 @@
 require 'csv'
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
 
 CSV.foreach('./doc/cta_L_stops.csv',{headers:true, :header_converters => :symbol}) {|row| CtaTrainStop.create!(row.to_hash)}
 
@@ -52,24 +46,9 @@ Answer.create(question_id: 5, content: "I only own one pair of gym shoes.", dist
 Answer.create(question_id: 6, content: "immediately get out of bed.",                              distance_modifier: 0.06, dollars_modifier: 0.15, weather_modifier: 0.07, safety_modifier: 0.05)
 Answer.create(question_id: 6, content: "I hit the snooze, then get out of bed on the next alarm.", distance_modifier: 0.03, dollars_modifier: 0.05, weather_modifier: 0.035, safety_modifier: 0.025)
 Answer.create(question_id: 6, content: "I hit the snooze; I have 5 alarms set anyway.",            distance_modifier: -0.02, dollars_modifier: -0.05, weather_modifier: -0.02, safety_modifier: 0.1)
-Answer.create(question_id: 6, ontent: "I do not use an alarm.",                                    distance_modifier: -0.8, dollars_modifier: -0.1, weather_modifier: -0.06, safety_modifier: -0.1)
+Answer.create(question_id: 6, content: "I do not use an alarm.",                                    distance_modifier: -0.8, dollars_modifier: -0.1, weather_modifier: -0.06, safety_modifier: -0.1)
 
 Answer.create(question_id: 7, content: "in a small neighborhood.",             distance_modifier: -0.1, dollars_modifier: 0.01, weather_modifier: -0.01, safety_modifier: 0.05)
 Answer.create(question_id: 7, content: "on a busy street.",                    distance_modifier: 0.05, dollars_modifier: -0.01, weather_modifier: 0.06, safety_modifier: -0.01)
 Answer.create(question_id: 7, content: "in the heart of the city (downtown).", distance_modifier: 0.01, dollars_modifier: 0.05, weather_modifier: 0.1, safety_modifier: -0.06)
 Answer.create(question_id: 7, content: "in the suburbs.",                      distance_modifier: 0.07, dollars_modifier: 0.05, weather_modifier: -0.1, safety_modifier: 0.05)
-
-
-
-
-
-
-
-
-
-
-# Question.create(content: "apple jacks")
-# Question.create(content: "jack apples")
-# Answer.create(question_id: 2, content: "yes", weather_modifier: 2.0, dollars_modifier: 1.5, distance_modifier: 1.0, duration_modifier: 0.5)
-# UsersAnswer.create(answer_id: 1, user_id: 1)
-# UsersAnswer.create(answer_id: 2, user_id: 1)
