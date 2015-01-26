@@ -1,26 +1,26 @@
 
 <div id="navigation">
     <div id="logo">
-    <%= link_to image_tag("logo.png", size: '140x200',class: "logo_bar"), root_path %>
+      <i class="fa fa-cogs"></i>
   </div>
   <%= render 'layouts/flash' %>
 </div>
 
 <TABLE id="menu">
    <TR>
-      <TD><%= link_to "Home", root_path %></TD>
+      <TD><i class="fa fa-home"> </i><%= link_to "Home", root_path %></TD>
    </TR>
    <TR>
-      <TD><%= link_to "Logout", logout_path, method: :delete %></TD>
+      <TD></i> <%= link_to "Logout", logout_path, method: :delete %> <i class="fa fa-sign-out"></TD>
    </TR>
    <TR>
       <TD></TD>
    </TR>
    <TR>
-      <TD><%= link_to "Login", login_path %></TD>
+      <TD><i class="fa fa-sign-in"></i> <%= link_to "Login", login_path %></TD>
    </TR>
    <TR>
-      <TD><%= link_to "Register", new_user_path %></TD>
+      <TD><i class="fa fa-newspaper-o"></i> <%= link_to "Register", new_user_path %></TD>
    </TR>
 </TABLE>
 
