@@ -13,12 +13,13 @@ class Route
     @actual_cost = 0.to_f
   end
 
-  def calculate_and_set_all_exp(gr, forecast)
-    @distance_exp = DistanceAlgorithm.run(gr)
-    @duration_exp = DurationAlgorithm.run(gr)
-    @actual_cost = DollarsAlgorithm.actual_cost(gr)
-    @dollars_exp = DollarsAlgorithm.run(@actual_cost)
-    @weather_exp = WeatherAlgorithm.run(gr, forecast)
+  def calculate_and_set_all_exp(route_data, forecast)
+    @distance_exp = DistanceAlgorithm.run(route_data)
+    @duration_exp = DurationAlgorithm.run(route_data)
+    @actual_cost = DollarsAlgorithm.actual_cost(route_data)
+    @dollars_exp = DollarsAlgorithm.run(route_data, @actual_cost)
+    @weather_exp = WeatherAlgorithm.run(route_data, forecast)
+    @safety_exp = SafetyAlgorithm.run(route_data.travel_mode)
     self.set_total_exp
   end
 

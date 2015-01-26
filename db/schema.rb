@@ -87,16 +87,16 @@ ActiveRecord::Schema.define(version: 20150126172345) do
 
   create_table "routes", force: :cascade do |t|
     t.string   "travel_mode"
-    t.integer  "distance"
-    t.integer  "duration"
-    t.integer  "dollars"
-    t.integer  "weather"
-    t.integer  "comfort"
-    t.integer  "safety"
-    t.integer  "expected"
+    t.integer  "distance_exp"
+    t.integer  "duration_exp"
+    t.integer  "dollars_exp"
+    t.integer  "weather_exp"
+    t.integer  "safety_exp"
+    t.integer  "comfort_exp"
+    t.integer  "total_exp"
     t.integer  "trip_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "trips", force: :cascade do |t|
@@ -111,8 +111,12 @@ ActiveRecord::Schema.define(version: 20150126172345) do
     t.string   "password_digest"
     t.integer  "age"
     t.string   "username"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.float    "weather_multiplier"
+    t.float    "duration_multiplier"
+    t.float    "distance_multiplier"
+    t.float    "dollars_multiplier"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "users_answers", force: :cascade do |t|

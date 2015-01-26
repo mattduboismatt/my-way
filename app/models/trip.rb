@@ -6,6 +6,7 @@ class Trip < ActiveRecord::Base
   require './app/algorithms/distance.rb'
   require './app/algorithms/duration.rb'
   require './app/algorithms/weather.rb'
+  require './app/algorithms/safety.rb'
   require 'forecast_io'
 
 

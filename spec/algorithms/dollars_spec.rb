@@ -59,8 +59,8 @@ describe 'Dollars Algorithm' do
     it 'drive is $0.55 per mile plus min $4 parking' do
       expect(drive_cost).to be >= ((0.55*dist.to_f/1600)+4)
     end
-    it 'cab is $3.25 base plus $1.80 per mile plus $0.20 per 36 seconds' do
-      expect(cab_cost) == (3.25+(1.80*dist.to_f/1600)+(0.2*dur.to_f/36)).round(2)
+    it 'cab is $3.25 base plus $1.80 per mile plus $0.20 per 36 seconds plus 15% tip' do
+      expect(cab_cost) == ((3.25+(1.80*dist.to_f/1600)+(0.2*dur.to_f/36))*1.15).round(2)
     end
     it 'uber is average of high estimate and low estimate' do
       expect(uber_cost) == (high_est + low_est)/2
