@@ -1,6 +1,6 @@
 module WeatherAlgorithm
-  def self.run(route)
-    Weather.new(route).score
+  def self.run(route, forecast)
+    Weather.new(route, forecast).score
   end
 end
 
@@ -8,11 +8,11 @@ class Weather
   require './app/lib/modules/darksky/darksky.rb'
   require 'forecast_io'
 
-  def initialize(route)
+  def initialize(route, forecast)
     @origin = route.origin || nil
     @destination = route.destination || nil
     @mode = route.travel_mode
-    @forecast = Forecast.new({ "lat"=> @origin["lat"], "lng"=> @origin["lng"] })
+    @forecast = forecast
   end
 
   def score
@@ -27,7 +27,7 @@ class Weather
   end
 
   def app_temp_score
-    return @mode == "bicycling" || @mode == "walking" ? walk_bike_app_temp_score : 90
+    return @mode == "bicycling" || @mode == "walking" || @mode == "divvy" ? walk_bike_app_temp_score : 90
   end
 
   def wind_speed_score
@@ -75,7 +75,7 @@ class Weather
 
   def wind_bearing_score
     bearing_score = (bearing_difference.to_f/180.0).round(3)
-    return @mode == "walking" || @mode == "bicycling" ? bearing_score : 1.0
+    return @mode == "walking" || @mode == "bicycling" || @mode == "divvy" ? bearing_score : 1.0
   end
 
   def wind_speed_stored_scores

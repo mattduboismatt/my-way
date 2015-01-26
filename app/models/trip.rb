@@ -5,6 +5,7 @@ class Trip < ActiveRecord::Base
   require './app/lib/algorithms/distance.rb'
   require './app/lib/algorithms/duration.rb'
   require './app/lib/algorithms/weather_algorithm.rb'
+  require './app/lib/modules/darksky/darksky.rb'
 
 
   belongs_to :user
@@ -26,39 +27,41 @@ class Trip < ActiveRecord::Base
 
   def generate_and_score_routes
     routes = []
-    self.google_routes.each do |gr|
+    g_routes = self.google_routes
+    forecast = Forecast.new(g_routes[0].origin)
+    g_routes.each do |gr|
       puts gr.travel_mode
       if gr.travel_mode == 'driving'
         # binding.pry
         #setup and shovel in driving route and uber route and cab route
         r = Route.new(travel_mode: gr.travel_mode)
-        r.calculate_and_set_all_exp(gr)
+        r.calculate_and_set_all_exp(gr, forecast)
         routes << r
 
         uber_r = Route.new(travel_mode: 'uber')
         uber = UberParser.run(gr)
-        uber_r.calculate_and_set_all_exp(uber)
+        uber_r.calculate_and_set_all_exp(uber, forecast)
         routes << uber_r
 
         cab_r = Route.new(travel_mode: 'cab')
         gr.travel_mode = cab_r.travel_mode
-        cab_r.calculate_and_set_all_exp(gr)
+        cab_r.calculate_and_set_all_exp(gr, forecast)
         routes << cab_r
 
       elsif gr.travel_mode == 'bicycling'
         #setup and shovel in bicycling and divvy route
         r = Route.new(travel_mode: gr.travel_mode)
-        r.calculate_and_set_all_exp(gr)
+        r.calculate_and_set_all_exp(gr, forecast)
         routes << r
 
         divvy_r = Route.new(travel_mode: 'divvy')
         gr.travel_mode = 'divvy'
-        divvy_r.calculate_and_set_all_exp(gr)
+        divvy_r.calculate_and_set_all_exp(gr, forecast)
         routes << divvy_r
 
       else # subway, bus, walking
         r = Route.new(travel_mode: gr.travel_mode)
-        r.calculate_and_set_all_exp(gr)
+        r.calculate_and_set_all_exp(gr, forecast)
         routes << r
       end
     end
