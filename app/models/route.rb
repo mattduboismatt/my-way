@@ -51,8 +51,8 @@ class Route
 
   def self.cab(route, uber_res, forecast)
     cab_route = Route.new(travel_mode: 'cab')
-    cab_route.wait_time = (uber_res.wait_time)*2
     route.travel_mode = 'cab'
+    route.wait_time = (uber_res.wait_time)*2
     uber.calculate_and_set_all_exp(route, forecast)
   end
 

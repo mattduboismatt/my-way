@@ -31,8 +31,8 @@ class Trip < ActiveRecord::Base
     g_routes = self.google_routes
     forecast = Forecast.new(g_routes[0].origin)
     g_routes.each do |gr|
-      routes << *RouteFactory.for(gr)
-      puts gr.travel_mode
+      # routes << *RouteFactory.for(gr)
+      # puts gr.travel_mode
       if gr.travel_mode == 'driving'
         #setup and shovel in driving route and uber route and cab route
         routes << Route.google_driving(gr, forecast)
