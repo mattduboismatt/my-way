@@ -1,1 +1,0 @@
-duration_spec.rb
