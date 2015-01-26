@@ -2,7 +2,7 @@ module DollarsAlgorithm
   def self.actual_cost(route)
     mode = route.travel_mode
     distance = route.distance.to_f / 1600
-    duration = route.duration
+    duration = route.duration.to_f
     actual_cost = 0.to_f
 
     case mode
