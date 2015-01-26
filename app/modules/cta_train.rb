@@ -1,10 +1,3 @@
-require 'uri'
-require "net/http"
-require 'nokogiri'
-require 'date'
-require 'time'
-require 'open-uri'
-
 module CTATrainParser
 
   def self.generate_arrivals_objects(stop_id)

@@ -1,7 +1,3 @@
-require 'uri'
-require "net/http"
-require 'json'
-
 module UberParser
 
   def self.run(route)

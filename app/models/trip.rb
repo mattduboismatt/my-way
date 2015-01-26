@@ -1,11 +1,11 @@
 class Trip < ActiveRecord::Base
   require './app/modules/google_maps.rb'
   require './app/modules/uber.rb'
+  require './app/modules/darksky.rb'
   require './app/algorithms/dollars.rb'
   require './app/algorithms/distance.rb'
   require './app/algorithms/duration.rb'
   require './app/algorithms/weather.rb'
-  require './app/modules/darksky.rb'
   require 'forecast_io'
 
 

@@ -1,8 +1,3 @@
-require 'json'
-require 'uri'
-require 'securerandom'
-require 'net/http'
-
 module GoogleMaps
 
   def self.run(trip)
