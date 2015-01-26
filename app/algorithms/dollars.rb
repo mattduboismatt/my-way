@@ -24,33 +24,31 @@ module DollarsAlgorithm
       base_cost = 3.25
       mile_cost = distance * 1.80
       time_cost = (duration/36) * 0.2
-      actual_cost = base_cost + mile_cost + time_cost
+      actual_cost = (base_cost + mile_cost + time_cost)*1.15
     end
     actual_cost = actual_cost.round(2)
     actual_cost
   end
 
   def self.run(actual_cost, route)
-    dollars_exp = (100 - (actual_cost * 5)).to_i
-
+    mode = route.travel_mode
+    duration = route.duration.to_f
+    dollars_exp = 100
     case mode
     when 'driving'
-      duration = route.duration
       dollars_exp = (100 - (actual_cost * 5)).to_i
     when 'subway'
-      duration = route.duration
       dollars_exp = (100 - (actual_cost * 5)).to_i
     when 'bus'
-      duration = route.duration
       dollars_exp = (100 - (actual_cost * 5)).to_i
     when 'uber'
-      duration = route.duration + route.wait_time
+      duration = duration + route.wait_time
       dollars_exp = (100 - (actual_cost * 5)).to_i
     when 'divvy'
-      duration = route.duration +
+      duration = duration + 120
       dollars_exp = (100 - (actual_cost * 5)).to_i
     when 'cab'
-      duration = route.duration + route.wait_time
+      duration = duration + route.wait_time
       dollars_exp = (100 - (actual_cost * 5)).to_i
     end
     dollars_exp > 0 ? dollars_exp : 0
