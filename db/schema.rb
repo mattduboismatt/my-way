@@ -97,8 +97,12 @@ ActiveRecord::Schema.define(version: 20150126172345) do
     t.string   "password_digest"
     t.integer  "age"
     t.string   "username"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.float    "weather_multiplier"
+    t.float    "duration_multiplier"
+    t.float    "distance_multiplier"
+    t.float    "dollars_multiplier"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "users_answers", force: :cascade do |t|
