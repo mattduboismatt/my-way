@@ -32,7 +32,7 @@ class Weather
 
   def wind_speed_score
     wind_score = wind_speed_stored_scores[@mode]
-    score= wind_score <= 60 ? (wind_score * wind_bearing_score) : wind_score
+    score= wind_score <= 60 || @forecast.current_apparent_temp <= 35 ? (wind_score * wind_bearing_score) : wind_score
     score.to_i
   end
 
