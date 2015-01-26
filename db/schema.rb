@@ -85,6 +85,20 @@ ActiveRecord::Schema.define(version: 20150126172345) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "routes", force: :cascade do |t|
+    t.string   "travel_mode"
+    t.integer  "distance"
+    t.integer  "duration"
+    t.integer  "dollars"
+    t.integer  "weather"
+    t.integer  "comfort"
+    t.integer  "safety"
+    t.integer  "expected"
+    t.integer  "trip_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "trips", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
