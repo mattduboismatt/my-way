@@ -30,7 +30,7 @@ module DollarsAlgorithm
     actual_cost
   end
 
-  def self.run(actual_cost, route)
+  def self.run(route, actual_cost)
     mode = route.travel_mode
     duration = route.duration.to_f
     dollars_exp = 100
