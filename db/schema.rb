@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125201138) do
+ActiveRecord::Schema.define(version: 20150126172345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "question_id"
+    t.text     "content"
+    t.float    "weather_modifier"
+    t.float    "duration_modifier"
+    t.float    "distance_modifier"
+    t.float    "dollars_modifier"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "cta_train_stops", force: :cascade do |t|
     t.integer  "stop_id"
@@ -68,18 +79,10 @@ ActiveRecord::Schema.define(version: 20150125201138) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "routes", force: :cascade do |t|
-    t.string   "travel_mode"
-    t.integer  "distance_exp"
-    t.integer  "duration_exp"
-    t.integer  "dollars_exp"
-    t.integer  "weather_exp"
-    t.integer  "safety_exp"
-    t.integer  "comfort_exp"
-    t.integer  "total_exp"
-    t.integer  "trip_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "questions", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trips", force: :cascade do |t|
@@ -96,6 +99,13 @@ ActiveRecord::Schema.define(version: 20150125201138) do
     t.string   "username"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "users_answers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
