@@ -36,7 +36,7 @@ module ApplicationHelper
     # when "cab"
     #   "fa fa-taxi"
     # end
-    "comgooglemaps://?saddr=#{trip.origin.address}&daddr#{trip.destination.address}&directionsmode:driving"
+    "comgooglemaps://?saddr=#{trip.origin.address}&daddr=#{trip.destination.address}&directionsmode:driving"
   end
 
 end
