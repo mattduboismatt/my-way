@@ -15,7 +15,6 @@ class Route
 
   def calculate_and_set_all_exp(route_data, forecast)
     @distance_exp = DistanceAlgorithm.run(route_data)
-    @duration_exp = DurationAlgorithm.run(route_data)
     @actual_cost = DollarsAlgorithm.actual_cost(route_data)
     @dollars_exp = DollarsAlgorithm.run(route_data, @actual_cost)
     @weather_exp = WeatherAlgorithm.run(route_data, forecast)
