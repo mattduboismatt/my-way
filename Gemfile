@@ -13,6 +13,7 @@ gem 'rspec-rails', group: [:test, :development]
 gem 'awesome_print', group: [:test, :development]
 gem 'require_all'
 gem 'simplecov', :require => false, :group => :test
+gem 'responders', '~> 2.0'
 
 #CTA Train Gems
 gem 'nokogiri'

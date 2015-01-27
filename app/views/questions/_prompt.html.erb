@@ -4,7 +4,7 @@
   </div>
   <% @question.answers.each do |answer| %>
     <div>
-      <%= submit_tag answer.content %>
+      <%= submit_tag answer.content, name: 'content', class: 'answer' %>
     </div>
   <% end %>
 <% end %>
