@@ -17,3 +17,4 @@
 /lib/modules/.DS_Store
 /app/.DS_Store
 coverage
+app/views/users/.DS_Store
