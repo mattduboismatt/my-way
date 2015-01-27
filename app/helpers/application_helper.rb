@@ -9,4 +9,20 @@ module ApplicationHelper
     end
     display_routes
   end
+
+  def sym_placer(r)
+    case r.travel_mode
+    when "bus"
+      "fa fa-bus"
+    when "subway"
+      "fa fa-subway"
+    when "walking"
+      "fa fa-bus"
+    when "bus"
+      "fa fa-bus"
+    when "bus"
+      "fa fa-bus"
+  end
+end
+
 end

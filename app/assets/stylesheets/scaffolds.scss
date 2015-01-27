@@ -183,8 +183,11 @@ margin-top: 25%;
 
 
 #logo {
+  position: fixed;
   float: left;
   color:white;
+  height: 100%;
+  width:15%;
   font-size: 18vw;
   margin-left: 1%;
 
@@ -195,6 +198,9 @@ margin-top: 25%;
   text-align: center;
   margin-left: 3%;
   margin-top: 24%;
+}
+#show-more{
+
 }
 
 #menu a:link{
@@ -247,9 +253,20 @@ font-size: 200%;
   font-size: 400%;
   color: white;
 }
-.hidden {
-  visibility: hidden;
+
+.results TD {
+  text-align: center;
+  font-size: 500%;
+  border: 3px white solid;
+  width: 900px;
+  height: 225px;
+  -webkit-box-shadow: 0px 0px 8px 0px #000000;
+  -moz-box-shadow: 0px 0px 8px 0px #000000;
+  box-shadow: 0px 0px 8px 0px #000000;
+  background-color: rgba(1, 1, 1, 0.8);
+  color: white;
 }
+
 
   @import "font-awesome-sprockets";
   @import "font-awesome";

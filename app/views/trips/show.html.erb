@@ -1,9 +1,10 @@
 <div id="show">
-<p><strong>Origin: </strong><%= @trip.origin.address %></p>
-<p><strong>Destination: </strong><%= @trip.destination.address %></p>
-<p><strong>Routes: </p>
-<table>
-  <thead>
+  <p><strong>Origin: </strong><%= @trip.origin.address %></p>
+  <p><strong>Destination: </strong><%= @trip.destination.address %></p>
+  <p><strong>Routes: </p>
+  <div class="results">
+    <table>
+<!--   <thead>
     <tr>
       <th>Travel Mode</th>
       <th>Distance EXP</th>
@@ -13,24 +14,30 @@
       <th>Weather EXP</th>
       <th>Total EXP</th>
     </tr>
-  </thead>
+  </thead> -->
   <tbody>
     <% method_limiter(@routes).each_with_index do |r,i| %>
-      <% if i <= 2 %>
-        <tr class='visible'>
+    <% if i <= 2 %>
+    <tr class='visible'>
       <% else %>
-        <tr class='hidden'>
-      <% end %>
-        <td><%= r.travel_mode %></td>
-        <td><%= r.distance_exp %></td>
+      <tr class='hidden'>
+        <% end %>
+        <td><%=r.travel_mode %></td>
+ <!--        <td><%= r.distance_exp %></td>
         <td><%= r.safety_exp %></td>
         <td><%= r.dollars_exp %></td>
         <td>$<%= r.actual_cost %></td>
         <td><%= r.weather_exp %></td>
-        <td><%= r.total_exp %></td>
+        <td><%= r.total_exp %></td> -->
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to "more" %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
+<div id= 'show-more'>
+  <%= link_to "more" %>
+</div>
+
+</div >
+
+

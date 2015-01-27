@@ -16,10 +16,16 @@
 $(document).ready(function () {
 
   $('#menu').hide();
+  $('.hidden').hide();
 
   $('#logo').on('click', function(){
     $('#menu').fadeToggle();
     $('#trip').fadeToggle();
+  });
+
+  $('#show-more').on('click',function(e){
+    e.preventDefault();
+    $('.hidden').fadeToggle();
   });
 
 
