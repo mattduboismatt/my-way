@@ -21,4 +21,21 @@ module ApplicationHelper
     end
   end
 
+  def app_link(trip,route)
+    case route.travel_mode
+
+    when "bus", "subway"
+      "comgooglemaps://?saddr=#{trip.origin.address}&daddr=#{trip.destination.address}&directionsmode=transit"
+    when "walking"
+      "comgooglemaps://?saddr=#{trip.origin.address}&daddr=#{trip.destination.address}&directionsmode=walking"
+    when "driving"
+      "comgooglemaps://?saddr=#{trip.origin.address}&daddr=#{trip.destination.address}&directionsmode=driving"
+    when"uber"
+      "uber://?action=setPickup&pickup=my_location&product_id=uberX"
+    when 'bicycling', 'divvy'
+      "comgooglemaps://?saddr=#{trip.origin.address}&daddr=#{trip.destination.address}&directionsmode=bicycling"
+    when "cab"
+     "uber://?action=setPickup&pickup=my_location&product_id=uberTAXI"
+   end
+ end
 end
