@@ -35,8 +35,9 @@ module DollarsAlgorithm
     duration = route.duration.to_f/60
     dollars_exp = 100
     case mode
+
     when 'driving'
-      dollars_exp = (100 - ((actual_cost/(duration) * 100)).to_i
+      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
     when 'subway'
       dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
     when 'bus'
@@ -53,5 +54,6 @@ module DollarsAlgorithm
     end
     dollars_exp > 0 ? dollars_exp : 0
   end
+
 end
 
