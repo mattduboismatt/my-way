@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = 'Registered successfully'
-      redirect_to root_path
+      redirect_to user_question_path(user_id: current_user.id, id: 1)
     else
       flash[:notice] = 'Registration failed'
       render :new
