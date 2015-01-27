@@ -1,19 +1,21 @@
 $(document).ready(function () {
 
-  $('.answer').on('click', function(e){
+  $('#question-form-container').on('click', '.survey-question-form', function(e){
     e.preventDefault();
-    // debugger
+    var url = $(this).attr("action");
     var request = $.ajax({
-      url: '/users/25/answers',
+      url: url,
       method: 'post',
       dataType: 'json',
-      data: {content: this.value}
+      data: $(this).serialize() + "&content=" + escape($(e.target).val())
     });
     // debugger
 
-    request.done(function(response){
-      console.log('made it')
+    request.success(function(response){
+      $('#question-form-container').html(response.question_html);
     });
+
+
   });
 
 });
