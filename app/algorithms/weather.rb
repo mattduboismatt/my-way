@@ -1,23 +1,37 @@
 module WeatherAlgorithm
   def self.run(route, forecast)
-    Weather.new(route, forecast).score
+    Weather.new(route, forecast).splitter
   end
 end
 
 class Weather
   require './app/modules/darksky.rb'
   require 'forecast_io'
-
+  attr_accessor :route, :origin, :destination, :forecast, :mode
   def initialize(route, forecast)
+    @route = route
     @origin = route.origin || nil
     @destination = route.destination || nil
-    @mode = route.travel_mode
     @forecast = forecast
+    @mode = mode_assigner
+  end
+
+  def splitter
+    return transit_score if @mode == "bus" || @mode == "subway"
+    return score
   end
 
   def score
     (precip_score+app_temp_score+wind_speed_score)/3
   end
+
+  def transit_score
+    steps = @route.steps
+    total_duration = steps.map{|step|step.duration}.reduce(:+)
+    steps_scores = steps.map{|step| (Weather.new(step, @forecast).score * (step.duration.to_f/total_duration.to_f)).to_i}
+    steps_scores.reduce(:+)
+  end
+
 
 
 
@@ -36,6 +50,19 @@ class Weather
     score.to_i
   end
 
+
+
+  def transit_mode_type?
+    @route.methods.include?(:transit_mode_type)
+  end
+
+  def transit_mode_splitter
+    @route.transit_mode_type || @route.travel_mode
+  end
+
+  def mode_assigner
+    transit_mode_type? ? transit_mode_splitter : @route.travel_mode
+  end
 
 
 

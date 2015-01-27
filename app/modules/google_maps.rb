@@ -76,18 +76,24 @@ class GoogleRoute < GoogleThing
 
   def initialize(route_data, a, b)
     super
+    @origin = a
+    @destination = b
     @distance = route_data['distance']['value'] # in meters!!!
     @duration = route_data['duration']['value'] # in seconds!!!
     @steps = []
-    route_data['steps'].each {|s| add_step(s)}
+    route_data['steps'].each {|s| add_step(update_step_data(s))}
     @travel_mode = self.set_travel_mode
-    @origin = a
-    @destination = b
     @wait_time = 0
   end
 
   def add_step(step_data)
     @steps << GoogleStep.new(step_data)
+  end
+
+  def update_step_data(s)
+    s['origin'] = @origin
+    s['destination'] = @destination
+    s
   end
 
   def set_travel_mode
@@ -110,10 +116,12 @@ class GoogleRoute < GoogleThing
 end
 
 class GoogleStep < GoogleThing
-  attr_reader :distance, :duration, :travel_mode, :transit_stop_name, :transit_mode_type
+  attr_reader :distance, :duration, :travel_mode, :transit_stop_name, :transit_mode_type, :origin, :destination
 
   def initialize(step_data)
     super
+    @origin = step_data['origin']
+    @destination = step_data['destination']
     @distance = step_data['distance']['value'] # in meters!!!
     @duration = step_data['duration']['value'] # in seconds!!!
     @travel_mode = step_data['travel_mode'].strip.downcase
