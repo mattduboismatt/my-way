@@ -38,9 +38,4 @@ describe 'Route' do
     expect(route.duration).to eq(0.0)
   end
 
-  it 'set_weighted_exp should be 0.0' do
-    route.set_weighted_exp
-    expect(route.actual_cost).to eq(0.0)
-  end
-
 end

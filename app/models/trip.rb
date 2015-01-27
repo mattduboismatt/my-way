@@ -26,7 +26,7 @@ class Trip < ActiveRecord::Base
     GoogleMaps.run(self)
   end
 
-  def generate_and_score_routes
+  def generate_and_score_routes(current_user)
     routes = []
     g_routes = self.google_routes
     forecast = Forecast.new(g_routes[0].origin)
@@ -44,6 +44,7 @@ class Trip < ActiveRecord::Base
       end
     end
     routes.flatten!
+    routes.each{ |r| r.apply_user_weightings(current_user) }
     routes.sort_by { |r| r.weighted_exp * -1 }
   end
 end

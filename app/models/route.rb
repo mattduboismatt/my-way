@@ -13,17 +13,27 @@ class Route
     @duration = 0
   end
 
+  def apply_user_weightings(user)
+    if user
+      distance_multiplier = user.distance_multiplier
+      dollars_multiplier = user.dollars_multiplier
+      weather_multiplier = user.weather_multiplier
+      safety_multiplier = user.safety_multiplier
+    else
+      distance_multiplier = 1.0
+      dollars_multiplier = 1.0
+      weather_multiplier = 1.0
+      safety_multiplier = 1.0
+    end
+    @weighted_exp = (distance_multiplier*@distance_exp) + (dollars_multiplier*@dollars_exp) + (weather_multiplier*@weather_exp) + (safety_multiplier*@safety_exp)
+  end
+
   def calculate_and_set_all_exp(route_data, forecast)
     @distance_exp = DistanceAlgorithm.run(route_data)
     @actual_cost = DollarsAlgorithm.actual_cost(route_data)
     @dollars_exp = DollarsAlgorithm.run(route_data, @actual_cost)
     @weather_exp = WeatherAlgorithm.run(route_data, forecast)
     @safety_exp = SafetyAlgorithm.run(route_data.travel_mode)
-    self.set_weighted_exp
-  end
-
-  def set_weighted_exp
-    @weighted_exp = @distance_exp + @dollars_exp + @weather_exp + @safety_exp
   end
 
   def self.google_driving(route, forecast)
