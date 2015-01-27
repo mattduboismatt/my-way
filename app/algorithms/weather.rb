@@ -54,17 +54,23 @@ class Weather
     return 0
   end
 
-  def walk_bike_precip_score
+  def walk_precip_score
     p_score = @forecast.next_hour_precip_intensity
     reverse_p_score = 100 - 100*(p_score.to_f/50.0)
     return p_score < 50 ? reverse_p_score.to_i : 0
   end
 
+  def bike_precip_score
+    p_score = @forecast.next_hour_precip_intensity
+    reverse_p_score = 100 - 100*(p_score.to_f/40.0)
+    return p_score < 40 ? reverse_p_score.to_i : 0
+  end
+
   def precip_stored_scores
     {
-      "walking" => walk_bike_precip_score,
-      "bicycling" => walk_bike_precip_score,
-      "divvy" => walk_bike_precip_score,
+      "walking" => walk_precip_score,
+      "bicycling" => bike_precip_score,
+      "divvy" => bike_precip_score,
       "driving" => driving_precip_score,
       "bus" => driving_precip_score,
       "subway" => driving_precip_score,

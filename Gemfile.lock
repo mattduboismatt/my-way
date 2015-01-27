@@ -259,6 +259,7 @@ DEPENDENCIES
   forecast_io
   foreman
   geocoder
+  hashie
   jbuilder (~> 2.0)
   jquery-rails
   newrelic_rpm

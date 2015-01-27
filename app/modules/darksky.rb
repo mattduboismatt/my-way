@@ -4,7 +4,10 @@ end
 
 
 class Forecast
-  attr_reader :forecast, :lat, :long
+
+  attr_accessor :forecast
+  attr_reader :lat, :long
+
   def initialize(args)
     @lat = args["lat"]
     @lng = args["lng"]
