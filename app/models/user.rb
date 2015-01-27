@@ -32,25 +32,25 @@ class User < ActiveRecord::Base
   def modify_weather_multiplier
     weather_sum = self.answers.map{|answer| answer.weather_modifier}.reduce(:+)
     modification = self.weather_multiplier + weather_sum
-    self.update_attributes(weather_multiplier: modification)
+    self.update_attributes(weather_multiplier: modification.round(3))
   end
 
   def modify_dollars_multiplier
     dollars_sum = self.answers.map{|answer| answer.dollars_modifier}.reduce(:+)
     modification = self.dollars_multiplier + dollars_sum
-    self.update_attributes(dollars_multiplier: modification)
+    self.update_attributes(dollars_multiplier: modification.round(3))
   end
 
   def modify_distance_multiplier
     distance_sum = self.answers.map{|answer| answer.distance_modifier}.reduce(:+)
     modification = self.distance_multiplier + distance_sum
-    self.update_attributes(distance_multiplier: modification)
+    self.update_attributes(distance_multiplier: modification.round(3))
   end
 
   def modify_safety_multiplier
     safety_sum = self.answers.map{|answer| answer.safety_modifier}.reduce(:+)
     modification = self.safety_multiplier + safety_sum
-    self.update_attributes(safety_multiplier: modification)
+    self.update_attributes(safety_multiplier: modification.round(3))
   end
 
 end
