@@ -14,8 +14,7 @@
           <tr class='hidden'>
           <% end %>
             <td id = "choice-<%= i %>">
-              <%= link_to("comgooglemaps://?saddr=Google+Inc,+8th+Avenue,+New+York,+NY&daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York&directionsmode=transit
-") do%> $<%= r.actual_cost%> <%= r.duration/60%>min <i class= "<%=sym_placer(r)%>" ></i>
+              <%= link_to(app_link(@trip,r)) do%> $<%= r.actual_cost%> <%= r.duration/60%>min <i class= "<%=sym_placer(r)%>" ></i>
               <% end %>
             </td>
           </tr>
