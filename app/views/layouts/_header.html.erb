@@ -1,14 +1,14 @@
 
 <div id="navigation">
-    <div id="logo">
-      <%= image_tag("logo.png", size: "150x190")%>
+  <div id="logo">
+      <%= image_tag("logo.png")%>
   </div>
   <div id="logged">
     <%if current_user%>
       <p>"Hi #{current_user.name}! It is currently #{weather}&deg;."</p>
-     <% else %>
+    <% else %>
       <%= link_to "Not logged? Login now!", login_path %>
-    <% end %>
+  <% end %>
   </div>
   <%= render 'layouts/flash' %>
 </div>

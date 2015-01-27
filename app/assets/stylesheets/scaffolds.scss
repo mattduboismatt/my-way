@@ -1,11 +1,7 @@
 
 
 .container {
-    margin-left:auto;
-    margin-right:auto;
-    width:100%;
-    height: 100%;
-}
+  }
 
 body {
   background: url('chicago.png') no-repeat center center fixed;
@@ -17,6 +13,8 @@ body {
   font-size: 13px;
   line-height: 18px;
   padding: 0;
+  width: 720px;
+  height: 1000px;
   margin: 0;
 }
 
@@ -83,46 +81,35 @@ position: fixed;
 top: 0;
 width: 100%;
 color: #ffffff;
-height: 14%;
+height: 15%;
 text-align: center;
 padding-top: 15px;
 background-color: rgba(1, 1, 1, 0.8);
 color: rgba(1, 1, 1, 0.8);
 }
 
+
 form input {
-  width: 85%;
-  height: 120px;
+  width: 90%;
+  height: 70px;
   font-size: 45px;
 
 }
 
 
-
-#navigation a {
-font-size: 14px;
-padding-left: 15px;
-padding-right: 15px;
-color: #D3D3D3;
-text-decoration: none;
-}
-
-/*#navigation img{
-  max-width: 100%;
-  height: 100%;
-  width: 100%;
-}*/
-
-#navigation a:link {
+#logged a:link {
   font-size: 5vw;
   float: right;
-  margin-top: 13%;
-}
+  height: auto;
+  position: relative;
+  text-decoration: none;
+  margin-top: 2vw;
 
-#navigation ul {
-  list-style-type: none;
-  float: right;
-  display: block;
+}
+#navigation img {
+position: fixed;
+max-height:14%;
+padding-left: 5px;
 }
 
 #show {
@@ -150,6 +137,16 @@ margin-right: auto;
 margin-top: 50%;
 }
 
+.trip form {
+height: 26%;
+width: 90%;
+position: fixed;
+color: #ffffff;
+text-align: center;
+margin-left: 5%;
+margin-right: auto;
+}
+
 .create_user {
 height: 78%;
 width: 90%;
@@ -168,10 +165,6 @@ margin-top: 27%;
   float: left;
   color:#D3D3D3;
   height: 100%;
-  width:15%;
-  font-size: 18vw;
-  margin-left: 1%;
-
 }
 
 #menu {
@@ -212,20 +205,6 @@ input[type=submit] {
 
 }
 
-
-logged {
-float: right;
-}
-
-logged a:link {
-font-size: 200%;
-font-family: 'Gloria Hallelujah', cursive;
-}
-
-.formt {
-  font-size: 400%;
-  color: #D3D3D3;
-}
 
 .results TD {
   text-align: center;
