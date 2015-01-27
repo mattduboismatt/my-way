@@ -1,36 +1,29 @@
 <div id="show">
-<p><strong>Origin: </strong><%= @trip.origin.address %></p>
-<p><strong>Destination: </strong><%= @trip.destination.address %></p>
-<p><strong>Routes: </p>
-<table>
-  <thead>
-    <tr>
-      <th>Travel Mode</th>
-      <th>Distance EXP</th>
-      <th>Safety EXP</th>
-      <th>Dollars EXP</th>
-      <th>Actual Cost</th>
-      <th>Weather EXP</th>
-      <th>Total EXP</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @routes.each_with_index do |r,i| %>
-      <% if i <= 2 %>
-        <tr class='visible'>
+  <p><strong>Origin: </strong><%= @trip.origin.address %></p>
+  <p><strong>Destination: </strong><%= @trip.destination.address %></p>
+  <p>Routes: </p>
+  <div class="results">
+    <div id="accordion">
+    <% method_limiter(@routes).each_with_index do |r,i| %>
+    <% if i <= 2 %>
+    <h3 class='visible' id="<%= i %>">
       <% else %>
-        <tr class='hidden'>
-      <% end %>
-        <td><%= r.travel_mode %></td>
-        <td><%= r.distance_exp %></td>
-        <td><%= r.safety_exp %></td>
-        <td><%= r.dollars_exp %></td>
-        <td>$<%= r.actual_cost %></td>
-        <td><%= r.weather_exp %></td>
-        <td><%= r.total_exp %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to "more" %>
-</div>
+      <h3 class='hidden' id="<%= i %>">
+        <% end %>
+      <i class= "<%=sym_placer(r)%>" ></i> <%=r.travel_mode %></h3>
+        <div>
+          <%= r.distance_exp %>
+          <%= r.safety_exp %>
+          <%= r.dollars_exp %>
+          <%= r.actual_cost %>
+          <%= r.weather_exp %>
+          <%= r.total_exp %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+    <div id= 'show-more'>
+      <%= link_to "more" %>
+    </div>
+  </div>
+</div >

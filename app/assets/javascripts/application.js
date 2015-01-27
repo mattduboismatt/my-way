@@ -12,14 +12,31 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require_tree .
 $(document).ready(function () {
 
+
+  $(function() {
+    $( "#accordion" ).accordion({
+       header: "h3",
+       collapsible: true,
+       active: false
+    });
+  });
+
+
   $('#menu').hide();
+  $('.hidden').hide();
 
   $('#logo').on('click', function(){
     $('#menu').fadeToggle();
     $('#trip').fadeToggle();
+  });
+
+  $('#show-more').on('click',function(e){
+    e.preventDefault();
+    $('.hidden').fadeToggle();
   });
 
 

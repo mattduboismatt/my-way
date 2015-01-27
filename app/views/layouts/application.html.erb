@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>MyWay</title>
 </head>
 <body>
@@ -12,6 +13,9 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "jquery.ui.core.min" %>
+  <%= javascript_include_tag "jquery.ui.widget.min" %>
+  <%= javascript_include_tag "jquery.effects.core" %>
   <meta name="viewport" content="user-scalable = yes">
   <script>
   var x = document.getElementById("origin");
