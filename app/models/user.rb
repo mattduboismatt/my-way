@@ -32,29 +32,39 @@ class User < ActiveRecord::Base
   end
 
   def modify_weather_multiplier
-    # puts self.weather_multiplier
-    weather_sum = self.answers.map{|answer| answer.weather_modifier}.reduce(:+)
-    modification = 1 + weather_sum
-    self.assign_attributes({weather_multiplier: modification.round(3)})
-    # puts self.weather_multiplier
+    weather_sum = self.answers.map{|a| a.weather_modifier}.reduce(:+)
+    mod = 1 + weather_sum
+    if mod < 0.2
+      mod = 0.2
+    end
+    self.weather_multiplier = mod.round(3)
   end
 
   def modify_dollars_multiplier
-    dollars_sum = self.answers.map{|answer| answer.dollars_modifier}.reduce(:+)
-    modification = 1 + dollars_sum
-    self.update_attributes(dollars_multiplier: modification.round(3))
+    dollars_sum = self.answers.map{|a| a.dollars_modifier}.reduce(:+)
+    mod = 1 + dollars_sum
+    if mod < 0.2
+      mod = 0.2
+    end
+    self.dollars_multiplier = mod.round(3)
   end
 
   def modify_distance_multiplier
-    distance_sum = self.answers.map{|answer| answer.distance_modifier}.reduce(:+)
-    modification = 1 + distance_sum
-    self.update_attributes(distance_multiplier: modification.round(3))
+    distance_sum = self.answers.map{|a| a.distance_modifier}.reduce(:+)
+    mod = 1 + distance_sum
+    if mod < 0.2
+      mod = 0.2
+    end
+    self.distance_multiplier = mod.round(3)
   end
 
   def modify_safety_multiplier
-    safety_sum = self.answers.map{|answer| answer.safety_modifier}.reduce(:+)
-    modification = 1 + safety_sum
-    self.update_attributes(safety_multiplier: modification.round(3))
+    safety_sum = self.answers.map{|a| a.safety_modifier}.reduce(:+)
+    mod = 1 + safety_sum
+    if mod < 0.2
+      mod = 0.2
+    end
+    self.safety_multiplier = mod.round(3)
   end
 
 end
