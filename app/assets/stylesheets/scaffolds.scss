@@ -1,7 +1,10 @@
-container {
+
+
+.container {
     margin-left:auto;
     margin-right:auto;
-    width:750px;
+    width:100%;
+    height: 100%;
 }
 
 body {
@@ -80,7 +83,7 @@ position: fixed;
 top: 0;
 width: 100%;
 color: #ffffff;
-height: 12%;
+height: 14%;
 text-align: center;
 padding-top: 15px;
 background-color: rgba(1, 1, 1, 0.8);
@@ -175,7 +178,7 @@ margin-top: 27%;
   color: #D3D3D3;
   text-align: center;
   margin-left: 3%;
-  margin-top: 24%;
+  margin-top: 27%;
 }
 
 #show-more{
@@ -216,6 +219,7 @@ float: right;
 
 logged a:link {
 font-size: 200%;
+font-family: 'Gloria Hallelujah', cursive;
 }
 
 .formt {
@@ -236,3 +240,4 @@ font-size: 200%;
 
   @import "font-awesome-sprockets";
   @import "font-awesome";
+
