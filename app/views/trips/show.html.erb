@@ -1,7 +1,9 @@
 <div id="show">
-  <p><strong>Origin: </strong><%= @trip.origin.address %></p>
-  <p><strong>Destination: </strong><%= @trip.destination.address %></p>
-  <p>Routes: </p>
+  <div id= 'trip-info'>
+  <p>Origin:<%= @trip.origin.address %></p>
+  <p>Destination:<%= @trip.destination.address %></p>
+  <p id = 'mode-choice'>You should travel by <%=@routes.first.travel_mode %></p>
+  </div>
   <div class="results">
     <table>
       <tbody>
@@ -11,7 +13,7 @@
           <% else %>
             <tr class='hidden'>
           <% end %>
-            <td><i class= "<%=sym_placer(r)%>" ></i> $:<%= r.actual_cost%></td>
+            <td id = '#choice-{i}'> $<%= r.actual_cost%> <%= r.duration/60%>min <i class= "<%=sym_placer(r)%>" ></i></td>
             </tr>
           <% end %>
         </tbody>
