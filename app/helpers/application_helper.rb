@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def app_link(trip,route)
-    case r.travel_mode
+    case route.travel_mode
     when "bus", "subway"
       "comgooglemaps://?saddr=#{trip.origin.address}&daddr=#{trip.destination.address}&directionsmode:transit"
     when "walking"
