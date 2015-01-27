@@ -10,10 +10,6 @@ describe 'Route' do
     expect(route.distance_exp).to eq(0)
   end
 
-  it 'route duration_exp should be 0' do
-    expect(route.duration_exp).to eq(0)
-  end
-
   it 'route dollars_exp should be 0' do
     expect(route.dollars_exp).to eq(0)
   end
@@ -30,16 +26,20 @@ describe 'Route' do
     expect(route.comfort_exp).to eq(0)
   end
 
-  it 'route total_exp should be 0' do
-    expect(route.total_exp).to eq(0)
+  it 'route weighted_exp should be 0' do
+    expect(route.weighted_exp).to eq(0)
   end
 
   it 'route actual_cost should be 0.0' do
     expect(route.actual_cost).to eq(0.0)
   end
 
-  it 'set_total_exp should be 0.0' do
-    route.set_total_exp
+  it 'route duration should be 0.0' do
+    expect(route.duration).to eq(0.0)
+  end
+
+  it 'set_weighted_exp should be 0.0' do
+    route.set_weighted_exp
     expect(route.actual_cost).to eq(0.0)
   end
 
