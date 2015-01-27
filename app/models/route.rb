@@ -15,7 +15,6 @@ class Route
 
   def apply_user_weightings(user)
     if user
-      binding.pry
       distance_multiplier = user.distance_multiplier
       dollars_multiplier = user.dollars_multiplier
       weather_multiplier = user.weather_multiplier
