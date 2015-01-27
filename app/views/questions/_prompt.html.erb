@@ -1,0 +1,10 @@
+<%= form_tag user_answers_path do %>
+  <div class="question">
+    <h2><%= question.content %></h2>
+  </div>
+  <% question.answers.each do |answer| %>
+    <div>
+      <%= submit_tag answer.content %>
+    </div>
+  <% end %>
+<% end %>
