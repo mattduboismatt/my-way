@@ -3,24 +3,27 @@
   <p><strong>Destination: </strong><%= @trip.destination.address %></p>
   <p>Routes: </p>
   <div class="results">
-    <table>
-  <tbody>
+    <div id="accordion">
     <% method_limiter(@routes).each_with_index do |r,i| %>
     <% if i <= 2 %>
-    <tr class='visible'>
+    <h3 class='visible' id="<%= i %>">
       <% else %>
-      <tr class='hidden'>
+      <h3 class='hidden' id="<%= i %>">
         <% end %>
-        <td><i class= "<%=sym_placer(r)%>" ></i> <%=r.travel_mode %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<div id= 'show-more'>
-  <%= link_to "more" %>
-</div>
-
+      <i class= "<%=sym_placer(r)%>" ></i> <%=r.travel_mode %></h3>
+        <div>
+          <%= r.distance_exp %>
+          <%= r.safety_exp %>
+          <%= r.dollars_exp %>
+          <%= r.actual_cost %>
+          <%= r.weather_exp %>
+          <%= r.total_exp %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+    <div id= 'show-more'>
+      <%= link_to "more" %>
+    </div>
+  </div>
 </div >
-
-
