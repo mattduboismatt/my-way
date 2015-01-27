@@ -1,23 +1,27 @@
 <div id="show">
   <div id= 'trip-info'>
-  <p>Origin:<%= @trip.origin.address %></p>
-  <p>Destination:<%= @trip.destination.address %></p>
-  <p id = 'mode-choice'>You should travel by <%=@routes.first.travel_mode %></p>
+    <p>Origin:<%= @trip.origin.address %></p>
+    <p>Destination:<%= @trip.destination.address %></p>
+    <p id = 'mode-choice'>You should travel by <%=@routes.first.travel_mode %></p>
   </div>
   <div class="results">
     <table>
       <tbody>
         <% method_limiter(@routes).each_with_index do |r,i| %>
-          <% if i <= 2 %>
-            <tr class='visible'>
+        <% if i <= 2 %>
+        <tr class='visible' >
           <% else %>
-            <tr class='hidden'>
+          <tr class='hidden'>
           <% end %>
-            <td id = '#choice-{i}'> $<%= r.actual_cost%> <%= r.duration/60%>min <i class= "<%=sym_placer(r)%>" ></i></td>
-            </tr>
+            <td id = "choice-<%= i %>">
+              <%= link_to("comgooglemaps://?saddr=Google+Inc,+8th+Avenue,+New+York,+NY&daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York&directionsmode=transit
+") do%> $<%= r.actual_cost%> <%= r.duration/60%>min <i class= "<%=sym_placer(r)%>" ></i>
+              <% end %>
+            </td>
+          </tr>
           <% end %>
         </tbody>
-    </table>
+      </table>
   </div>
   <div id= 'show-more'>
     <%= link_to "more" %>
