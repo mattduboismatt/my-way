@@ -1,3 +1,9 @@
+container {
+    margin-left:auto;
+    margin-right:auto;
+    width:750px;
+}
+
 body {
   background: url('logo.png') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -24,13 +30,9 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #D3D3D3;
   &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #D3D3D3;
   }
 }
 
@@ -87,15 +89,20 @@ padding-top: 15px;
 box-shadow: 0px 0px 8px 0px #000000;
 background-color: rgba(1, 1, 1, 0.8);
 color: rgba(1, 1, 1, 0.8);
-border-bottom: 3px white solid;
-border-top: 3px white solid;
+border-bottom: 3px #D3D3D3 solid;
+border-top: 3px #D3D3D3 solid;
 }
 
 form input {
   width: 85%;
   height: 120px;
   font-size: 45px;
-  margin-top: 3%;
+  border: 65px rgba(0, 0, 0, 0.8) solid;
+  margin-top: -8%;
+  -webkit-box-shadow: 0px 0px 8px 0px #000000;
+  -moz-box-shadow: 0px 0px 8px 0px #000000;
+  box-shadow: 0px 0px 8px 0px #000000;
+
 }
 
 
@@ -104,15 +111,15 @@ form input {
 font-size: 14px;
 padding-left: 15px;
 padding-right: 15px;
-color: white;
+color: #D3D3D3;
 text-decoration: none;
 }
 
-#navigation img{
+/*#navigation img{
   max-width: 100%;
   height: 100%;
   width: 100%;
-}
+}*/
 
 #navigation a:link {
   font-size: 5vw;
@@ -136,11 +143,11 @@ text-decoration: none;
   -moz-box-shadow: 0px 0px 8px 0px #000000;
   box-shadow: 0px 0px 8px 0px #000000;
   background-color: rgba(1, 1, 1, 0.8);
-  color: white;
+  color: #D3D3D3;
   margin-left: 5%;
   margin-right: auto;
   margin-top: 50%;
-  border: 5px white solid;
+  border: 5px #D3D3D3 solid;
   font-size: 150%;
 }
 
@@ -150,17 +157,9 @@ width: 90%;
 position: fixed;
 color: #ffffff;
 text-align: center;
-padding-top: 5%;
-padding-bottom: 7%;
--webkit-box-shadow: 0px 0px 8px 0px #000000;
--moz-box-shadow: 0px 0px 8px 0px #000000;
-box-shadow: 0px 0px 8px 0px #000000;
-background-color: rgba(1, 1, 1, 0.8);
-color: rgba(1, 1, 1, 0.8);
 margin-left: 5%;
 margin-right: auto;
 margin-top: 50%;
-border: 5px white solid;
 }
 
 .create_user {
@@ -170,22 +169,17 @@ position: fixed;
 color: #ffffff;
 text-align: center;
 padding-top: 5%;
--webkit-box-shadow: 0px 0px 8px 0px #000000;
--moz-box-shadow: 0px 0px 8px 0px #000000;
-box-shadow: 0px 0px 8px 0px #000000;
-background-color: rgba(1, 1, 1, 0.8);
-color: rgba(1, 1, 1, 0.8);
 margin-left: 5%;
 margin-right: auto;
-border: 5px white solid;
-margin-top: 25%;
+border: 5px #D3D3D3 solid;
+margin-top: 27%;
 }
 
 
 #logo {
   position: fixed;
   float: left;
-  color:white;
+  color:#D3D3D3;
   height: 100%;
   width:15%;
   font-size: 18vw;
@@ -194,30 +188,31 @@ margin-top: 25%;
 }
 
 #menu {
-  color: white;
+  color: #D3D3D3;
   text-align: center;
   margin-left: 3%;
   margin-top: 24%;
 }
-#show-more{
 
+#show-more{
 }
 
-#menu a:link{
+#menu TD a:link {
   text-decoration: none;
+  color: #D3D3D3;
 }
 
 #menu TD {
   text-align: center;
-  font-size: 500%;
-  border: 3px white solid;
+  font-size: 1000%;
+  border: 3px #D3D3D3 solid;
   width: 900px;
   height: 225px;
   -webkit-box-shadow: 0px 0px 8px 0px #000000;
   -moz-box-shadow: 0px 0px 8px 0px #000000;
   box-shadow: 0px 0px 8px 0px #000000;
   background-color: rgba(1, 1, 1, 0.8);
-  color: white;
+  color: #D3D3D3;
 }
 
 input[type=submit] {
@@ -236,7 +231,7 @@ input[type=submit] {
     color:#FFFFFF;
     cursor:pointer;
     font:50px sans-serif;
-    margin-top: 15%;
+    margin-top: 8%;
 
 }
 
@@ -251,20 +246,20 @@ font-size: 200%;
 
 .formt {
   font-size: 400%;
-  color: white;
+  color: #D3D3D3;
 }
 
 .results TD {
   text-align: center;
   font-size: 500%;
-  border: 3px white solid;
+  border: 3px #D3D3D3 solid;
   width: 900px;
   height: 225px;
   -webkit-box-shadow: 0px 0px 8px 0px #000000;
   -moz-box-shadow: 0px 0px 8px 0px #000000;
   box-shadow: 0px 0px 8px 0px #000000;
   background-color: rgba(1, 1, 1, 0.8);
-  color: white;
+  color: #D3D3D3;
 }
 
 

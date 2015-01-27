@@ -5,9 +5,10 @@
   <title>MyWay</title>
 </head>
 <body>
-  <%= render 'layouts/header' %>
-
-  <%= yield %>
+  <div class="container">
+    <%= render 'layouts/header' %>
+    <%= yield %>
+  </div>
 </body>
 <footer>
   <%= stylesheet_link_tag 'application', media: 'all' %>
