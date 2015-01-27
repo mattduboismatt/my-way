@@ -11,7 +11,7 @@
         <% if i <= 2 %>
         <tr class='visible' >
           <% else %>
-          <tr class='hidden'>
+          <tr class='visible'>
           <% end %>
             <td id = "choice-<%= i %>">
               <%= link_to(app_link(@trip,r)) do%> $<%= r.actual_cost%> <%= r.duration/60%>min <i class= "<%=sym_placer(r)%>" ></i>
