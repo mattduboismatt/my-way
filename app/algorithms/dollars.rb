@@ -5,7 +5,6 @@ module DollarsAlgorithm
     duration = route.duration.to_f
     actual_cost = 0.to_f
 
-
     case mode
     when 'driving'
       irs_cost = distance * 0.56
@@ -31,38 +30,26 @@ module DollarsAlgorithm
     actual_cost
   end
 
-  def self.time_of_day
-    hour = Time.now.hour
-    traffic_factor = 1
-    case hour
-    when 6..9, 16..19
-      traffic_factor = 1.1
-    end
-    traffic_factor
-  end
-
-
-
   def self.run(route, actual_cost)
     mode = route.travel_mode
     duration = route.duration.to_f/60
     dollars_exp = 100
     case mode
     when 'driving'
-      dollars_exp = (100 - ((actual_cost/(duration*time_of_day)) * 100)).to_i
+      dollars_exp = (100 - ((actual_cost/(duration) * 100)).to_i
     when 'subway'
       dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
     when 'bus'
-      dollars_exp = (100 - ((actual_cost/(duration*time_of_day)) * 100)).to_i
+      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
     when 'uber'
-      duration = duration + route.wait_time/60
-      dollars_exp = (100 - ((actual_cost/(duration*time_of_day)) * 100)).to_i
+      duration = duration + route.wait_time.to_f/60
+      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
     when 'divvy'
       duration = duration + 2
       dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
     when 'cab'
-      duration = duration + route.wait_time/60
-      dollars_exp = (100 - ((actual_cost/(duration*time_of_day)) * 100)).to_i
+      duration = duration + route.wait_time.to_f/60
+      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
     end
     dollars_exp > 0 ? dollars_exp : 0
   end
