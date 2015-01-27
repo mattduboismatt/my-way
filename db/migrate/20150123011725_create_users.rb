@@ -4,8 +4,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password_digest
-      t.integer :age
-      t.string :username
       t.float :weather_multiplier
       t.float :safety_multiplier
       t.float :distance_multiplier

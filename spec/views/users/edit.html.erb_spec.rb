@@ -6,8 +6,6 @@
 #       :name => "MyString",
 #       :email => "MyString",
 #       :password_digest => "MyString",
-#       :age => 1,
-#       :username => "MyString"
 #     ))
 #   end
 
@@ -22,9 +20,6 @@
 
 #       assert_select "input#user_password_digest[name=?]", "user[password_digest]"
 
-#       assert_select "input#user_age[name=?]", "user[age]"
-
-#       assert_select "input#user_username[name=?]", "user[username]"
 #     end
 #   end
 # end

@@ -35,11 +35,15 @@ class Trip < ActiveRecord::Base
         routes << Route.google_driving(gr, forecast)
       elsif gr.travel_mode == 'bicycling' #bicycling, divvy
         routes << Route.google_bicycling(gr, forecast)
-      else # subway, bus, walking
-        routes << Route.google_transit_and_walking(gr, forecast)
+      elsif gr.travel_mode == 'walking'
+        routes << Route.walking(gr, forecast)
+      elsif gr.travel_mode == 'subway'
+        routes << Route.subway(gr, forecast)
+      elsif gr.travel_mode == 'bus'
+        routes << Route.bus(gr, forecast)
       end
     end
     routes.flatten!
-    routes.sort_by { |r| r.total_exp * -1 }
+    routes.sort_by { |r| r.weighted_exp * -1 }
   end
 end
