@@ -116,7 +116,7 @@ class GoogleStep < GoogleThing
     super
     @distance = step_data['distance']['value'] # in meters!!!
     @duration = step_data['duration']['value'] # in seconds!!!
-    @travel_mode = step_data['travel_mode'].downcase
+    @travel_mode = step_data['travel_mode'].strip.downcase
     @transit_mode_type = self.set_transit_mode_type(step_data['transit_details'])
     @transit_origin_stop_name = self.set_transit_origin_stop_name(step_data['transit_details'])
     @transit_line_name = self.set_transit_line_name(step_data['transit_details'])
