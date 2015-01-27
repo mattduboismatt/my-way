@@ -12,7 +12,12 @@ $(document).ready(function () {
     // debugger
 
     request.success(function(response){
-      $('#question-form-container').html(response.question_html);
+      if (response.status === 'redirect'){
+        window.location = response.to;
+      }
+      else {
+        $('#question-form-container').html(response.question_html);
+      }
     });
 
 

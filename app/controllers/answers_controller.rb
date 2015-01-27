@@ -11,11 +11,15 @@ class AnswersController < ApplicationController
         format.json { render "questions/show" }
       end
     else
-      # respond_to do |format|
-        # format.html { redirect_to root_path }
-        # format.json { render :js => "window.location = '/'" }
-        render :js => "window.location = '/'"
-      # end
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.json do
+          render :json => {
+            :status => 'redirect',
+            :to => '/'
+          }.to_json
+        end
+      end
     end
   end
 end
