@@ -2,39 +2,21 @@ module DistanceAlgorithm
 
   def self.run(route)
     mode = route.travel_mode
-    distance = route.distance ### in meters
+    distance = route.distance.to_f ### in meters
     distance_exp = 0
     case mode
     when 'walking'
       distance_exp = 100 - ((distance.to_f/260)**1.75).to_i
     when 'bicycling', 'divvy'
-      distance_exp = 100 - ((distance.to_f/435)**1.75).to_i
-    else # 'driving', 'cab', 'uber', 'bus', 'subway'
-      distance = distance.to_f
-      case distance
-      when 0..1600 # 0 to 1 mile
-        distance_base_exp = 8 + distance*0.00625 # 10 exp per mile, 8-18
-      when 1600..2400 # 1 to 1.5 mile
-        distance_base_exp = 18 + (distance-1600)*0.0125 # 20 exp per mile, 18-28
-      when 2400..4000 # 1.5 to 2.5 mile
-        distance_base_exp = 28 + (distance-2400)*0.01875 # 30 exp per mile, 28-58
-      when 4000..4800 # 2.5 to 3 mile
-        distance_base_exp = 58 + (distance-4000)*0.0125 # 20 exp per mile, 58-68
-      when 4800..6400 # 3 to 4 mile
-        distance_base_exp = 68 + (distance-4800)*0.00625 # 10 exp per mile, 68-78
-      else # anything londer than 4 miles
-        distance_base_exp = 78 # constant 78, to be multiplied by factor to differentiate driving vs uber vs transit, etc.
-      end
-      case mode
-      when 'driving'
-        distance_exp = (distance_base_exp * 1.2).to_i
-      when 'cab'
-        distance_exp = (distance_base_exp * 1.1).to_i
-      when 'uber'
-        distance_exp = (distance_base_exp * 1.05).to_i
-      when 'bus', 'subway'
-        distance_exp = (distance_base_exp).to_i
-      end
+      distance_exp = (-2.445*(distance/1600)**2 - 5.902*(distance/1600)+ 100).to_i
+    when 'driving'
+      distance_exp = (0.813*(distance/1600)**3 - 5.723*(distance/1600)**2 - 1.547*(distance/1600) + 100).to_i
+    when 'cab', 'uber'
+      distance_exp = ( 0.688*(distance/1600)**3 - 4.322*(distance/1600)**2 - 6.515*(distance/1600) + 100).to_i
+    when 'subway'
+      distance_exp = (0.423*(distance/1600)**3 - 1.177*(distance/1600)**2 - 18.834*(distance/1600) + 100).to_i
+    when 'bus'
+      distance_exp = (0.416*(distance/1600)**3 - 1.114*(distance/1600)**2 - 19.011*(distance/1600) + 100).to_i
     end
     distance_exp > 0 ? distance_exp : 0
   end

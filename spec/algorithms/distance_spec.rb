@@ -83,7 +83,7 @@ describe 'Distance Algorithm' do
       expect(bike_score).to be >= uber_score
     end
     it 'walk > drive' do
-      expect(walk_score).to be >= drive_score
+      expect(walk_score).to be <= drive_score
     end
     it 'divvy > subway' do
       expect(divvy_score).to be >= subway_score
@@ -96,7 +96,7 @@ describe 'Distance Algorithm' do
       expect(bike_score).to be >= uber_score
     end
     it 'walk > drive' do
-      expect(walk_score).to be >= drive_score
+      expect(walk_score).to be <= drive_score
     end
     it 'divvy > subway' do
       expect(divvy_score).to be >= subway_score
@@ -106,7 +106,7 @@ describe 'Distance Algorithm' do
     let(:dist) {3200}
 
     it 'bike > drive' do
-      expect(bike_score).to be >= drive_score
+      expect(bike_score).to be <= drive_score
     end
     it 'uber > walk' do
       expect(uber_score).to be >= walk_score
@@ -124,8 +124,8 @@ describe 'Distance Algorithm' do
     it 'walk is zero' do
       expect(walk_score).to eq(0)
     end
-    it 'subway > divvy' do
-      expect(subway_score).to be >= divvy_score
+    it 'subway < divvy' do
+      expect(subway_score).to be <= divvy_score
     end
   end
   context 'at 6400 meters' do
@@ -136,8 +136,8 @@ describe 'Distance Algorithm' do
     it 'walk is zero' do
       expect(walk_score).to eq(0)
     end
-    it 'bike is zero' do
-      expect(bike_score).to eq(0)
+    it 'bike > zero' do
+      expect(bike_score).to be >= 0
     end
   end
 end

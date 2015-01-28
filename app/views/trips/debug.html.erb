@@ -9,13 +9,14 @@
         <th>Distance EXP</th>
         <th>Safety EXP</th>
         <th>Dollars EXP</th>
+        <th>Duration</th>
         <th>Actual Cost</th>
         <th>Weather EXP</th>
         <th>Weighted EXP</th>
       </tr>
     </thead>
     <tbody>
-      <% @routes.each_with_index do |r,i| %>
+      <% method_limiter(@routes).each_with_index do |r,i| %>
       <% if i <= 2 %>
       <tr class='visible'>
         <% else %>
@@ -25,6 +26,7 @@
           <td><%= r.distance_exp %></td>
           <td><%= r.safety_exp %></td>
           <td><%= r.dollars_exp %></td>
+          <td><%= (r.duration.to_f/60).to_i %></td>
           <td>$<%= r.actual_cost %></td>
           <td><%= r.weather_exp %></td>
           <td><%= r.weighted_exp %></td>

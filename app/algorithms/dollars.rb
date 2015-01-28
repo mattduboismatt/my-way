@@ -43,14 +43,11 @@ module DollarsAlgorithm
     when 'bus'
       dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
     when 'uber'
-      duration = duration + route.wait_time.to_f/60
-      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
+      dollars_exp = (100 - ((actual_cost/duration) * 100) - route.wait_time.to_f/60).to_i
     when 'divvy'
-      duration = duration + 2
-      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
+      dollars_exp = (100 - ((actual_cost/duration) * 100) - 5).to_i
     when 'cab'
-      duration = duration + route.wait_time.to_f/60
-      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
+      dollars_exp = (100 - ((actual_cost/duration) * 100) -route.wait_time.to_f/60).to_i
     end
     dollars_exp > 0 ? dollars_exp : 0
   end
