@@ -38,6 +38,13 @@ $(document).ready(function () {
   $('#show-more').on('click',function(e){
     e.preventDefault();
     $('.hidden').fadeToggle();
+      var linkText = document.getElementById("show-more");
+    if (linkText.textContent == 'More'){
+      linkText.textContent = 'Less';
+    }
+    else{
+      linkText.textContent = 'More';
+    }
   });
 
 
@@ -63,12 +70,7 @@ $(document).ready(function () {
 
   $('#show-more').on('click', function(e){
     e.preventDefault(e);
-    var linkText = document.getElementById("show-more");
-    if (linkText.textContent == 'More'){
-      linkText.textContent = 'Less';
-    }
-    else{
-      linkText.textContent = 'More';
+
     };
   })
 });
