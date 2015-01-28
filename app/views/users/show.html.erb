@@ -2,5 +2,8 @@
 
 <p><strong>Email:</strong><%= @user.email %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit Profile', edit_user_path(@user) %>
+
+<%= link_to 'Delete Account', user_path(@user), method: :delete %>
+
+<%= link_to 'Retake Survey', user_question_path(current_user, Question.first) %>
