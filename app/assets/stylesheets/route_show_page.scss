@@ -2,16 +2,19 @@
   text-align: center;
   font-size: 175%;
 }
+#trip-info a{
+  text-decoration: none;
+}
+
+#trip-info{
+  margin-top: 0;
+}
 
 #show-result{
   position: fixed;
   bottom: 0;
   width: 100%;
   background-color: transparent;
-}
-
-#choice-0 a{
-  text-decoration: none;
 }
 
 .results a{
@@ -30,4 +33,12 @@
 
 #show-more a{
   color: black;
+}
+
+#mode-choice{
+  margin-bottom: 0;
+}
+
+#nav-menu{
+  margin-bottom: 0;
 }
