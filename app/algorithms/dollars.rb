@@ -35,7 +35,8 @@ module DollarsAlgorithm
     duration = route.duration.to_f/60
     dollars_exp = 100
     case mode
-
+    when 'walking'
+      dollar_exp = walking_exp(route)
     when 'driving'
       dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
     when 'subway'
@@ -50,6 +51,16 @@ module DollarsAlgorithm
       dollars_exp = (100 - ((actual_cost/duration) * 100) -route.wait_time.to_f/60).to_i
     end
     dollars_exp > 0 ? dollars_exp : 0
+  end
+
+
+  def walking_exp(route)
+    exp = 0
+    if duration > 40
+      exp
+    else
+      exp = 100 - (duration.to_f/60)*0.6666
+    end
   end
 
 end
