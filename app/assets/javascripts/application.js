@@ -39,4 +39,36 @@ $(document).ready(function () {
     e.preventDefault();
     $('.hidden').fadeToggle();
   });
+
+
+  var x = document.getElementById("origin");
+
+  $('#current-location').on('click', function(e){
+    e.preventDefault();
+
+    function showPosition(position) {
+      x.value = position.coords.latitude + ", " + position.coords.longitude;
+    }
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    getLocation()
+  })
+
+  $('#show-more').on('click', function(e){
+    e.preventDefault(e);
+    var linkText = document.getElementById("show-more");
+    if (linkText.textContent == 'More'){
+      linkText.textContent = 'Less';
+    }
+    else{
+      linkText.textContent = 'More';
+    };
+  })
 });
