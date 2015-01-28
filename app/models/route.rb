@@ -28,6 +28,15 @@ class Route
     @weighted_exp = (distance_multiplier*@distance_exp) + (dollars_multiplier*@dollars_exp) + (weather_multiplier*@weather_exp) + (safety_multiplier*@safety_exp)
   end
 
+  def is_whitelisted?(wl)
+    mode = self.travel_mode
+    if wl[mode] == "1"
+      true
+    else
+      false
+    end
+  end
+
   def calculate_and_set_all_exp(route_data, forecast)
     @distance_exp = DistanceAlgorithm.run(route_data)
     @actual_cost = DollarsAlgorithm.actual_cost(route_data)

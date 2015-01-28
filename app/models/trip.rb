@@ -26,25 +26,30 @@ class Trip < ActiveRecord::Base
     GoogleMaps.run(self)
   end
 
-  def generate_and_score_routes(current_user)
-    routes = []
+  def generate_and_score_routes(current_user, wl)
+    all_routes = []
     g_routes = self.google_routes
     forecast = Forecast.new(g_routes[0].origin)
     g_routes.each do |gr|
       if gr.travel_mode == 'driving' #driving, uber, cab
-        routes << Route.google_driving(gr, forecast)
+        all_routes << Route.google_driving(gr, forecast)
       elsif gr.travel_mode == 'bicycling' #bicycling, divvy
-        routes << Route.google_bicycling(gr, forecast)
+        all_routes << Route.google_bicycling(gr, forecast)
       elsif gr.travel_mode == 'walking'
-        routes << Route.walking(gr, forecast)
+        all_routes << Route.walking(gr, forecast)
       elsif gr.travel_mode == 'subway'
-        routes << Route.subway(gr, forecast)
+        all_routes << Route.subway(gr, forecast)
       elsif gr.travel_mode == 'bus'
-        routes << Route.bus(gr, forecast)
+        all_routes << Route.bus(gr, forecast)
       end
     end
-    routes.flatten!
+    all_routes.flatten!
+    routes = strip_blacklisted_routes(all_routes, wl)
     routes.each{ |r| r.apply_user_weightings(current_user) }
     routes.sort_by { |r| r.weighted_exp * -1 }
+  end
+
+  def strip_blacklisted_routes(all_routes, wl)
+    all_routes.select{ |r| r.is_whitelisted?(wl) }
   end
 end

@@ -38,4 +38,12 @@ module ApplicationHelper
      "uber://?action=setPickup&pickup=my_location&product_id=uberTAXI"
    end
  end
+
+  def int_to_boolean?(int)
+    if int == 1
+      true
+    else
+      false
+    end
+  end
 end
