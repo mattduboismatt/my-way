@@ -2,6 +2,7 @@ class TripsController < ApplicationController
   def create
     if current_user
       current_user.update_multipliers
+      current_user.update_whitelist(params['user']['whitelist'])
     end
     @trip = Trip.create(user: current_user)
     @trip.set_origin(params[:origin], current_user)

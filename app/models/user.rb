@@ -1,12 +1,14 @@
 class User < ActiveRecord::Base
   # before_create :set_default_multipliers
   before_create :init
+  after_create :create_whitelist
 
   has_many :trips
   has_many :locations
   has_many :users_answers
   has_many :answers, through: :users_answers
   has_many :questions, through: :answers
+  has_one :whitelist
 
   validates :email,
             format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create },
@@ -19,6 +21,15 @@ class User < ActiveRecord::Base
     self.safety_multiplier = 1.0
     self.dollars_multiplier = 1.0
     self.distance_multiplier = 1.0
+  end
+
+  def create_whitelist
+    Whitelist.create(user: self)
+  end
+
+  def update_whitelist(whitelist_data)
+    wl = Whitelist.find_or_create_by(user: self)
+    wl.update_attributes(whitelist_data.to_hash)
   end
 
   def update_multipliers
