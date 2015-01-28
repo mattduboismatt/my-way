@@ -1,10 +1,12 @@
-<%= form_tag user_answers_path, class: "survey-question-form" do %>
+<%= form_tag question_answers_path(@question), class: "survey-question-form" do %>
   <div class="question">
     <h2><%= @question.content %></h2>
   </div>
-  <% @question.answers.each do |answer| %>
-    <div>
-      <%= submit_tag answer.content, name: 'content', class: 'answer' %>
-    </div>
-  <% end %>
+  <ul>
+    <% @question.answers.each do |answer| %>
+      <li>
+        <%= submit_tag answer.content, name: 'content', class: (@question.answer_for(current_user) == answer ? 'answer selected' : 'answer') %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>

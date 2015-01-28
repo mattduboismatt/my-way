@@ -6,4 +6,4 @@
 
 <%= link_to 'Delete Account', user_path(@user), method: :delete %>
 
-<%= link_to 'Retake Survey', user_question_path(current_user, Question.first) %>
+<%= link_to 'Retake Survey', question_path(current_user, Question.first) %>

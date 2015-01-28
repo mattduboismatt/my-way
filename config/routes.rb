@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :users do
-    resources :locations
-    resources :questions
-    resources :answers
+  resources :users
+  resources :locations
+  resources :questions, only: [:show] do
+    resources :answers, only: [:create]
   end
-
-  resources :trips
+  resources :trips, only: [:create]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
