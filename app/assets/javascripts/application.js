@@ -61,4 +61,15 @@ $(document).ready(function () {
     getLocation()
   })
 
+  $('#show-more').on('click', function(e){
+    e.preventDefault(e);
+    var linkText = document.getElementById("show-more");
+    if (linkText.textContent == 'More'){
+      linkText.textContent = 'Less';
+    }
+    else{
+      linkText.textContent = 'More';
+    };
+  })
+
 });
