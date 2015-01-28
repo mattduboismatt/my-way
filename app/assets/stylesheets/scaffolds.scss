@@ -1,5 +1,5 @@
 body {
-  background: url("chicago.png") no-repeat center center fixed;
+  background: image-url("chicago.png") no-repeat center center fixed;
   -webkit-background-size: contain;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,10 +15,11 @@ body {
 
 
 
+
 #home_submit > input {
-  margin-top: 25%;
+  margin-top: 7%;
   background-color: #82BF32;
-  width: 35%;
+  width: 80%;
   padding: 10px 10px 10px 10px;
 }
 
@@ -35,27 +36,31 @@ a.item{
 
 }
 div.field-origin {
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 4%;
+  margin-right: 5%;
   margin-bottom: -1%;
 
 }
 
 div.field-destination {
-  margin-left: 8%;
-  margin-right: 8%;
-  margin-top: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
 }
 
 
 #origin{
-  display: inline-block;
-  width: 60%;
+  width: 80%;
+}
+
+#destination {
+  width: 81%;
 }
 
 #current-location{
-  display: inline-block;
-  width: 40%;
+  margin-left: 12%;
+  margin-bottom: -1%;
+  width: 80%;
 }
 
 #current-location.ui.button{
@@ -63,6 +68,7 @@ div.field-destination {
   color: white;
   background-color: #3C3C3C;
   font-size: 65%;
+  padding: 0;
 }
 
 #home_whitelist{
@@ -78,20 +84,24 @@ div.field-destination {
 
 #checkbox{
 width: 48%;
-opacity: 0.8;
+opacity: 0.7;
 padding: 10px 10px 10px 10px;
 margin: 0.5% 0.5% 0.5% 0.5%;
 color: #3C3C3C;
-font-family: 'Chango', cursive;
+font-family: 'Open Sans', sans-serif;
 }
 
 #home_submit {
-  margin-top: 10%;
-  margin-left: 40%;
+  margin-left: 15%;
+
 }
 
 #home_submit.ui_button {
 background-color: #7fbc2d;
+}
+
+.left.menu {
+  margin-left: -5%;
 }
 
 

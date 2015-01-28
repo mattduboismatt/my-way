@@ -1,10 +1,12 @@
 <%= form_tag '/trips', method: 'post', :class => "ui form" do %>
 <div class = 'form'>
   <div class="field-origin" >
-    <%= text_field_tag :origin %><button id = 'current-location' class= 'ui button'> <span>Current Location<span></button>
+    <div class="current-location">
+    <button id = 'current-location' class= 'ui button'> <span>Current Location<span></button></div>
+    <a class="ui blue label">A</a><%= text_field_tag :origin,nil, placeholder: "Start Point" %>
   </div>
   <div class="field-destination">
-    <%= text_field_tag :destination %>
+    <a class="ui green label">B</a><%= text_field_tag :destination,nil, placeholder: "End Point" %>
   </div>
 
 
