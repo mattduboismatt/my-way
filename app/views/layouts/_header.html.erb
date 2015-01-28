@@ -1,5 +1,5 @@
 
-<div class="ui inverted menu">
+<div class="ui inverted menu" id = 'nav-menu'>
   <div class="right menu">
     <%if current_user%>
     <%= link_to "Logout", logout_path, method: :delete, class: "item"%> <%= link_to "Profile", user_path(current_user), class: "item"%>

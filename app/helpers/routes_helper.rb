@@ -24,6 +24,14 @@ module RoutesHelper
   end
 
 
+  def color_selector(r)
+    score = r.weighted_exp
+    return ['teal', 'blue'].sample if score > 250
+    return 'orange' if score > 125
+    return 'red'
+  end
+
+
 
 
 end
