@@ -42,9 +42,8 @@ class User < ActiveRecord::Base
   end
 
   def modify_multiplier(field)
-    field = "#{field}_modifier"
-    sum = self.answers.map { |a| a.send(field) }.reduce(:+)
+    sum = self.answers.map { |a| a.send("#{field}_modifier") }.reduce(:+)
     mod = [0.2, 1 + sum].max
-    self.send(:"#{field}=", mod.round(3))
+    self.send(:"#{field}_multiplier=", mod.round(3))
   end
 end
