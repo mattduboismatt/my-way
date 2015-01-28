@@ -57,6 +57,7 @@ div.field-destination {
 
 #origin{
   width: 80%;
+
 }
 
 #destination {
@@ -65,12 +66,15 @@ div.field-destination {
 
 #password {
   width: 90%;
-  font-size: 180%;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
 }
 
 #email {
   width: 90%;
-  font-size: 180%;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+
 }
 
 
@@ -133,13 +137,8 @@ background-color: #7fbc2d;
 }
 .field {
   width: 80%;
-  font-size: 100%;
-}
+  padding: 10px 10px 10px 10px;
 
-.create_user {
-
-padding-left: 30%;
-margin-top: 20%;
 }
 
 .create_user {
