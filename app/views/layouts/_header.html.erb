@@ -1,41 +1,16 @@
 
 <div id="navigation">
   <div id="logo">
-      <%= image_tag("logo.png")%>
   </div>
   <div id="logged">
     <%if current_user%>
-      <p>"Hi #{current_user.name}! It is currently #{weather}&deg;."</p>
+       <%= link_to "Logout", logout_path, method: :delete, class: "ui button", id: 'profile_buttons' %> <%= link_to "Profile", user_path(current_user), class: "ui button", id: 'profile_buttons' %>
     <% else %>
-      <%= link_to "Not logged? Login now!", login_path %>
+     <%= link_to "Login", login_path, class: "ui button", id: 'profile_buttons' %> <%= link_to "Register", new_user_path, class: "ui button", id: 'profile_buttons' %>
   <% end %>
   </div>
   <%= render 'layouts/flash' %>
 </div>
 
-<TABLE id="menu">
-   <TR>
-      <TD>
-        <i class="fa fa-home"></i> <%= link_to "Home", root_path %>
-      </TD>
-    </TR>
-    <TR>
-      <TD>
-        <% if logged_in? %>
-          </i> <%= link_to "Logout", logout_path, method: :delete %> <i class="fa fa-sign-out">
-        <% else %>
-          <i class="fa fa-sign-in"></i> <%= link_to "Login", login_path %>
-        <% end %>
-      </TD>
-   </TR>
-   <TR>
-      <TD>
-        <% if logged_in? %>
-          <i class="fa fa-newspaper-o"></i> <%= link_to "Profile", user_path(current_user) %>
-        <% else %>
-          <i class="fa fa-newspaper-o"></i> <%= link_to "Register", new_user_path %>
-        <% end %>
-      </TD>
-   </TR>
-</TABLE>
+
 

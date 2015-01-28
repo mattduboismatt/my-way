@@ -1,13 +1,13 @@
-<%= form_tag '/trips', method: 'post' do %>
-  <div class="trip">
-    <div class="field" >
-      <%= text_field_tag :origin, nil, placeholder: "Origin", id: 'origin' %>
+<%= form_tag '/trips', method: 'post', :class => "ui form" do %>
+  <div class = 'form'>
+    <div class="field-origin" >
+      <%= text_field_tag :origin, nil, placeholder: "Origin", id: 'origin' %><button id = 'apple-tester' class= 'ui button'> <span>Current Location<span></button>
     </div>
     <div class="field">
       <%= text_field_tag :destination, nil, placeholder: "Destination" %>
     </div>
-    <div class="home_submit">
-      <%= submit_tag 'GO!' %>
+    <div id="home_submit">
+      <%= submit_tag 'GO!', class: "ui primary button" %>
     </div>
   </div>
   <div id="home_whitelist">
@@ -47,5 +47,4 @@
     <% end %>
   </div>
 <% end %>
-
-<button onclick="getLocation()">Current Location</button>
+ <div id = 'demo'></div>

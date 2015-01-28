@@ -14,15 +14,16 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require_tree .
+
 $(document).ready(function () {
 
 
   $(function() {
     $( "#accordion" ).accordion({
-       header: "h3",
-       collapsible: true,
-       active: false
-    });
+     header: "h3",
+     collapsible: true,
+     active: false
+   });
   });
 
 
@@ -39,6 +40,24 @@ $(document).ready(function () {
     $('.hidden').fadeToggle();
   });
 
+  $('#apple-tester').on('click', function(e){
+    e.preventDefault();
+    var x = document.getElementById("demo");
 
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude +
+      "<br>Longitude: " + position.coords.longitude;
+    }
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    getLocation()
+  })
 
 });

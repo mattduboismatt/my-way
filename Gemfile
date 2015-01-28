@@ -14,6 +14,7 @@ gem 'awesome_print', group: [:test, :development]
 gem 'require_all'
 gem 'simplecov', :require => false, :group => :test
 gem 'responders', '~> 2.0'
+gem "less-rails"
 
 #CTA Train Gems
 gem 'nokogiri'
@@ -23,6 +24,7 @@ gem 'forecast_io'
 
 #ParkWhiz gems
 gem 'parkwhiz'
+gem "therubyracer"
 
 gem 'geocoder'
 
@@ -30,6 +32,7 @@ gem 'font-awesome-sass'
 
 gem 'jquery-ui-rails'
 
+gem 'semantic-ui-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record

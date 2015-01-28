@@ -6,22 +6,6 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="user-scalable = yes">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>
-  var x = document.getElementById("origin");
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-
-  function showPosition(position) {
-    x.value = position.coords.latitude + ", "
-    + position.coords.longitude;
-  }
-  </script>
 
   <title>My<->Way</title>
 </head>

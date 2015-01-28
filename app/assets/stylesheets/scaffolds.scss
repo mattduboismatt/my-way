@@ -1,222 +1,27 @@
-
-
-.container {
-  }
-
-body {
-  background: url('chicago.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: 100% 100%;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  padding: 0;
-  width: 720px;
-  height: 1000px;
-  margin: 0;
-}
-
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
-a {
-  color: #D3D3D3;
-  &:visited {
-    color: #D3D3D3;
-  }
-}
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
-
-#notice {
-  color: green;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-}
-
-#navigation {
-position: fixed;
-top: 0;
-width: 100%;
-color: #ffffff;
-height: 15%;
-text-align: center;
-padding-top: 15px;
-background-color: rgba(1, 1, 1, 0.8);
-color: rgba(1, 1, 1, 0.8);
-}
-
-
-form input {
-  width: 90%;
-  height: 70px;
-  font-size: 45px;
-
-}
-
-
-#logged a:link {
-  font-size: 5vw;
+#profile_buttons{
   float: right;
-  height: auto;
-  position: relative;
-  text-decoration: none;
-  margin-top: 2vw;
-
-}
-#navigation img {
-position: fixed;
-max-height:14%;
-padding-left: 5px;
+  color: white;
+  background-color: #7cbc2c;
 }
 
-#show {
-  width: 90%;
-  position: fixed;
-  color: #ffffff;
-  text-align: center;
-  padding-top: 5%;
-  background-color: rgba(1, 1, 1, 0.8);
-  color: #D3D3D3;
-  margin-left: 5%;
-  margin-right: auto;
-  margin-top: 50%;
-  font-size: 150%;
+.form{
+  clear:both;
 }
 
-.trip {
-height: 26%;
-width: 90%;
-position: fixed;
-color: #ffffff;
-text-align: center;
-margin-left: 5%;
-margin-right: auto;
-margin-top: 50%;
+#origin{
+  display: inline-block;
+  width: 60%;
+}
+#apple-tester{
+  display: inline-block;
+  width: 40%;
 }
 
-.trip form {
-height: 26%;
-width: 90%;
-position: fixed;
-color: #ffffff;
-text-align: center;
-margin-left: 5%;
-margin-right: auto;
-}
-
-.create_user {
-height: 78%;
-width: 90%;
-position: fixed;
-color: #ffffff;
-text-align: center;
-padding-top: 5%;
-margin-left: 5%;
-margin-right: auto;
-margin-top: 27%;
+#apple-tester span{
+  font-size: 75%;
 }
 
 
-#logo {
-  position: fixed;
-  float: left;
-  color:#D3D3D3;
-  height: 100%;
-}
-
-#menu {
-  color: #D3D3D3;
-  text-align: center;
-  margin-left: 3%;
-  margin-top: 27%;
-}
-
-#show-more{
-}
-
-#menu TD a:link {
-  text-decoration: none;
-  color: #D3D3D3;
-}
-
-#menu TD {
-  text-align: center;
-  font-size: 1000%;
-  border: 3px #D3D3D3 solid;
-  width: 900px;
-  height: 225px;
-  background-color: rgba(1, 1, 1, 0.8);
-  color: #D3D3D3;
-}
-
-input[type=submit] {
-    padding:0 3px 0 3px;
-    display:inline-block;
-    text-decoration:none;
-    background:#7CBC2C;
-
-    color:#FFFFFF;
-    cursor:pointer;
-    font:50px sans-serif;
-    margin-top: 8%;
-
-}
 
 
-.results TD {
-  text-align: center;
-  font-size: 500%;
-  border: 3px #D3D3D3 solid;
-  width: 900px;
-  height: 225px;
-  background-color: rgba(1, 1, 1, 0.8);
-  color: #D3D3D3;
-}
-
-
-  @import "font-awesome-sprockets";
-  @import "font-awesome";
 
