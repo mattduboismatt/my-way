@@ -34,33 +34,28 @@ module DollarsAlgorithm
     mode = route.travel_mode
     duration = route.duration.to_f/60
     dollars_exp = 100
+    time_constant = 20/60.0
     case mode
     when 'walking'
-      dollar_exp = walking_exp(route)
+      dollars_exp = (100 - (duration*time_constant+actual_cost.
+    when 'bicycling'
+      dollars_exp = (100 - duration*time_constant).to_i
     when 'driving'
-      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
+      dollars_exp = (100 - duration*time_constant).to_i
     when 'subway'
-      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
+      dollars_exp = (100 - duration*time_constant).to_i
     when 'bus'
-      dollars_exp = (100 - ((actual_cost/duration) * 100)).to_i
+      dollars_exp = (100 - duration*time_constant).to_i
     when 'uber'
-      dollars_exp = (100 - ((actual_cost/duration) * 100) - route.wait_time.to_f/60).to_i
+      duration = duration + route.wait_time/60.0
+      dollars_exp = (100 - duration*time_constant).to_i.to_i
     when 'divvy'
-      dollars_exp = (100 - ((actual_cost/duration) * 100) - 5).to_i
+      dollars_exp = (100 - duration*time_constant).to_i
     when 'cab'
-      dollars_exp = (100 - ((actual_cost/duration) * 100) -route.wait_time.to_f/60).to_i
+      duration = duration + route.wait_time/60.0
+      dollars_exp = (100 - duration*time_constant).to_i.to_i
     end
     dollars_exp > 0 ? dollars_exp : 0
-  end
-
-
-  def walking_exp(route)
-    exp = 0
-    if duration > 40
-      exp
-    else
-      exp = 100 - (duration.to_f/60)*0.6666
-    end
   end
 
 end
