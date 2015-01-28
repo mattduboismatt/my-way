@@ -1,41 +1,19 @@
 
-<div id="navigation">
-    <div id="logo">
-      <%= image_tag("logo.png", size: "150x190")%>
-  </div>
-  <div id="logged">
+<div class="ui inverted menu">
+  <div class="right menu">
     <%if current_user%>
-      <p>"Hi #{current_user.name}! It is currently #{weather}&deg;."</p>
-     <% else %>
-      <%= link_to "Not logged? Login now!", login_path %>
+    <%= link_to "Logout", logout_path, method: :delete, class: "item"%> <%= link_to "Profile", user_path(current_user), class: "item"%>
+    <% else %>
+    <%= link_to "Login", login_path, class: "item"%> <%= link_to "Register", new_user_path, class: "item"%>
     <% end %>
   </div>
-  <%= render 'layouts/flash' %>
+  <div class="left menu">
+    <img class="ui small image" src="./images/logo.png">
+  </div>
 </div>
 
-<TABLE id="menu">
-   <TR>
-      <TD>
-        <i class="fa fa-home"></i> <%= link_to "Home", root_path %>
-      </TD>
-    </TR>
-    <TR>
-      <TD>
-        <% if logged_in? %>
-          </i> <%= link_to "Logout", logout_path, method: :delete %> <i class="fa fa-sign-out">
-        <% else %>
-          <i class="fa fa-sign-in"></i> <%= link_to "Login", login_path %>
-        <% end %>
-      </TD>
-   </TR>
-   <TR>
-      <TD>
-        <% if logged_in? %>
-          <i class="fa fa-newspaper-o"></i> <%= link_to "Profile", user_path(current_user) %>
-        <% else %>
-          <i class="fa fa-newspaper-o"></i> <%= link_to "Register", new_user_path %>
-        <% end %>
-      </TD>
-   </TR>
-</TABLE>
+<%= render 'layouts/flash' %>
+
+
+
 

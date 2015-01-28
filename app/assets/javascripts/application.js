@@ -14,15 +14,16 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require_tree .
+
 $(document).ready(function () {
 
 
   $(function() {
     $( "#accordion" ).accordion({
-       header: "h3",
-       collapsible: true,
-       active: false
-    });
+     header: "h3",
+     collapsible: true,
+     active: false
+   });
   });
 
 
@@ -40,5 +41,24 @@ $(document).ready(function () {
   });
 
 
+  var x = document.getElementById("origin");
+
+  $('#current-location').on('click', function(e){
+    e.preventDefault();
+
+    function showPosition(position) {
+      x.value = position.coords.latitude + ", " + position.coords.longitude;
+    }
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    getLocation()
+  })
 
 });
