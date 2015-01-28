@@ -35,25 +35,26 @@ module DollarsAlgorithm
     duration = route.duration.to_f/60
     dollars_exp = 100
     time_constant = 20/60.0
+    money_time_factor = 4.5
     case mode
     when 'walking'
-      dollars_exp = (100 - (duration*time_constant+actual_cost.
+      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'bicycling'
-      dollars_exp = (100 - duration*time_constant).to_i
+      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'driving'
-      dollars_exp = (100 - duration*time_constant).to_i
+      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'subway'
-      dollars_exp = (100 - duration*time_constant).to_i
+      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'bus'
-      dollars_exp = (100 - duration*time_constant).to_i
+      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'uber'
       duration = duration + route.wait_time/60.0
-      dollars_exp = (100 - duration*time_constant).to_i.to_i
+      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'divvy'
-      dollars_exp = (100 - duration*time_constant).to_i
+      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'cab'
       duration = duration + route.wait_time/60.0
-      dollars_exp = (100 - duration*time_constant).to_i.to_i
+      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     end
     dollars_exp > 0 ? dollars_exp : 0
   end
