@@ -8,11 +8,16 @@ body {
   margin:0;
 }
 
+.container {
+  width: 100%;
+  margin: 0% ;
+  padding: 0%;
+}
+
 .form{
   margin-top: 25%;
   padding:0;
 }
-
 
 
 
@@ -28,7 +33,8 @@ body {
   float: right;
   font-size: 100%;
   font-family: 'Chango', cursive;
-  margin-right: 5%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 a.item{
@@ -59,13 +65,14 @@ div.field-destination {
 
 #password {
   width: 90%;
+  font-size: 180%;
 }
 
 #email {
   width: 90%;
+  font-size: 180%;
 }
-#current-location{
-}
+
 
 #current-location.ui.button{
   margin-left: 12%;
@@ -85,7 +92,7 @@ body > div > div.ui.inverted.menu > div.left.menu > a > img{
 }
 
 #checkbox{
-width: 48%;
+width: 22%;
 opacity: 0.7;
 padding: 10px 10px 10px 10px;
 margin: 0.5% 0.5% 0.5% 0.5%;
@@ -107,7 +114,7 @@ background-color: #7fbc2d;
 }
 
 #login > input {
-  margin-top: 10%;
+  margin-top: 5%;
   width: 50%;
   margin-left: 22%;
   padding: 10px 10px 10px 10px;
@@ -116,8 +123,28 @@ background-color: #7fbc2d;
 .login_form {
   margin-top: 25%;
   width: 80%;
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.white_wrapper {
+  margin-left: 5%;
+  width: 90%;
+}
+.field {
+  width: 80%;
+  font-size: 100%;
+}
 
+.create_user {
+
+padding-left: 30%;
+margin-top: 20%;
+}
+
+.create_user {
+
+padding-left: 30%;
+margin-top: 20%;
+}
 
