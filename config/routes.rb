@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   resources :users
-  resources :locations
   resources :questions, only: [:show] do
     resources :answers, only: [:create]
   end
   resources :trips, only: [:create]
 
+  get '/locations/street_address_from_lat_long' => 'locations#street_address_from_lat_long'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
