@@ -14,10 +14,9 @@ module DistanceAlgorithm
     when 'cab', 'uber'
       distance_exp = ( 0.688*(distance)**3 - 4.322*(distance)**2 - 6.515*(distance) + 100).to_i
     when 'subway'
-      0.95x^3 - 5.736x^2 - 9.385x + 99.908
       distance_exp = (0.95*(distance)**3 - 5.736*(distance)**2 - 9.385*(distance) + 100).to_i
     when 'bus'
-      distance_exp = (0.416*(distance)**3 - 1.114*(distance)**2 - 19.011*(distance) + 100).to_i
+      distance_exp = (0.918*(distance)**3 - 5.429*(distance)**2 - 11.186*(distance) + 100).to_i
     end
     distance_exp > 0 ? distance_exp : 0
   end
