@@ -1,26 +1,24 @@
+  <div id= 'trip-info' class = 'ui inverted segment'>
+    <p id = 'mode-choice'><%= suggestion(@routes) %></p>
+    <% @color_array = ['green', 'blue',  'teal', 'purple', 'orange',  'red',  'red', 'red']%>
+    <% r = method_limiter(@routes)[0] %>
+    <div class = 'visible fluid massive ui inverted <%=@color_array.shift%> button' id = "choice-0"><%= dollar_converter(r)%> <%= duration(r) %> min <%= travel_mode(r) %></div>
+  </div>
 <div id="show-result">
-  <div id= 'trip-info'>
-    <p id = 'mode-choice'>You should travel by <%=@routes.first.travel_mode %></p>
-  </div>
-  <div class="results">
-    <table>
-      <tbody>
-        <% method_limiter(@routes).each_with_index do |r,i| %>
-        <% if i <= 2 %>
-        <tr class='visible' >
-          <% else %>
-          <tr class='hidden'>
-          <% end %>
-            <td id = "choice-<%= i %>">
-              <%= link_to(app_link(@trip,r)) do%> <%= number_to_currency(r.actual_cost)%> <%= (r.duration/60).to_i%>min <%= r.travel_mode.capitalize %><!-- <i class= "<%=sym_placer(r)%>" ></i> -->
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-  </div>
-  <div id= 'show-more'>
-    <%= link_to "more" %>
-  </div>
-</div >
+  <div class="results ui inverted segment">
+    <% method_limiter(@routes)[1..-1].each_with_index do |r,i| %>
+    <%= link_to(app_link(@trip,r)) do%>
+      <% if i <= 3%>
+        <div class='visible fluid ui inverted <%=@color_array.shift%> button' id = "choice-<%= i %> route-button">
+      <% else %>
+        <div class='hidden fluid ui inverted <%=@color_array.shift%> button' id = "choice-<%= i %>">
+    <% end %>
+      <%= dollar_converter(r)%> <%= duration(r) %> min <%= travel_mode(r) %><!-- <i class= "<%=sym_placer(r)%>" ></i> -->
+    </div>
+    <% end %>
+    <% end %>
+    <div class = 'tiny ui bottom attached button' id= 'show-more'>
+      <%= link_to "more" %>
+    </div>
+    </div>
+  </div >
