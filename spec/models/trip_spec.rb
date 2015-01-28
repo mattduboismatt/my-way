@@ -27,6 +27,6 @@ describe 'Trip' do
     trip = Trip.new
     user = User.new
     trip.set_destination("apple", user)
-    expect(trip.destination.address).to eq("apple")
+    expect(trip.destination.address).to eq("apple chicago il")
   end
 end
