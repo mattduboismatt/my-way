@@ -3,39 +3,31 @@
   font-size: 175%;
 }
 
+#show-result{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+}
+
 #choice-0 a{
   text-decoration: none;
-  color: green;
-}
-#choice-1 a{
-  text-decoration: none;
-  color: yellow;
-}
-#choice-2 a{
-  text-decoration: none;
-  color: red;
-}
-#show-result{
-  clear: both;
-  overflow: hidden;
 }
 
+.results a{
+  text-decoration: none;
+  color: white;
+}
 .hidden a{
   text-decoration: none;
-  color: red;
+  color: white;
 }
 
-#show-more {
-  text-align: center;
-  font-size: 500%;
-  border: 3px #D3D3D3 solid;
-  width: 900px;
-  height: 100px;
-  background-color: rgba(1, 1, 1, 0.8);
-  color: #D3D3D3;
+/*.results{
+  position: fixed;
+  bottom: 0;
+}*/
 
-}
-
-#show-more a {
-
+#show-more a{
+  color: black;
 }
