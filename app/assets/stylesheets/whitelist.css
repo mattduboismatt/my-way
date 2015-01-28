@@ -1,0 +1,27 @@
+
+#home_whitelist {
+  margin-top: 75%;
+  width: 60%;
+  background-color: white;
+  overflow: hidden;
+  margin-left: 5%;
+}
+
+div .checkbox{
+  background-color: red;
+  width: 15%;
+  margin-left: 5%;
+  margin-top: 2%;
+  float: left;
+  padding: 1%;
+}
+
+.checkbox input {
+  width: 2%;
+  height: auto;
+}
+
+.checkbox label {
+  display: inline-block;
+  font-size: 24px;
+}

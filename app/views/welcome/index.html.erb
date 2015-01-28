@@ -10,6 +10,42 @@
       <%= submit_tag 'GO!' %>
     </div>
   </div>
+  <div id="home_whitelist">
+    <%= fields_for 'user[whitelist]' do |f| %>
+      <div class="checkbox">
+        <%= f.check_box :walking, checked: true %>
+        <%= f.label :walking %>
+      </div>
+      <div class="checkbox">
+        <%= f.check_box :bicycling, checked: true %>
+        <%= f.label :biking %>
+      </div>
+      <div class="checkbox">
+        <%= f.check_box :divvy, checked: true %>
+        <%= f.label :divvy %>
+      </div>
+      <div class="checkbox">
+        <%= f.check_box :bus, checked: true %>
+        <%= f.label :bus %>
+      </div>
+      <div class="checkbox">
+       <%= f.check_box :subway, checked: true %>
+        <%= f.label :subway %>
+      </div>
+      <div class="checkbox">
+        <%= f.check_box :driving, checked: true %>
+        <%= f.label :driving %>
+      </div>
+      <div class="checkbox">
+        <%= f.check_box :uber, checked: true %>
+        <%= f.label :uber %>
+      </div>
+      <div class="checkbox">
+        <%= f.check_box :cab, checked: true %>
+        <%= f.label :cab %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
-    <button onclick="getLocation()">Current Location</button>
+<button onclick="getLocation()">Current Location</button>
