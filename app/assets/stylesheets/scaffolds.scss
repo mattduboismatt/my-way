@@ -1,27 +1,95 @@
-#profile_buttons{
-  float: right;
-  color: white;
-  background-color: #7cbc2c;
+body {
+  background: url("chicago.png") no-repeat center center fixed;
+  -webkit-background-size: contain;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding:0;
+  margin:0;
 }
 
 .form{
-  clear:both;
+  margin-top: 25%;
+  padding:0;
 }
+
+#home_submit > input {
+  margin-top: 25%;
+  background-color: #82BF32;
+  padding
+}
+
+.flash {
+  color: red;
+  float: right;
+  font-size: 100%;
+  font-family: 'Chango', cursive;
+  margin-right: 5%;
+}
+
+a.item{
+  clear: both;
+
+}
+div.field-origin {
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-bottom: -1%;
+
+}
+
+div.field-destination {
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 1%;
+}
+
 
 #origin{
   display: inline-block;
   width: 60%;
 }
-#apple-tester{
+
+#current-location{
   display: inline-block;
   width: 40%;
 }
 
-#apple-tester span{
-  font-size: 75%;
+#current-location.ui.button{
+  text-align: center;
+  color: white;
+  background-color: #3C3C3C;
+  font-size: 65%;
 }
 
+#home_whitelist{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 85%;
+}
 
+#checkbox.ui_button{
+  display: inline;
+}
+
+#checkbox{
+width: 48%;
+opacity: 0.8;
+padding: 10px 10px 10px 10px;
+margin: 0.5% 0.5% 0.5% 0.5%;
+color: #3C3C3C;
+font-family: 'Chango', cursive;
+}
+
+#home_submit {
+  margin-top: 10%;
+  margin-left: 40%;
+}
+
+#home_submit.ui_button {
+background-color: #7fbc2d;
+}
 
 
 

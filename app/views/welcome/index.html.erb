@@ -1,50 +1,54 @@
 <%= form_tag '/trips', method: 'post', :class => "ui form" do %>
-  <div class = 'form'>
-    <div class="field-origin" >
-      <%= text_field_tag :origin, nil, placeholder: "Origin", id: 'origin' %><button id = 'apple-tester' class= 'ui button'> <span>Current Location<span></button>
-    </div>
-    <div class="field">
-      <%= text_field_tag :destination, nil, placeholder: "Destination" %>
-    </div>
-    <div id="home_submit">
-      <%= submit_tag 'GO!', class: "ui primary button" %>
-    </div>
+<div class = 'form'>
+  <div class="field-origin" >
+    <%= text_field_tag :origin %><button id = 'current-location' class= 'ui button'> <span>Current Location<span></button>
   </div>
-  <div id="home_whitelist">
-    <%= fields_for 'user[whitelist]' do |f| %>
-      <div class="checkbox">
-        <%= f.check_box :walking, checked: current_user ? int_to_boolean?(current_user.whitelist.walking) : true %>
-        <%= f.label :walking %>
-      </div>
-      <div class="checkbox">
-        <%= f.check_box :bicycling, checked: current_user ? int_to_boolean?(current_user.whitelist.bicycling) : true %>
-        <%= f.label :biking %>
-      </div>
-      <div class="checkbox">
-        <%= f.check_box :divvy, checked: current_user ? int_to_boolean?(current_user.whitelist.divvy) : true %>
-        <%= f.label :divvy %>
-      </div>
-      <div class="checkbox">
-        <%= f.check_box :bus, checked: current_user ? int_to_boolean?(current_user.whitelist.bus) : true %>
-        <%= f.label :bus %>
-      </div>
-      <div class="checkbox">
-       <%= f.check_box :subway, checked: current_user ? int_to_boolean?(current_user.whitelist.subway) : true %>
-        <%= f.label :subway %>
-      </div>
-      <div class="checkbox">
-        <%= f.check_box :driving, checked: current_user ? int_to_boolean?(current_user.whitelist.driving) : true %>
-        <%= f.label :driving %>
-      </div>
-      <div class="checkbox">
-        <%= f.check_box :uber, checked: current_user ? int_to_boolean?(current_user.whitelist.uber) : true %>
-        <%= f.label :uber %>
-      </div>
-      <div class="checkbox">
-        <%= f.check_box :cab, checked: current_user ? int_to_boolean?(current_user.whitelist.cab) : true %>
-        <%= f.label :cab %>
-      </div>
-    <% end %>
+  <div class="field-destination">
+    <%= text_field_tag :destination %>
   </div>
+
+
+
+<p id="demo"></p>
+
+
+  <%= fields_for 'user[whitelist]' do |f| %>
+  <div id="checkbox" class = 'ui button'>
+    <%= f.check_box :walking, checked: current_user ? int_to_boolean?(current_user.whitelist.walking) : true%><br>
+    <%= f.label :walking %>
+  </div>
+  <div id="checkbox" class = 'ui button'>
+    <%= f.check_box :bicycling, checked: current_user ? int_to_boolean?(current_user.whitelist.bicycling) : true %><br>
+    <%= f.label :bicycling %>
+  </div>
+  <div id="checkbox" class = 'ui button'>
+    <%= f.check_box :divvy, checked: current_user ? int_to_boolean?(current_user.whitelist.divvy) : true %><br>
+    <%= f.label :divvy %>
+  </div>
+  <div id="checkbox" class = 'ui button'>
+    <%= f.check_box :bus, checked: current_user ? int_to_boolean?(current_user.whitelist.bus) : true %><br>
+    <%= f.label :bus %>
+  </div>
+  <div id="checkbox" class = 'ui button'>
+   <%= f.check_box :subway, checked: current_user ? int_to_boolean?(current_user.whitelist.subway) : true %><br>
+   <%= f.label :subway %>
+  </div>
+  <div id="checkbox" class = 'ui button'>
+   <%= f.check_box :driving, checked: current_user ? int_to_boolean?(current_user.whitelist.driving) : true %><br>
+   <%= f.label :driving %>
+  </div>
+  <div id="checkbox" class = 'ui button'>
+   <%= f.check_box :uber, checked: current_user ? int_to_boolean?(current_user.whitelist.uber) : true %><br>
+   <%= f.label :uber %>
+  </div>
+  <div id="checkbox" class = 'ui button'>
+   <%= f.check_box :cab, checked: current_user ? int_to_boolean?(current_user.whitelist.cab) : true %><br>
+   <%= f.label :cab %>
+  </div>
+  <% end %>
+</div>
+ <div id="home_submit">
+    <%= submit_tag 'GO!', class: "ui primary button" %>
+  </div>
+</div>
 <% end %>
- <div id = 'demo'></div>

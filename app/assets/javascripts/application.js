@@ -40,13 +40,14 @@ $(document).ready(function () {
     $('.hidden').fadeToggle();
   });
 
-  $('#apple-tester').on('click', function(e){
+
+  var x = document.getElementById("origin");
+
+  $('#current-location').on('click', function(e){
     e.preventDefault();
-    var x = document.getElementById("demo");
 
     function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude +
-      "<br>Longitude: " + position.coords.longitude;
+      x.value = position.coords.latitude + ", " + position.coords.longitude;
     }
 
     function getLocation() {

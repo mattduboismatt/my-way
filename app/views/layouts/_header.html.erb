@@ -1,15 +1,21 @@
 
-<div id="navigation">
-  <div id="logo">
+<div class="ui inverted menu">
+  <div>
   </div>
   <div id="logged">
     <%if current_user%>
-       <%= link_to "Logout", logout_path, method: :delete, class: "ui button", id: 'profile_buttons' %> <%= link_to "Profile", user_path(current_user), class: "ui button", id: 'profile_buttons' %>
-    <% else %>
-     <%= link_to "Login", login_path, class: "ui button", id: 'profile_buttons' %> <%= link_to "Register", new_user_path, class: "ui button", id: 'profile_buttons' %>
-  <% end %>
-  </div>
-  <%= render 'layouts/flash' %>
+    <div class="right menu">
+      <div class="item">
+         <%= link_to "Logout", logout_path, method: :delete, class: "item"%> <%= link_to "Profile", user_path(current_user), class: "item"%>
+         <% else %>
+         <%= link_to "Login", login_path, class: "item"%> <%= link_to "Register", new_user_path, class: "item"%>
+        <% end %>
+       </div>
+     </div>
+   </div>
+      </div>
+
+ <%= render 'layouts/flash' %>
 </div>
 
 
