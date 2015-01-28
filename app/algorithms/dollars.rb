@@ -34,7 +34,7 @@ module DollarsAlgorithm
     mode = route.travel_mode
     duration = route.duration.to_f/60
     dollars_exp = 100
-    time_constant = 20/60.0
+    time_constant = 15/60.0
     money_time_factor = 4.5
     case mode
     when 'walking'
