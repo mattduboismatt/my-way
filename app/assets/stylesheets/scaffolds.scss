@@ -8,11 +8,16 @@ body {
   margin:0;
 }
 
+.container {
+  width: 100%;
+  margin: 0% ;
+  padding: 0%;
+}
+
 .form{
   margin-top: 25%;
   padding:0;
 }
-
 
 
 
@@ -28,7 +33,8 @@ body {
   float: right;
   font-size: 100%;
   font-family: 'Chango', cursive;
-  margin-right: 5%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 a.item{
@@ -57,33 +63,36 @@ div.field-destination {
   width: 81%;
 }
 
-#current-location{
-  margin-left: 12%;
-  margin-bottom: -1%;
-  width: 80%;
+#password {
+  width: 90%;
+  font-size: 180%;
 }
 
+#email {
+  width: 90%;
+  font-size: 180%;
+}
+
+
 #current-location.ui.button{
-  text-align: center;
+  margin-left: 12%;
   color: white;
   background-color: #3C3C3C;
   font-size: 65%;
-  padding: 0;
 }
 
-#home_whitelist{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 85%;
-}
+
 
 #checkbox.ui_button{
   display: inline;
 }
 
+body > div > div.ui.inverted.menu > div.left.menu > a > img{
+  margin-left: 50%;
+}
+
 #checkbox{
-width: 48%;
+width: 22%;
 opacity: 0.7;
 padding: 10px 10px 10px 10px;
 margin: 0.5% 0.5% 0.5% 0.5%;
@@ -104,5 +113,38 @@ background-color: #7fbc2d;
   margin-left: -5%;
 }
 
+#login > input {
+  margin-top: 5%;
+  width: 50%;
+  margin-left: 22%;
+  padding: 10px 10px 10px 10px;
+}
 
+.login_form {
+  margin-top: 25%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.white_wrapper {
+  margin-left: 5%;
+  width: 90%;
+}
+.field {
+  width: 80%;
+  font-size: 100%;
+}
+
+.create_user {
+
+padding-left: 30%;
+margin-top: 20%;
+}
+
+.create_user {
+
+padding-left: 30%;
+margin-top: 20%;
+}
 

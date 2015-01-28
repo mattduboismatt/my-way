@@ -1,9 +1,14 @@
-
-
-<div>
-    <%= form_tag do %>
+<div class="login_form">
+  <%= form_tag do  %>
+    <div class="field-origin" >
       <%= text_field_tag :email, nil, placeholder: "Email"  %><br>
+    </div>
+    <div class="field-destination">
       <%= password_field_tag :password, nil, placeholder: "Password"  %><br>
-      <%= submit_tag 'Login' %>
-    <% end %>
+    </div>
+  <div id="login">
+    <%= submit_tag 'Login', class: "ui primary button" %>
+  </div>
+  <% end %>
 </div>
+
