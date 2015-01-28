@@ -57,29 +57,31 @@ div.field-destination {
   width: 81%;
 }
 
+#password {
+  width: 90%;
+}
+
+#email {
+  width: 90%;
+}
 #current-location{
-  margin-left: 12%;
-  margin-bottom: -1%;
-  width: 80%;
 }
 
 #current-location.ui.button{
-  text-align: center;
+  margin-left: 12%;
   color: white;
   background-color: #3C3C3C;
   font-size: 65%;
-  padding: 0;
 }
 
-#home_whitelist{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 85%;
-}
+
 
 #checkbox.ui_button{
   display: inline;
+}
+
+body > div > div.ui.inverted.menu > div.left.menu > a > img{
+  margin-left: 50%;
 }
 
 #checkbox{
@@ -102,6 +104,19 @@ background-color: #7fbc2d;
 
 .left.menu {
   margin-left: -5%;
+}
+
+#login > input {
+  margin-top: 10%;
+  width: 50%;
+  margin-left: 22%;
+  padding: 10px 10px 10px 10px;
+}
+
+.login_form {
+  margin-top: 25%;
+  width: 80%;
+
 }
 
 
