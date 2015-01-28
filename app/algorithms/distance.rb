@@ -8,7 +8,7 @@ module DistanceAlgorithm
     when 'walking'
       distance_exp = 100 - ((distance.to_f/260)**1.75).to_i
     when 'bicycling', 'divvy'
-      distance_exp = 100 - ((distance.to_f/435)**1.75).to_i
+      distance_exp = (-2.445*(distance/1600)**2 - 5.902*(distance/1600)+ 100).to_i
     when 'driving'
       distance_exp = (0.813*(distance/1600)**3 - 5.723*(distance/1600)**2 - 1.547*(distance/1600) + 100).to_i
     when 'cab', 'uber'
