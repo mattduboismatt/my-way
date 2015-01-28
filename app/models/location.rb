@@ -4,10 +4,12 @@ class Location < ActiveRecord::Base
   after_initialize :format_address
 
   def format_address
-    address = self.address.downcase
-    if !address.include?("chicago")
-      address = address + " chicago il"
+    if self.address
+      address = self.address.downcase
+      if !address.include?("chicago")
+        address = address + " chicago il"
+      end
+      self.address = address.gsub(/\W/, " ")
     end
-    self.address = address.gsub(",", " ")
   end
 end
