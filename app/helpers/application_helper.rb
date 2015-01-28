@@ -31,11 +31,11 @@ module ApplicationHelper
     when "driving"
       "comgooglemaps://?saddr=#{trip.origin.address}&daddr=#{trip.destination.address}&directionsmode=driving"
     when"uber"
-      "uber://?action=setPickup&pickup=my_location&product_id=uberX"
+      "uber://?action=setPickup&pickup=my_location&product_id=4bfc6c57-98c0-424f-a72e-c1e2a1d49939"
     when 'bicycling', 'divvy'
       "comgooglemaps://?saddr=#{trip.origin.address}&daddr=#{trip.destination.address}&directionsmode=bicycling"
     when "cab"
-     "uber://?action=setPickup&pickup=my_location&product_id=uberTAXI"
+     "uber://?action=setPickup&pickup=my_location&product_id=f2277fbc-e4fb-4bc5-9f1a-9c4d91ad2354"
    end
  end
 
