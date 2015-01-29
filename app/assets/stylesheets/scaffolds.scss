@@ -173,8 +173,9 @@ background-color: #7fbc2d;
 }
 
 #current-location{
-  border: solid teal 2px;
-  color: teal;
+  border: solid white 2px;
+  color: white;
+  background-color: #6ECFF5;
 }
 .create_user {
 
@@ -225,3 +226,6 @@ body > div > div.ui.inverted.menu > div.left.menu > a > img{
   visibility: visible;
   z-index: 11;
 }*/
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
