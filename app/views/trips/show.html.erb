@@ -13,7 +13,7 @@
       <% if i <= 2%>
       <div class='route-div visible fluid ui small <%=color_selector(r)%> button' id = "choice-<%= i %> route-button">
         <% else %>
-        <div class='hidden fluid ui small <%=color_selector(r)%> button' id = "choice-<%= i %> route-button">
+        <div class='route-div hidden fluid ui small <%=color_selector(r)%> button' id = "choice-<%= i %> route-button">
           <% end %>
           <div class='dollars-left route-info'><%= dollar_converter(r)%></div><div class='spacer'></div><div class='time-middle route-info'><%= duration(r) %> min</div><div class='spacer'></div><div class='mode-right route-info'><%= travel_mode(r) %></div><!-- <i class= "<%=sym_placer(r)%>" ></i> -->
         </div>
