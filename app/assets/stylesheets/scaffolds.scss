@@ -29,15 +29,6 @@ body {
   padding: 10px 10px 10px 10px;
 }
 
-.flash {
-  color: red;
-  float: right;
-  font-size: 100%;
-  font-family: 'Chango', cursive;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 a.item{
   clear: both;
 
@@ -168,9 +159,6 @@ body > div > div.ui.inverted.menu > div.left.menu > a > img{
   margin-left: 50%;
 }
 
-
-
-
-
-
-
+.checkdiv input{
+  pointer-events: none;
+}

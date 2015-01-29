@@ -10,6 +10,10 @@
   margin-top: 0;
 }
 
+#results-div{
+  padding-bottom: 0;
+}
+
 #show-result{
   position: fixed;
   bottom: 0;
@@ -21,6 +25,11 @@
   text-decoration: none;
   color: white;
 }
+
+.hidden{
+  width: 100%;
+}
+
 .hidden a{
   text-decoration: none;
   color: white;
@@ -31,7 +40,7 @@
   bottom: 0;
 }*/
 
-#show-more a{
+#show-more{
   color: black;
 }
 

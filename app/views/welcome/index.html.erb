@@ -16,43 +16,43 @@
 
   <p id="demo"></p>
 
-  <div class="white_wrapper">
-    <%= fields_for 'user[whitelist]' do |f| %>
-    <div id="checkbox" class = 'small ui button'>
+
+<div class="white_wrapper">
+  <%= fields_for 'user[whitelist]' do |f| %>
+    <div id="checkbox" class = 'checkdiv small ui button'>
       <%= f.check_box :walking, checked: current_user ? int_to_boolean?(current_user.whitelist.walking) : true%><br>
       <%= f.label :walk %>
     </div>
-    <div id="checkbox" class = 'small ui button'>
+    <div id="checkbox" class = 'checkdiv small ui button'>
       <%= f.check_box :bicycling, checked: current_user ? int_to_boolean?(current_user.whitelist.bicycling) : true %><br>
       <%= f.label :bike %>
     </div>
-    <div id="checkbox" class = 'small ui button'>
+    <div id="checkbox" class = 'checkdiv small ui button'>
       <%= f.check_box :divvy, checked: current_user ? int_to_boolean?(current_user.whitelist.divvy) : true %><br>
       <%= f.label :divvy %>
     </div>
-    <div id="checkbox" class = 'small ui button'>
+    <div id="checkbox" class = 'checkdiv small ui button'>
       <%= f.check_box :bus, checked: current_user ? int_to_boolean?(current_user.whitelist.bus) : true %><br>
       <%= f.label :bus %>
     </div>
-    <div id="checkbox" class = 'small ui button'>
+    <div id="checkbox" class = 'checkdiv small ui button'>
      <%= f.check_box :subway, checked: current_user ? int_to_boolean?(current_user.whitelist.subway) : true %><br>
      <%= f.label :train %>
-   </div>
-   <div id="checkbox" class = 'small ui button'>
+    </div>
+    <div id="checkbox" class = 'checkdiv small ui button'>
      <%= f.check_box :driving, checked: current_user ? int_to_boolean?(current_user.whitelist.driving) : true %><br>
      <%= f.label :drive %>
-   </div>
-   <div id="checkbox" class = 'small ui button'>
+    </div>
+    <div id="checkbox" class = 'checkdiv small ui button'>
      <%= f.check_box :uber, checked: current_user ? int_to_boolean?(current_user.whitelist.uber) : true %><br>
      <%= f.label :uber %>
-   </div>
-   <div id="checkbox" class = 'small ui button'>
+    </div>
+    <div id="checkbox" class = 'checkdiv small ui button'>
      <%= f.check_box :cab, checked: current_user ? int_to_boolean?(current_user.whitelist.cab) : true %><br>
      <%= f.label :cab %>
-   </div>
-   <% end %>
- </div>
-
+    </div>
+  <% end %>
+</div>
  <div id="home_submit">
   <%= submit_tag 'GO!', class: "ui primary button" %>
 </div>

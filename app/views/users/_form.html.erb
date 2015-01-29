@@ -1,28 +1,20 @@
-<div class="ui form">
+<%= render 'layouts/error_message' %>
+<div class="ui fluid form registration">
 <%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
+  <div class="field registration">
     <%= f.text_field :name, placeholder: "Name" %>
   </div>
-  <div class="field">
+  <div class="field registration">
     <%= f.email_field :email, placeholder: "Email" %>
   </div>
-  <div class="field">
+  <div class="field registration">
     <%= f.password_field :password, placeholder: "Password" %>
   </div>
-  <div class="field">
+  <div class="field registration">
     <%= f.password_field :password_confirmation, placeholder: "Re-enter Password" %>
   </div>
   <div class="actions">
-    <%= f.submit%>
+    <%= f.submit :class => "ui submit teal button"%>
   </div>
 <% end %>
 </div>

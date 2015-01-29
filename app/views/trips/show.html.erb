@@ -11,18 +11,17 @@
       <% method_limiter(@routes)[1..-1].each_with_index do |r,i| %>
       <%= link_to(app_link(@trip,r)) do%>
       <% if i <= 2%>
-      <div class='visible fluid ui <%=color_selector(r)%> button' id = "choice-<%= i %> route-button">
+      <div class='visible fluid ui small <%=color_selector(r)%> button' id = "choice-<%= i %> route-button">
         <% else %>
-        <div class='hidden fluid ui <%=color_selector(r)%> button' id = "choice-<%= i %>">
+        <div class='hidden fluid ui small <%=color_selector(r)%> button' id = "choice-<%= i %> route-button">
           <% end %>
           <%= dollar_converter(r)%> <%= duration(r) %> min <%= travel_mode(r) %><!-- <i class= "<%=sym_placer(r)%>" ></i> -->
         </div>
         <% end %>
         <% end %>
         <% if method_limiter(@routes).length > 4 %>
-        <div class = 'mini fluid ui button' id= 'show-more'>
-          <%= link_to "more" %>
-        </div>
+        <div class = 'tiny fluid ui button' id = 'show-more'>More</div>
         <% end %>
       </div>
     </div >
+

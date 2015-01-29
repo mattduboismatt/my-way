@@ -4,6 +4,11 @@ module ApplicationHelper
     display_routes
   end
 
+  def select_image
+    return "logo.png" if current_page? '/chicago'
+    return "logo_backwards.png"
+  end
+
   def sym_placer(r)
     case r.travel_mode
     when "bus"
