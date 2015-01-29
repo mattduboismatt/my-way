@@ -13,11 +13,11 @@ module SafetyAlgorithm
       when 'cab'
         safety_exp = 95
       when 'uber'
-        safety_exp = 85
+        safety_exp = 90
       when 'bus', 'subway', 'bicycling', 'divvy'
-        safety_exp = 75
+        safety_exp = 80
       when 'walking'
-        safety_exp = 60
+        safety_exp = 70
       end
 
     when 22..23, 0..6
@@ -25,11 +25,11 @@ module SafetyAlgorithm
       when 'driving'
         safety_exp = 100
       when 'cab'
-        safety_exp = 75
+        safety_exp = 85
       when 'uber'
-        safety_exp = 60
+        safety_exp = 80
       when 'bus', 'subway', 'bicycling', 'divvy'
-        safety_exp = 25
+        safety_exp = 40
       when 'walking'
         safety_exp = 0
       end
