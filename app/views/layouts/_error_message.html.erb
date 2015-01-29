@@ -1,0 +1,12 @@
+<% if @user.errors.any? %>
+  <div class = "ui negative message">
+    <div class = 'header'>
+    <%= render 'layouts/flash' %>
+    </div>
+    <ul class="list">
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
