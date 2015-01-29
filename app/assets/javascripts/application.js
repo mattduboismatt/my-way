@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require_relative ./scaffolds
 //= require_tree .
 
 $(document).ready(function () {
@@ -58,6 +59,12 @@ $(document).ready(function () {
   $(document).keypress(function(e){
     if(e.which == 13){
       $("#calculate-go").click();
+    }
+  })
+
+  $('#origin').keypress(function(e){
+    if(e.which == 13){
+      $("#destination").focus();
     }
   })
 

@@ -14,15 +14,6 @@
   padding-bottom: 0;
 }
 
-#show-result{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: transparent;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .results a{
   text-decoration: none;
   color: white;
@@ -79,4 +70,8 @@
 
 .ui.button.route-div{
   padding: 0.8em 0.5em;
+}
+
+i {
+  margin-top: -11px;
 }

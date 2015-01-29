@@ -145,6 +145,10 @@ background-color: #7fbc2d;
   margin-left: -5%;
 }
 
+#logo{
+  margin-left:0px;
+}
+
 #login > input {
   margin-top: 5%;
   width: 50%;
@@ -153,6 +157,7 @@ background-color: #7fbc2d;
 }
 
 .login_form {
+  text-align: center;
   margin-top: 25%;
   width: 80%;
   margin-left: auto;
@@ -172,8 +177,9 @@ background-color: #7fbc2d;
 }
 
 #current-location{
-  border: solid teal 2px;
-  color: teal;
+  border: solid white 2px;
+  color: white;
+  background-color: #6ECFF5;
 }
 .create_user {
 
@@ -204,3 +210,7 @@ body > div > div.ui.inverted.menu > div.left.menu > a > img{
 .checkdiv input{
   pointer-events: none;
 }
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
