@@ -9,6 +9,10 @@ module ApplicationHelper
     return "logo_backwards.png"
   end
 
+  def render_header
+    @question ? true:false
+  end
+
   def sym_placer(r)
     case r.travel_mode
     when "bus"
