@@ -17,17 +17,17 @@
 <div class="ui inverted menu" id='nav-menu'>
   <div class="right menu">
 
-    <li class='item'><%= temp %>&deg;</li>
+    <li class='header-option item'><%= temp %>&deg;</li>
 
-    <a href="#" class='item' id="formula">Formula</a>
+    <a href="#" class='header-option item' id="formula">Formula</a>
 
 
     <%if current_user%>
-      <%= link_to "Logout", logout_path, method: :delete, class: "item"%>
-      <%= link_to "Profile", user_path(current_user), class: "item"%>
+      <%= link_to "Logout", logout_path, method: :delete, class: "header-option item"%>
+      <%= link_to "Profile", user_path(current_user), class: "header-option item"%>
     <% else %>
-      <%= link_to "Login", login_path, class: "item"%>
-      <%= link_to "Register", new_user_path, class: "item"%>
+      <%= link_to "Login", login_path, class: "header-option item"%>
+      <%= link_to "Register", new_user_path, class: "header-option item"%>
     <% end %>
 
   </div>

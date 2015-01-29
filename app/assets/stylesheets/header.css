@@ -52,3 +52,12 @@
   color: red;
   font-size: 200%;
 }
+
+.header-option {
+  font-size: ;
+}
+
+#nav-menu > div.right.menu > .header-option {
+  font-size: 0.82rem;
+  padding: 1rem 0.5rem;
+}
