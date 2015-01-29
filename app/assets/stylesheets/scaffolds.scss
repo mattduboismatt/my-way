@@ -217,6 +217,19 @@ body > div > div.ui.inverted.menu > div.left.menu > a > img{
   pointer-events: none;
 }
 
+#flip {
+  border: 1px red solid;
+  color: white;
+  background: red;
+  width: 9%;
+  margin-left: 4%;
+  border-radius: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: -2px;
+
+}
+
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
