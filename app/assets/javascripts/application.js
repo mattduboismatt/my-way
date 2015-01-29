@@ -18,12 +18,6 @@
 
 $(document).ready(function () {
 
-  $('#formula').on('click', function(e){
-    e.preventDefault();
-    $('#formula-pop-up').removeClass('hide-me')
-    // $('#formula-pop-up').css('visibility','visible');
-  });
-
   $(function() {
     $( "#accordion" ).accordion({
      header: "h3",
@@ -65,6 +59,12 @@ $(document).ready(function () {
   $(document).keypress(function(e){
     if(e.which == 13){
       $("#calculate-go").click();
+    }
+  })
+
+  $('#origin').keypress(function(e){
+    if(e.which == 13){
+      $("#destination").focus();
     }
   })
 

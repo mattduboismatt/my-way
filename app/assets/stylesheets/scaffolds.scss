@@ -150,6 +150,10 @@ background-color: #7fbc2d;
   margin-left: -5%;
 }
 
+#logo{
+  margin-left:0px;
+}
+
 #login > input {
   margin-top: 5%;
   width: 50%;
@@ -213,38 +217,6 @@ body > div > div.ui.inverted.menu > div.left.menu > a > img{
   pointer-events: none;
 }
 
-.hide-me {
-  display: none;
-}
-
-#formula-pop-up {
-  position: absolute;
-  right: 0;
-  left: 0;
-  margin: 10% auto;
-  height: 50%;
-  width: 80%;
-  z-index: 10;
-}
-
-#flip {
-  border: 1px red solid;
-  color: white;
-  background: red;
-  width: 9%;
-  margin-left: 4%;
-  border-radius: 5px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  padding-right: -2px;
-
-}
-/*
-#formula-pop-up i, p {
-  position: relative;
-  visibility: visible;
-  z-index: 11;
-}*/
-
 @import "font-awesome-sprockets";
 @import "font-awesome";
+

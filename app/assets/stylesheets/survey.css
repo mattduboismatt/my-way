@@ -24,8 +24,28 @@
   padding-left: 1em;
 }
 
-#answer-content{
+#answer{
   display: inline-block;
+  background-color: #76B820;
+  color: white;
+  border-radius: 3%;
+  width: 100%;
+  height: 4em;
+  border-color: white;
+  font-family: sans-serif;
+  font-size: 100%;
+}
+
+#selected-answer{
+  font-family: sans-serif;
+  height: 4em;
+  display: inline-block;
+  border-radius: 3%;
+  background-color: white;
+  border-color: #76B820;
+  color: #76B820;
+  width: 100%;
+  font-size: 100%;
 }
 
 #question-asked{

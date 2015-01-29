@@ -1,0 +1,54 @@
+#nav-menu {
+  margin-top: 0px;
+}
+
+#formula-pop-up {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 5% auto;
+  height: auto;
+  width: 90%;
+  z-index: 10;
+  background-color: #FAFAFA;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#header-pop-up {
+  color: teal;
+}
+
+#text-pop-up p {
+  margin: 1% 1%;
+}
+
+#text-pop-up ul{
+  list-style-type: none;
+  padding: 0 3%;
+}
+
+#text-pop-up .leader{
+  font-weight: bold;
+  color: teal;
+}
+
+#text-pop-up li{
+  margin: 2% 0;
+  text-align: left;
+}
+
+#close-pop-up {
+  cursor: pointer;
+  text-decoration:none;
+  line-height:15px;
+  right:10px;
+  top:5px;
+  position:absolute;
+  color:#6fa5e2;
+  font-weight:500;
+  color: red;
+  font-size: 200%;
+}
