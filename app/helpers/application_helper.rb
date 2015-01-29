@@ -5,8 +5,8 @@ module ApplicationHelper
   end
 
   def select_image
-    return "logo.png" if current_page? '/chicago'
-    return "logo_backwards.png"
+    return "my-way-no-border.png" if current_page? '/chicago'
+    return "my-way-backwards.png"
   end
 
   def render_header
