@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  require './app/modules/darksky.rb'
 
   protect_from_forgery with: :exception
 
@@ -14,9 +15,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :logged_in?
 
-  def weather
-    climate = Forecast.new(lat: 41.889685, lng: -87.637750)
-    climate.current_precise_temp
+  def temp
+    forecast = Rails.cache.fetch("forecast", expires_in: 5.minutes) do
+      Forecast.new({'lat' => 41.8896848, 'lng' => -87.6377502}) #dev bootcamp!!
+    end
+    forecast.current_apparent_temp.round
   end
-  helper_method :weather
+  helper_method :temp
 end
