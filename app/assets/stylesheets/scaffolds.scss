@@ -166,3 +166,7 @@ margin-top: 20%;
 body > div > div.ui.inverted.menu > div.left.menu > a > img{
   margin-left: 50%;
 }
+
+.checkdiv input{
+  pointer-events: none;
+}
