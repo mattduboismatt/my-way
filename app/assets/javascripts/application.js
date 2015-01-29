@@ -67,10 +67,4 @@ $(document).ready(function () {
 
     getLocation()
   })
-
-  $('#show-more').on('click', function(e){
-    e.preventDefault(e);
-
-    };
-  })
 });

@@ -18,3 +18,4 @@
 /app/.DS_Store
 coverage
 app/views/users/.DS_Store
+npm-debug.log
