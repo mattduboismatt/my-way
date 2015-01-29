@@ -19,3 +19,5 @@
 coverage
 app/views/users/.DS_Store
 npm-debug.log
+app/assets/.DS_Store
+app/views/.DS_Store

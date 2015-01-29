@@ -21,7 +21,6 @@
 #   it "route.score returns an integer between 1-100" do
 #     expect(WeatherAlgorithm.run(route, $apple)).to eq(64)
 #   end
-
 #   it "should change deg_to_compass" do
 #     expect(forecast.current_wind_bearing_compass).to be_truthy
 #   end
