@@ -2,9 +2,11 @@
     <p id = 'mode-choice'><%= suggestion(@routes) %></p>
     <% r = method_limiter(@routes)[0] %>
     <%= link_to(app_link(@trip,r)) do%>
-    <div class = 'route-div visible fluid massive ui inverted green button' id = "choice-0"><div class='dollars-left route-info'><%= dollar_converter(r)%></div><div class='spacer'></div><div class='time-middle route-info'><%= duration(r) %> min</div><div class='spacer'></div><div class='mode-right route-info'><%= travel_mode(r) %></div></div>
+    <div class="ui tag labels">
+    <div class = 'route-div visible fluid massive ui inverted green button' id = "choice-0"><div class='dollars-left route-info'><a class="ui label"><%= dollar_converter(r)%></a></div><div class='spacer'></div><div class='time-middle route-info'><%= duration(r) %> min</div><div class='spacer'></div><div class='mode-right route-info'><%= travel_mode(r) %></div></div>
     <% end %>
   </div>
+</div>
 
   <div id="show-result">
     <div class="results ui inverted segment">
