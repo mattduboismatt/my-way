@@ -15,9 +15,19 @@ body {
   padding: 0%;
 }
 
-.form{
-  margin-top: 25%;
-  padding:0;
+.ui.blue.label {
+  margin-left: 0;
+}
+
+.form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: 25%;
+}
+
+.fields-container{
+  text-align: center;
 }
 
 
@@ -31,19 +41,15 @@ body {
 
 a.item{
   clear: both;
-
 }
 div.field-origin {
-  margin-left: 4%;
-  margin-right: 5%;
-  margin-bottom: -1%;
+  margin-bottom: 1%;
 
 }
 
 div.field-destination {
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 2%;
+  margin-top: 1%;
+  margin-bottom: 2%;
 }
 
 
@@ -53,7 +59,7 @@ div.field-destination {
 }
 
 #destination {
-  width: 81%;
+  width: 80%;
 }
 
 #password {
@@ -70,14 +76,18 @@ div.field-destination {
 }
 
 
-#current-location.ui.button{
+/*#current-location.ui.button{
+  margin-top: 25%;
   margin-left: 16%;
   color: white;
   background-color: #3C3C3C;
   font-size: 65%;
+}*/
+
+.white-wrapper{
+  margin-top: 2%;
+  text-align: center
 }
-
-
 
 #checkbox.ui_button{
   display: inline;
@@ -121,10 +131,6 @@ background-color: #7fbc2d;
   margin-right: auto;
 }
 
-.white_wrapper {
-  margin-left: 5%;
-  width: 90%;
-}
 .field {
   width: 80%;
   padding:-20px;
@@ -133,6 +139,14 @@ background-color: #7fbc2d;
 
 }
 
+.current-location{
+  margin-bottom: 1em;
+}
+
+#current-location{
+  border: solid teal 2px;
+  color: teal;
+}
 .create_user {
 
 padding-left: 30%;

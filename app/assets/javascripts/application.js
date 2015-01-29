@@ -60,4 +60,10 @@ $(document).ready(function () {
       $('.hidden').slideToggle('slow');
     }
   });
+
+  $(document).keypress(function(e){
+    if(e.which == 13){
+      $("#calculate-go").click();
+    }
+  })
 });
