@@ -17,7 +17,7 @@ module ApplicationHelper
     case r.travel_mode
     when "bus"
       "fa fa-bus"
-    when "subway"
+    when "subway"," subway"
       "fa fa-train"
     when "walking"
       "fa fa-male"
