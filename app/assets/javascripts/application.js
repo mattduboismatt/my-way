@@ -66,4 +66,5 @@ $(document).ready(function () {
       $("#calculate-go").click();
     }
   })
+
 });

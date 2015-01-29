@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+  $('#puppet-field').hide();
+  $('#tired-field').hide();
+
+
   $('#current-location').on('click', function(e){
     e.preventDefault();
 
@@ -27,5 +31,18 @@ $(document).ready(function () {
     };
 
     getLocation()
+
+  $('#puppet-field').show();
+  $('#origin').hide();
+
+  })
+
+  $('#puppet-field').on('click', function(e){
+    e.preventDefault();
+    $('#puppet-field').hide();
+    $('#origin').show();
+    var originField = document.getElementById("origin");
+    originField.value = "";
+
   })
 });

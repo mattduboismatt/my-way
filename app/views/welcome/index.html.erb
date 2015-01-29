@@ -6,14 +6,17 @@
   <div>
     <div class = "fields-container">
       <div class="field-origin" >
-      <div class="current-location">
-        <button id = 'current-location' class= 'tiny ui button current-location'>Find My Location</button>
-      </div>
-        <a class="ui blue label">A</a><%= text_field_tag :origin,nil, placeholder: "Start Point" %>
+        <div class="current-location">
+          <button id = 'current-location' class= 'tiny ui button current-location'>Find My Location</button>
+        </div>
+        <a class="ui blue label">A</a>
+        <input type = 'text' id = 'puppet-field' value = 'Current Location' />
+        <%= text_field_tag :origin,nil, placeholder: "Start Point" %>
       </div>
 
       <div class="field-destination">
-        <a class="ui purple label">B</a><%= text_field_tag :destination,nil, placeholder: "End Point" %>
+        <a class="ui purple label">B</a><input type = 'text' id = 'tired-field' value = 'Current Location' />
+<%= text_field_tag :destination,nil, placeholder: "End Point" %>
       </div>
     </div>
 
@@ -26,47 +29,47 @@
     <p>We're fetching that content for you.</p>
   </div>
 </div>
- -->
+-->
 
-    <div class="white-wrapper">
-      <%= fields_for 'user[whitelist]' do |f| %>
-      <div id="checkbox" class = 'checkdiv small ui button'>
-        <%= f.check_box :walking, checked: current_user ? int_to_boolean?(current_user.whitelist.walking) : true%><br>
-        <%= f.label :walk %>
-      </div>
-      <div id="checkbox" class = 'checkdiv small ui button'>
-        <%= f.check_box :bicycling, checked: current_user ? int_to_boolean?(current_user.whitelist.bicycling) : true %><br>
-        <%= f.label :bike %>
-      </div>
-      <div id="checkbox" class = 'checkdiv small ui button'>
-        <%= f.check_box :divvy, checked: current_user ? int_to_boolean?(current_user.whitelist.divvy) : true %><br>
-        <%= f.label :divvy %>
-      </div>
-      <div id="checkbox" class = 'checkdiv small ui button'>
-        <%= f.check_box :bus, checked: current_user ? int_to_boolean?(current_user.whitelist.bus) : true %><br>
-        <%= f.label :bus %>
-      </div>
-      <div id="checkbox" class = 'checkdiv small ui button'>
-       <%= f.check_box :subway, checked: current_user ? int_to_boolean?(current_user.whitelist.subway) : true %><br>
-       <%= f.label :train %>
-     </div>
-     <div id="checkbox" class = 'checkdiv small ui button'>
-       <%= f.check_box :driving, checked: current_user ? int_to_boolean?(current_user.whitelist.driving) : true %><br>
-       <%= f.label :drive %>
-     </div>
-     <div id="checkbox" class = 'checkdiv small ui button'>
-       <%= f.check_box :uber, checked: current_user ? int_to_boolean?(current_user.whitelist.uber) : true %><br>
-       <%= f.label :uber %>
-     </div>
-     <div id="checkbox" class = 'checkdiv small ui button'>
-       <%= f.check_box :cab, checked: current_user ? int_to_boolean?(current_user.whitelist.cab) : true %><br>
-       <%= f.label :cab %>
-     </div>
-     <% end %>
-   </div>
-   <div id="home_submit">
-    <%= submit_tag 'Send Me Off!', class: "ui primary button", id: "calculate-go" %>
+<div class="white-wrapper">
+  <%= fields_for 'user[whitelist]' do |f| %>
+  <div id="checkbox" class = 'checkdiv small ui button'>
+    <%= f.check_box :walking, checked: current_user ? int_to_boolean?(current_user.whitelist.walking) : true%><br>
+    <%= f.label :walk %>
   </div>
+  <div id="checkbox" class = 'checkdiv small ui button'>
+    <%= f.check_box :bicycling, checked: current_user ? int_to_boolean?(current_user.whitelist.bicycling) : true %><br>
+    <%= f.label :bike %>
+  </div>
+  <div id="checkbox" class = 'checkdiv small ui button'>
+    <%= f.check_box :divvy, checked: current_user ? int_to_boolean?(current_user.whitelist.divvy) : true %><br>
+    <%= f.label :divvy %>
+  </div>
+  <div id="checkbox" class = 'checkdiv small ui button'>
+    <%= f.check_box :bus, checked: current_user ? int_to_boolean?(current_user.whitelist.bus) : true %><br>
+    <%= f.label :bus %>
+  </div>
+  <div id="checkbox" class = 'checkdiv small ui button'>
+   <%= f.check_box :subway, checked: current_user ? int_to_boolean?(current_user.whitelist.subway) : true %><br>
+   <%= f.label :train %>
+ </div>
+ <div id="checkbox" class = 'checkdiv small ui button'>
+   <%= f.check_box :driving, checked: current_user ? int_to_boolean?(current_user.whitelist.driving) : true %><br>
+   <%= f.label :drive %>
+ </div>
+ <div id="checkbox" class = 'checkdiv small ui button'>
+   <%= f.check_box :uber, checked: current_user ? int_to_boolean?(current_user.whitelist.uber) : true %><br>
+   <%= f.label :uber %>
+ </div>
+ <div id="checkbox" class = 'checkdiv small ui button'>
+   <%= f.check_box :cab, checked: current_user ? int_to_boolean?(current_user.whitelist.cab) : true %><br>
+   <%= f.label :cab %>
+ </div>
+ <% end %>
+</div>
+<div id="home_submit">
+  <%= submit_tag 'Send Me Off!', class: "ui primary button", id: "calculate-go" %>
+</div>
 </div>
 <% end %>
 </div>
