@@ -8,7 +8,20 @@ body {
   padding:0;
   margin:0;
 }
+#directions{
+  text-align: center;
+  color: white;
+  font-size: 110%
+}
+.whitelist-text{
+  text-align: center;
+  color: white;
+  font-size: 110%
 
+}
+.inner-contain{
+  margin-top: -20%
+}
 .container {
   width: 100%;
   margin: 0% ;
@@ -28,6 +41,7 @@ body {
 
 .fields-container{
   text-align: center;
+  margin-bottom: 5%
 }
 
 
@@ -49,7 +63,7 @@ div.field-origin {
 
 div.field-destination {
   margin-top: 1%;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 
