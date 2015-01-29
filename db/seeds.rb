@@ -20,7 +20,7 @@ end
 
 Answer.create(question_id: 1, content: "I participate every year!",                      distance_modifier: -0.05, dollars_modifier: 0.1, weather_modifier: -0.05, safety_modifier: -0.1)
 Answer.create(question_id: 1, content: "It is usually too cold to wait in line.",        distance_modifier: 0.01, dollars_modifier: -0.01, weather_modifier: 0.15, safety_modifier: 0.05)
-Answer.create(question_id: 1, content: "You can't pay me any amount too stand in line.", distance_modifier: 0.05, dollars_modifier: -0.1, weather_modifier: 0.05, safety_modifier: 0.1)
+Answer.create(question_id: 1, content: "You can't pay me any amount to stand in line.", distance_modifier: 0.05, dollars_modifier: -0.1, weather_modifier: 0.05, safety_modifier: 0.1)
 Answer.create(question_id: 1, content: "It's just another friday.",                      distance_modifier: 0.05, dollars_modifier: -0.05, weather_modifier: -0.02, safety_modifier: -0.02)
 
 Answer.create(question_id: 2, content: "Every summer, no matter what!",                  distance_modifier: -0.05, dollars_modifier: -0.03, weather_modifier: -0.1, safety_modifier: -0.03)
