@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $('#selected-answer').bigtext();
+  $('#answer').bigtext();
 
   var counter = $('h3 #qcount');
   var binding = $("#question-form-container");
