@@ -37,13 +37,21 @@ $(document).ready(function () {
 
   $('#show-more').on('click',function(e){
     e.preventDefault();
-    $('.hidden').fadeToggle();
       var linkText = document.getElementById("show-more");
     if (linkText.textContent == 'More'){
       linkText.textContent = 'Less';
     }
     else{
       linkText.textContent = 'More';
+    }
+
+    if($("#mode-choice").css("display") == 'none'){
+      $("#mode-choice").show();
+      $('.hidden').hide();
+    }
+    else{
+      $("#mode-choice").hide();
+      $('.hidden').show();
     }
   });
 
