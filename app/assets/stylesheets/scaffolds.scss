@@ -8,6 +8,14 @@ body {
   padding:0;
   margin:0;
 }
+
+.site-context{
+  margin: 0%;
+  text-align: center;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
 #directions{
   text-align: center;
   color: white;
@@ -23,6 +31,7 @@ body {
   margin-top: -20%
 }
 .container {
+  text-align: center;
   width: 100%;
   margin: 0% ;
   padding: 0%;
@@ -123,7 +132,8 @@ font-family: 'Open Sans', sans-serif;
 }
 
 #home_submit {
-  margin-left: 15%;
+  margin-left:auto;
+  margin-right:auto;
 
 }
 

@@ -16,7 +16,9 @@
 
   <div class="container">
     <%= render 'layouts/header' unless render_header%>
-    <%= yield %>
+    <div class = "site-content">
+      <%= yield %>
+    </div>
   </div>
 </body>
 <footer>
