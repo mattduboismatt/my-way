@@ -1,12 +1,13 @@
 <%= form_tag question_answers_path(@question), class: "survey-question-form" do %>
-  <div class="question">
-    <h2><%= @question.content %></h2>
-  </div>
+<div class="question">
+  <h3><%= @question.content %></h3>
   <ul>
     <% @question.answers.each do |answer| %>
-      <li>
-        <%= submit_tag answer.content, name: 'content', class: (@question.answer_for(current_user) == answer ? 'answer selected' : 'answer') %>
-      </li>
+    <li>
+      <div class="ans"><%= submit_tag answer.content, name: 'content', class: (@question.answer_for(current_user) == answer ? 'answer selected' : 'answer') %></div>
+    </li>
     <% end %>
+    <li><h4 class="ans"><span id="qcount"><%= @question.id %></span> of 7 <%= link_to "Skip Questions", root_path %></h4></li>
   </ul>
+</div>
 <% end %>
