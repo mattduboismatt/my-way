@@ -15,6 +15,8 @@ gem 'require_all'
 gem 'simplecov', :require => false, :group => :test
 gem 'responders', '~> 2.0'
 gem "less-rails"
+gem 'dalli'
+gem 'memcachier'
 
 #CTA Train Gems
 gem 'nokogiri'
