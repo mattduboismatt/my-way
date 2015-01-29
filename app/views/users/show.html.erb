@@ -1,9 +1,21 @@
-<p><strong>Name:</strong><%= @user.name %></p>
+<div id='profile-container' class='ui aligned compact segment'>
+  <table class='ui definition table'>
+    <tbody class='ui table'>
+    <tr>
+      <td>Name: <%= @user.name %></td>
+    </tr>
+    <tr>
+      <td>Email: <%= @user.email %></td>
+    </tr>
+    </tbody>
+  </table>
 
-<p><strong>Email:</strong><%= @user.email %></p>
+  <div class='ui horizontal divider'></div><br>
+  <div class='ui link list'>
+    <%= link_to 'Edit Profile', edit_user_path(@user), class: 'item' %>
 
-<%= link_to 'Edit Profile', edit_user_path(@user) %>
+    <%= link_to 'Delete Account', user_path(@user), method: :delete, class: 'item' %>
 
-<%= link_to 'Delete Account', user_path(@user), method: :delete %>
-
-<%= link_to 'Retake Survey', question_path(Question.first) %>
+    <%= link_to 'Retake Survey', question_path(Question.first), class: 'item' %>
+  </div>
+</div>
