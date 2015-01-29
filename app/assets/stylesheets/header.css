@@ -1,0 +1,13 @@
+.hide-me {
+  display: none;
+}
+
+#formula-pop-up {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 10% auto;
+  height: 50%;
+  width: 80%;
+  z-index: 10;
+}
