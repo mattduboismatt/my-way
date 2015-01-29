@@ -6,7 +6,7 @@ $(document).ready(function () {
 
   $('#current-location').on('click', function(e){
     e.preventDefault();
-
+    // debugger;
     var originField = document.getElementById("origin");
 
     var showPosition = function(position) {
@@ -34,10 +34,14 @@ $(document).ready(function () {
 
   $('#puppet-field').show();
   $('#origin').hide();
+  $('#destination').focus();
 
   })
 
+
+
   $('#puppet-field').on('click', function(e){
+    // debugger;
     e.preventDefault();
     $('#puppet-field').hide();
     $('#origin').show();
