@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.cache_store = :dalli_store
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

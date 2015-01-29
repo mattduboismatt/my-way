@@ -29,7 +29,9 @@ class Trip < ActiveRecord::Base
   def generate_and_score_routes(current_user, wl)
     all_routes = []
     g_routes = self.google_routes
-    forecast = Forecast.new(g_routes[0].origin)
+    forecast = Rails.cache.fetch("forecast", expires_in: 5.minutes) do
+      Forecast.new({'lat' => 41.8896848, 'lng' => -87.6377502}) #dev bootcamp!!
+    end
     g_routes.each do |gr|
       if gr.travel_mode == 'driving' #driving, uber, cab
         all_routes << Route.google_driving(gr, forecast)
