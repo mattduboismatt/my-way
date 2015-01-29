@@ -1,13 +1,33 @@
 <%= form_tag question_answers_path(@question), class: "survey-question-form" do %>
 <div class="question">
-  <h3><%= @question.content %></h3>
-  <ul>
-    <% @question.answers.each do |answer| %>
-    <li>
-      <div class="ans"><%= submit_tag answer.content, name: 'content', class: (@question.answer_for(current_user) == answer ? 'answer selected' : 'answer') %></div>
-    </li>
-    <% end %>
-    <li><h4 class="ans"><span id="qcount"><%= @question.id %></span> of 7 <%= link_to "Skip Questions", root_path %></h4></li>
-  </ul>
+  <% colors = color_array %>
+  <div class = "ui secondary black fluid button" id="question-asked"><h3><%= @question.content %></h3></div>
+  <div class = 'answers'>
+
+      <div class="ans"><%= submit_tag @question.answers[0].content, name: 'content', class: "ui #{randomize(colors)} fluid button", id: "answer-content" %></div>
+
+      <div class="ans"><%= submit_tag @question.answers[1].content, name: 'content', class: "ui #{randomize(colors)} fluid button", id: "answer-content" %></div>
+
+      <div class="ans"><%= submit_tag @question.answers[2].content, name: 'content', class: "ui #{randomize(colors)} fluid button", id: "answer-content" %></div>
+
+      <div class="ans"><%= submit_tag @question.answers[3].content, name: 'content', class: "ui #{randomize(colors)} fluid button", id: "answer-content" %></div>
+
+  </div>
 </div>
 <% end %>
+
+<div class="ui icon message" id = "encouragement">
+  <i class="notched circle loading icon"></i>
+  <div class="content">
+    <div class="header">
+      Personalizing...
+    </div>
+    <p><%= encouragement %></p>
+  </div>
+</div>
+
+<div class="survey-footer"><span id="qcount"><%= @question.id %> of 7</span><%= link_to "Take Later", root_path %></div>
+
+
+
+
