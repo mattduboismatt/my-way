@@ -18,7 +18,7 @@ module ApplicationHelper
     when "bus"
       "fa fa-bus"
     when "subway"," subway"
-      "fa fa-train"
+      "fa fa-mobile"
     when "walking"
       "fa fa-male"
     when "driving", "uber"
