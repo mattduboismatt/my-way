@@ -10,26 +10,41 @@ module RoutesHelper
     "You Should #{travel_mode.capitalize} Today"
   end
 
-
-  def dollar_converter(r)
-    number_to_currency(r.actual_cost) == '$0.00' ? 'Free' : number_to_currency(r.actual_cost)
+  def m_convert(r)
+  case r.travel_mode
+    when "subway"," subway"
+      "Train"
+    when "walking"
+      "Walk"
+    when "driving"
+      "Drive"
+    when 'bicycling'
+      "Bike"
+    else
+      r.travel_mode
   end
-
-  def duration(r)
-    (r.duration/60).to_i
-  end
-
-  def travel_mode(r)
-    r.travel_mode
-  end
+end
 
 
-  def color_selector(r)
-    score = r.weighted_exp
-    return 'blue' if score > 250
-    return 'orange' if score > 125
-    return 'red'
-  end
+def dollar_converter(r)
+  number_to_currency(r.actual_cost) == '$0.00' ? 'Free' : number_to_currency(r.actual_cost)
+end
+
+def duration(r)
+  (r.duration/60).to_i
+end
+
+def travel_mode(r)
+  r.travel_mode
+end
+
+
+def color_selector(r)
+  score = r.weighted_exp
+  return 'blue' if score > 250
+  return 'orange' if score > 125
+  return 'red'
+end
 
 
 
