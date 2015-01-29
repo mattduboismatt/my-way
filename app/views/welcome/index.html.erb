@@ -15,13 +15,17 @@
         <%= text_field_tag :origin,nil, placeholder: "Start Point" %>
       </div>
 
+      <div id="flip">
+        <i class="fa fa-arrows-v"></i>
+      </div>
+
       <div class="field-destination">
         <a class="ui purple label">B</a><input type = 'text' id = 'tired-field' value = 'Current Location' />
         <%= text_field_tag :destination,nil, placeholder: "End Point" %>
       </div>
     </div>
   <div class="white-wrapper">
-    <p class = "whitelist-text" >I am willing to take a/n...</p>
+    <p class = "whitelist-text" >I'm willing to take a/n...</p>
     <%= fields_for 'user[whitelist]' do |f| %>
     <div id="checkbox" class = 'checkdiv small ui button'>
       <%= f.check_box :walking, checked: current_user ? int_to_boolean?(current_user.whitelist.walking) : true%><br>
