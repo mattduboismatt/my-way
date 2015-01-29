@@ -15,7 +15,7 @@
 <body>
 
   <div class="container">
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/header' unless current_page?(question_path(@question))%>
     <%= yield %>
   </div>
 </body>
