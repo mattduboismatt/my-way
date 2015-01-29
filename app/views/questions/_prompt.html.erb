@@ -4,13 +4,13 @@
   <div class = "ui secondary black fluid button" id="question-asked"><h3><%= @question.content %></h3></div>
   <div class = 'answers'>
 
-      <div class="ans"><%= submit_tag @question.answers[0].content, name: 'content', class: "ui #{randomize(colors)} fluid button", id: "answer-content" %></div>
+      <div class="ans"><%= submit_tag @question.answers[0].content, name: 'content', class: "button", id: selected_answer(@question.answers[0], current_user) %></div>
 
-      <div class="ans"><%= submit_tag @question.answers[1].content, name: 'content', class: "ui #{randomize(colors)} fluid button", id: "answer-content" %></div>
+      <div class="ans"><%= submit_tag @question.answers[1].content, name: 'content', class: "button", id: selected_answer(@question.answers[1], current_user) %></div>
 
-      <div class="ans"><%= submit_tag @question.answers[2].content, name: 'content', class: "ui #{randomize(colors)} fluid button", id: "answer-content" %></div>
+      <div class="ans"><%= submit_tag @question.answers[2].content, name: 'content', class: "button", id: selected_answer(@question.answers[2], current_user) %></div>
 
-      <div class="ans"><%= submit_tag @question.answers[3].content, name: 'content', class: "ui #{randomize(colors)} fluid button", id: "answer-content" %></div>
+      <div class="ans"><%= submit_tag @question.answers[3].content, name: 'content', class: "button", id: selected_answer(@question.answers[3], current_user) %></div>
 
   </div>
 </div>

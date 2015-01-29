@@ -67,4 +67,10 @@ $(document).ready(function () {
     }
   })
 
+  $('#origin').keypress(function(e){
+    if(e.which == 13){
+      $("#destination").focus();
+    }
+  })
+
 });
