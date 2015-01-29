@@ -30,6 +30,7 @@ $(document).ready(function () {
   $('#menu').hide();
   $('.hidden').hide();
 
+
   $('#logo').on('click', function(){
     $('#menu').fadeToggle();
     $('#trip').fadeToggle();
@@ -46,33 +47,12 @@ $(document).ready(function () {
     }
 
     if($("#mode-choice").css("display") == 'none'){
-      $("#mode-choice").show();
-      $('.hidden').hide();
+      $("#mode-choice").slideToggle('slow');
+      $('.hidden').slideToggle('slow');
     }
     else{
-      $("#mode-choice").hide();
-      $('.hidden').show();
+      $("#mode-choice").slideToggle('slow');
+      $('.hidden').slideToggle('slow');
     }
   });
-
-
-  var x = document.getElementById("origin");
-
-  $('#current-location').on('click', function(e){
-    e.preventDefault();
-
-    function showPosition(position) {
-      x.value = position.coords.latitude + ", " + position.coords.longitude;
-    }
-
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-      }
-    }
-
-    getLocation()
-  })
 });
