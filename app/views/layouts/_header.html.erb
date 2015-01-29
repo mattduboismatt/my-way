@@ -1,17 +1,35 @@
+<div id='formula-pop-up'>
+  <a id='close-pop-up'>x</a>
+  <h3 id="header-pop-up">About the decisions...</h3>
+  <div id='text-pop-up'>
+    <p>We use the factors you think about to find the best mode for you:</p>
+    <ul>
+      <li><span class='leader'>Cost</span> - ventra rates, gas, parking, uber estimates/surge prices, cab fare estimate, etc.</li>
+      <li><span class='leader'>Weather</span> - temperatute, precipiation, wind speed & direction</li>
+      <li><span class='leader'>Distance</span> - your time and feet are valuable</li>
+      <li><span class='leader'>Safety</span> - we take your concerns into account</li>
+      <li><span class='leader'>Preferences</span> - register and take the survey for more personalization</li>
+    </ul>
+    <p>Secret tip: click a given route to open up the app you need!</p>
+  </div>
+</div>
 
-<div class="ui inverted menu" id = 'nav-menu'>
+<div class="ui inverted menu" id='nav-menu'>
   <div class="right menu">
+
+    <li class='item'><%= temp %>&deg;</li>
+
     <a href="#" class='item' id="formula">Formula</a>
-    <div id='formula-pop-up' class="ui warning message hide-me">
-      <i class="close icon"></i>
-      <div class="header">About our formula</div>
-      <p>We use current weather, travel duration, cost, and distance to determine the your best mode. </p>
-    </div>
+
+
     <%if current_user%>
-    <%= link_to "Logout", logout_path, method: :delete, class: "item"%> <%= link_to "Profile", user_path(current_user), class: "item"%>
+      <%= link_to "Logout", logout_path, method: :delete, class: "item"%>
+      <%= link_to "Profile", user_path(current_user), class: "item"%>
     <% else %>
-    <%= link_to "Login", login_path, class: "item"%> <%= link_to "Register", new_user_path, class: "item"%>
+      <%= link_to "Login", login_path, class: "item"%>
+      <%= link_to "Register", new_user_path, class: "item"%>
     <% end %>
+
   </div>
   <div class="left menu">
     <%=link_to image_tag(select_image , id:"logo"), root_path%>
