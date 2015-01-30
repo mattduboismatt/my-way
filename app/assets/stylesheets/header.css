@@ -25,6 +25,10 @@
   margin: 1% 1%;
 }
 
+#text-pop-up .bottom{
+  padding-bottom: 2%;
+}
+
 #text-pop-up ul{
   list-style-type: none;
   padding: 0 3%;
