@@ -1,12 +1,10 @@
 module SafetyAlgorithm
   def self.run(mode)
     hour = Time.now.hour
-
     case hour
-    when 8..20
+    when 7..19
       safety_exp = 100
-
-    when 20..22, 6..8
+    when 20..21, 6..8
       case mode
       when 'driving'
         safety_exp = 100
@@ -20,7 +18,7 @@ module SafetyAlgorithm
         safety_exp = 70
       end
 
-    when 22..23, 0..6
+    when 22..23, 0..5
       case mode
       when 'driving'
         safety_exp = 100
