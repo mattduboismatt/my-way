@@ -8,7 +8,7 @@
     <div class = "fields-container">
       <div class="field-origin" >
         <div class="current-location">
-          <a id = 'current-location' class= 'tiny ui button current-location'>Find My Location</a>
+          <a id = 'current-location' class= 'tiny ui button current-location'>Use My Location</a>
         </div>
         <a class="ui blue label">A</a>
         <input type = 'text' id = 'puppet-field' value = 'Current Location' />
@@ -25,7 +25,7 @@
       </div>
     </div>
   <div class="white-wrapper">
-    <p class = "whitelist-text" >I'm willing to take a/n...</p>
+    <p class = "whitelist-text" >I'm willing to take a...</p>
     <%= fields_for 'user[whitelist]' do |f| %>
     <div id="checkbox" class = 'checkdiv small ui button'>
       <%= f.check_box :walking, checked: current_user ? int_to_boolean?(current_user.whitelist.walking) : true%><br>
@@ -62,7 +62,7 @@
    <% end %>
   </div>
   <div id="home_submit">
-    <%= submit_tag 'Send Me Off!', class: "ui primary button", id: "calculate-go" %>
+    <%= submit_tag 'Find My Way', class: "ui primary button", id: "calculate-go" %>
   </div>
 </div>
 <% end %>
