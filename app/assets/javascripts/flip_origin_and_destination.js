@@ -9,5 +9,12 @@ $(document).ready(function () {
     $('#origin').val(destinationFieldValue);
     $('#destination').val(originFieldValue);
 
+    if ($('#current-location').attr('title') == 'true'){
+      $('#puppet-field').toggle();
+      $('#origin').toggle();
+      $('#destination').toggle();
+      $('#tired-field').toggle();
+    }
+
   })
 });
