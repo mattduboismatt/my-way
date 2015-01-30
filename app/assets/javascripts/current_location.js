@@ -3,6 +3,12 @@ $(document).ready(function () {
   $('#puppet-field').hide();
   $('#tired-field').hide();
 
+  var activeSwap = function(){
+    var currentLocation = $('#current-location')
+    if (currentLocation.attr('title') == "false"){
+      currentLocation.attr('title', 'true');
+    }
+  }
 
   $('#current-location').on('click', function(e){
     e.preventDefault();
@@ -36,8 +42,21 @@ $(document).ready(function () {
   $('#origin').hide();
   $('#destination').focus();
 
+  activeSwap();
+
   })
 
+
+  $('#tired-field').on('click', function(e){
+    // debugger;
+    e.preventDefault();
+    $('#tired-field').hide();
+    $('#destination').show();
+    var destinationField = document.getElementById("destination");
+    destinationField.value = "";
+    $('#current-location').attr('title', 'false');
+
+  })
 
 
   $('#puppet-field').on('click', function(e){
@@ -47,6 +66,7 @@ $(document).ready(function () {
     $('#origin').show();
     var originField = document.getElementById("origin");
     originField.value = "";
+    $('#current-location').attr('title', 'false');
 
   })
 });

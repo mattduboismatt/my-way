@@ -8,7 +8,7 @@
     <div class = "fields-container">
       <div class="field-origin" >
         <div class="current-location">
-          <a id = 'current-location' class= 'tiny ui button current-location'>Use My Location</a>
+          <a id = 'current-location' class= 'tiny ui button current-location' title = 'false'>Find My Location</a>
         </div>
         <a class="ui blue label">A</a>
         <input type = 'text' id = 'puppet-field' value = 'Current Location' />
@@ -20,7 +20,8 @@
       </div>
 
       <div class="field-destination">
-        <a class="ui purple label">B</a><input type = 'text' id = 'tired-field' value = 'Current Location' />
+        <a class="ui purple label">B</a>
+        <input type = 'text' id = 'tired-field' value = 'Current Location' />
         <%= text_field_tag :destination,nil, placeholder: "End Point" %>
       </div>
     </div>
