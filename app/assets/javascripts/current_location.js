@@ -36,37 +36,6 @@ $(document).ready(function () {
       }
     };
 
-    getLocation()
-
-  $('#puppet-field').show();
-  $('#origin').hide();
-  $('#destination').focus();
-
-  activeSwap();
-
-  })
-
-
-  $('#tired-field').on('click', function(e){
-    // debugger;
-    e.preventDefault();
-    $('#tired-field').hide();
-    $('#destination').show();
-    var destinationField = document.getElementById("destination");
-    destinationField.value = "";
-    $('#current-location').attr('title', 'false');
-
-  })
-
-
-  $('#puppet-field').on('click', function(e){
-    // debugger;
-    e.preventDefault();
-    $('#puppet-field').hide();
-    $('#origin').show();
-    var originField = document.getElementById("origin");
-    originField.value = "";
-    $('#current-location').attr('title', 'false');
-
-  })
+    getLocation();
+  });
 });
