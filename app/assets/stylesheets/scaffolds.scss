@@ -222,7 +222,6 @@ body > div > div.ui.inverted.menu > div.left.menu > a > img{
 }
 
 #flip {
-  visibility: hidden;
   border: 1px red solid;
   color: white;
   background: red;
@@ -232,6 +231,7 @@ body > div > div.ui.inverted.menu > div.left.menu > a > img{
   padding-top: 2px;
   padding-bottom: 2px;
   padding-right: -2px;
+  visibility: hidden;
 }
 
 @import "font-awesome-sprockets";
