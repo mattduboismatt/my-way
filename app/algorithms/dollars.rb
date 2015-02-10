@@ -9,9 +9,9 @@ module DollarsAlgorithm
     when 'driving'
       actual_cost = Drive.cost(route)
     when 'subway'
-      actual_cost = 2.25
+      actual_cost = Train.cost(route)
     when 'bus'
-      actual_cost = 2.00
+      actual_cost = Bus.cost(route)
     when 'uber'
       actual_cost = Uber.cost(route)
     when 'divvy'
@@ -40,8 +40,8 @@ module DollarsAlgorithm
       dollars_exp = Bike.dollars(factors)
     when 'driving'
       dollars_exp = Drive.dollars(factors)
-    # when 'subway'
-    #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+    when 'subway'
+      dollars_exp =
     # when 'bus'
     #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'uber'

@@ -22,11 +22,7 @@ module DistanceAlgorithm
         distance_exp = 48
       end
     when 'subway'
-      if distance < 6
-        distance_exp = (0.95*(distance)**3 - 5.736*(distance)**2 - 9.385*(distance) + 100).to_i
-      else
-        distance_exp = 45
-      end
+      distance_exp = Train.distance(distance)
     when 'bus'
       if distance < 6
         distance_exp = (0.918*(distance)**3 - 5.429*(distance)**2 - 11.186*(distance) + 100).to_i
