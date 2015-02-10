@@ -10,8 +10,8 @@ class Cab
 
   def self.cost(route)
       base_cost = 3.25
-      mile_cost = distance * 1.80
-      time_cost = (duration/36) * 0.2
+      mile_cost = route.distance/1609.34 * 1.80
+      time_cost = (route.duration/36) * 0.2
       (base_cost + mile_cost + time_cost)*1.15
   end
 

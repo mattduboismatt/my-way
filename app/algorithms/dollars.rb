@@ -1,23 +1,21 @@
 module DollarsAlgorithm
   def self.actual_cost(route)
     mode = route.travel_mode
-    distance = route.distance.to_f / 1600
-    duration = route.duration.to_f
     actual_cost = 0.to_f
 
     case mode
     when 'driving'
       actual_cost = Drive.cost(route)
     when 'subway'
-      actual_cost = Train.cost(route)
+      actual_cost = Train.cost
     when 'bus'
-      actual_cost = Bus.cost(route)
+      actual_cost = Bus.cost
     when 'uber'
       actual_cost = Uber.cost(route)
     when 'divvy'
       actual_cost = Divvy.cost
     when 'cab'
-      actual_cost = Cab.cost
+      actual_cost = Cab.cost(route)
     end
     actual_cost = actual_cost.round(2)
   end
@@ -38,8 +36,8 @@ module DollarsAlgorithm
       dollars_exp = Drive.dollars(factors)
     when 'subway'
       dollars_exp = Train.dollars(factors)
-    # when 'bus'
-    #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+    when 'bus'
+      dollars_exp = Bus.dollars(factors)
     when 'uber'
       factors["duration"] = factors["duration"] + route.wait_time/60.0
       dollars_exp = Uber.dollars(factors)

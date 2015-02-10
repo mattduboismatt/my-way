@@ -8,7 +8,7 @@ class Train
     end
   end
 
-  def self.cost(route)
+  def self.cost
     2.25
   end
 
