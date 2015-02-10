@@ -36,8 +36,8 @@ module DollarsAlgorithm
     case mode
     # when 'walking'
     #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
-    # when 'bicycling'
-    #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+    when 'bicycling'
+      dollars_exp = Bike.dollars(factors)
     when 'driving'
       dollars_exp = Drive.dollars(factors)
     # when 'subway'
