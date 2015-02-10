@@ -7,11 +7,7 @@ module DollarsAlgorithm
 
     case mode
     when 'driving'
-      irs_cost = distance * 0.56
-      parking = Parking.new(route)
-      park_cost = parking.street_parking_cost
-      puts "parking cost #{park_cost}"
-      actual_cost = park_cost + irs_cost
+      actual_cost = Drive.cost(route)
     when 'subway'
       actual_cost = 2.25
     when 'bus'
@@ -19,7 +15,7 @@ module DollarsAlgorithm
     when 'uber'
       actual_cost = (route.high_estimate + route.low_estimate) / 2
     when 'divvy'
-      actual_cost = 7.00
+      actual_cost = Divvy.cost
     when 'cab'
       base_cost = 3.25
       mile_cost = distance * 1.80
@@ -32,26 +28,27 @@ module DollarsAlgorithm
 
   def self.run(route, actual_cost)
     mode = route.travel_mode
-    duration = route.duration.to_f/60
     dollars_exp = 100
-    time_constant = 15/60.0
-    money_time_factor = 4.5
+    factors = {"duration" => route.duration.to_f/60,
+    "time_constant" => 15/60.0,
+    "money_time_factor" => 4.5,
+    "actual_cost" => actual_cost}
     case mode
     when 'walking'
       dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'bicycling'
       dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'driving'
-      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+      dollars_exp = Drive.dollars(factors)
     when 'subway'
       dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'bus'
       dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'uber'
-      duration = duration + route.wait_time/60.0
+      duration = factors["duration"] + route.wait_time/60.0
       dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'divvy'
-      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+      dollars_exp = Divvy.dollars(factors)
     when 'cab'
       duration = duration + route.wait_time/60.0
       dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i

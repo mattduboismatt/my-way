@@ -17,6 +17,8 @@ module DistanceAlgorithm
       else
         distance_exp = 0
       end
+    when 'divvy'
+      distance_exp = Divvy.distance(distance)
     when 'driving'
       distance_exp = Drive.distance(distance)
     when 'cab', 'uber'

@@ -74,4 +74,28 @@ class Divvy < ActiveRecord::Base
     station_data.delete(nil)
     station_data
   end
+
+
+  def self.distance(miles)
+    if miles < 6
+      distance_exp = (0.813*(miles)**3 - 5.723*(miles)**2 - 1.547*(miles) + 100).to_i
+    else
+      distance_exp = 50
+    end
+  end
+
+  def self.cost
+      cost = 7
+  end
+
+  def self.dollars(factors)
+    duration = factors["duration"]
+    time_constant = factors["time_constant"]
+    actual_cost = factors["actual_cost"]
+    money_time_factor = factors["money_time_factor"]
+    (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+  end
+
+
+
 end
