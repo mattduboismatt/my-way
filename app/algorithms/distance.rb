@@ -6,13 +6,9 @@ module DistanceAlgorithm
     distance_exp = 0
     case mode
     when 'walking'
-      if distance <= 2.1
-        distance_exp = 100 - ((distance.to_f/260*1609.34)**1.75).to_i
-      else
-        distance_exp = 0
-      end
+      distance_exp = Walk.distance(distance)
     when 'bicycling'
-        distance_exp = Bike.distance(distance)
+      distance_exp = Bike.distance(distance)
     when 'divvy'
       distance_exp = Divvy.distance(distance)
     when 'driving'
