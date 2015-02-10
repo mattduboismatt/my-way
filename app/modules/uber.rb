@@ -81,6 +81,28 @@ class Uber
     @origin = gr.origin
     @destination = gr.destination
   end
+
+    def self.distance(miles)
+    if miles < 6
+      (0.688*(miles)**3 - 4.322*(miles)**2 - 6.515*(miles) + 100).to_i
+    else
+      48
+    end
+  end
+
+  def self.cost(route)
+    (route.high_estimate + route.low_estimate) / 2
+  end
+
+  def self.dollars(factors)
+    duration = factors["duration"]
+    time_constant = factors["time_constant"]
+    actual_cost = factors["actual_cost"]
+    money_time_factor = factors["money_time_factor"]
+    (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+  end
+
+
 end
 
 

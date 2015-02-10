@@ -13,7 +13,7 @@ module DollarsAlgorithm
     when 'bus'
       actual_cost = 2.00
     when 'uber'
-      actual_cost = (route.high_estimate + route.low_estimate) / 2
+      actual_cost = Uber.cost(route)
     when 'divvy'
       actual_cost = Divvy.cost
     when 'cab'
@@ -34,24 +34,24 @@ module DollarsAlgorithm
     "money_time_factor" => 4.5,
     "actual_cost" => actual_cost}
     case mode
-    when 'walking'
-      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
-    when 'bicycling'
-      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+    # when 'walking'
+    #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+    # when 'bicycling'
+    #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'driving'
       dollars_exp = Drive.dollars(factors)
-    when 'subway'
-      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
-    when 'bus'
-      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+    # when 'subway'
+    #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+    # when 'bus'
+    #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     when 'uber'
-      duration = factors["duration"] + route.wait_time/60.0
-      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+      factors["duration"] = factors["duration"] + route.wait_time/60.0
+      dollars_exp = Uber.dollars(factors)
     when 'divvy'
       dollars_exp = Divvy.dollars(factors)
-    when 'cab'
-      duration = duration + route.wait_time/60.0
-      dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+    # when 'cab'
+    #   duration = duration + route.wait_time/60.0
+    #   dollars_exp = (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
     end
     dollars_exp > 0 ? dollars_exp : 0
   end

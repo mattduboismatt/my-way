@@ -11,7 +11,7 @@ module DistanceAlgorithm
       else
         distance_exp = 0
       end
-    when 'bicycling', 'divvy'
+    when 'bicycling'
       if distance < 5
         distance_exp = (-2.445*(distance)**2 - 5.902*(distance)+ 100).to_i
       else
@@ -21,7 +21,9 @@ module DistanceAlgorithm
       distance_exp = Divvy.distance(distance)
     when 'driving'
       distance_exp = Drive.distance(distance)
-    when 'cab', 'uber'
+    when 'uber'
+      distance_exp = Uber.distance(distance)
+    when 'cab'
       if distance < 6
         distance_exp = ( 0.688*(distance)**3 - 4.322*(distance)**2 - 6.515*(distance) + 100).to_i
       else
