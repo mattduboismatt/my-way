@@ -16,11 +16,7 @@ module DistanceAlgorithm
     when 'uber'
       distance_exp = Uber.distance(distance)
     when 'cab'
-      if distance < 6
-        distance_exp = ( 0.688*(distance)**3 - 4.322*(distance)**2 - 6.515*(distance) + 100).to_i
-      else
-        distance_exp = 48
-      end
+      distance_exp = Cab.distance(distance)
     when 'subway'
       distance_exp = Train.distance(distance)
     when 'bus'

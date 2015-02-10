@@ -9,7 +9,7 @@ class Train
   end
 
   def self.cost(route)
-    2.00
+    2.25
   end
 
   def self.dollars(factors)
