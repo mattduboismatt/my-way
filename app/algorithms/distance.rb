@@ -18,11 +18,7 @@ module DistanceAlgorithm
         distance_exp = 0
       end
     when 'driving'
-      if distance < 6
-        distance_exp = (0.813*(distance)**3 - 5.723*(distance)**2 - 1.547*(distance) + 100).to_i
-      else
-        distance_exp = 50
-      end
+      distance_exp = Drive.distance(distance)
     when 'cab', 'uber'
       if distance < 6
         distance_exp = ( 0.688*(distance)**3 - 4.322*(distance)**2 - 6.515*(distance) + 100).to_i
