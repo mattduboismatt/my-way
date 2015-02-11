@@ -25,7 +25,7 @@ module UberParser
     URI::HTTPS.build(host: host, path: path, query: URI.encode_www_form(price_query))
   end
 
-   def self.time_build_uri(a)
+  def self.time_build_uri(a)
     host = 'api.uber.com'
     path = "/v1/estimates/time"
     time_query= {
@@ -82,7 +82,7 @@ class Uber
     @destination = gr.destination
   end
 
-    def self.distance(miles)
+  def self.distance(miles)
     if miles < 6
       (0.688*(miles)**3 - 4.322*(miles)**2 - 6.515*(miles) + 100).to_i
     else
@@ -100,6 +100,17 @@ class Uber
     actual_cost = factors["actual_cost"]
     money_time_factor = factors["money_time_factor"]
     (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+  end
+
+  def self.safety
+    case Time.now.hour
+    when 7..19
+      100
+    when 20..21, 6..8
+      90
+    when 22..23, 0..5
+      80
+    end
   end
 
 

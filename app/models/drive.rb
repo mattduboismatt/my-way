@@ -9,10 +9,10 @@ class Drive
   end
 
   def self.cost(route)
-      irs_cost = route.distance/1609.34 * 0.56
-      parking = Parking.new(route)
-      park_cost = parking.street_parking_cost
-      total = park_cost + irs_cost
+    irs_cost = route.distance/1609.34 * 0.56
+    parking = Parking.new(route)
+    park_cost = parking.street_parking_cost
+    total = park_cost + irs_cost
   end
 
   def self.dollars(factors)
@@ -21,6 +21,10 @@ class Drive
     actual_cost = factors["actual_cost"]
     money_time_factor = factors["money_time_factor"]
     (100 - (duration*time_constant+actual_cost)*money_time_factor).to_i
+  end
+
+  def self.safety
+    100
   end
 
 end
